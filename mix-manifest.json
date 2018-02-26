@@ -1,0 +1,18 @@
+{
+  "/mix.js": "/mix.js",
+  "/css/frontend.css": "/css/frontend.css",
+  "/css/loading-waiting.css": "/css/loading-waiting.css",
+  "/css/backend.css": "/css/backend.css",
+  "core.common.js": "core.common.js",
+  "css/core.common.css": "css/core.common.css",
+  "core.frontend.js": "core.frontend.js",
+  "css/core.frontend.css": "css/core.frontend.css",
+  "css/core.backend.css": "css/core.backend.css",
+  "scripts.js": "scripts.js",
+  "core.backend.js": "core.backend.js",
+  "backend.js": "backend.js",
+  "login.js": "login.js",
+  "ulti.js": "ulti.js",
+  "css/login.css": "css/login.css",
+  "fe.pagespeedinsight.js": "fe.pagespeedinsight.js"
+}

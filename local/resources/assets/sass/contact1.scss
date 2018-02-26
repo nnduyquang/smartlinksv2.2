@@ -1,0 +1,23 @@
+.contact1 {
+  width: 100%;
+  height: 600px;
+  background-image: url(../images/temps/page_contact.jpg) !important;;
+  position: static;
+  //background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 0;
+  overflow: hidden;
+  margin-bottom: 0px !important;
+  padding-top: 137px !important;
+  padding-bottom: 113px !important;
+  display: table;
+  h1{
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 69px;
+    font-weight: 700;
+    color: white;
+  }
+}

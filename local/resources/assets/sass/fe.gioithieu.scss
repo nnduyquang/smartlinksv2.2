@@ -1,0 +1,32 @@
+#gioi-thieu{
+  #gt-content{
+    margin-bottom: 50px;
+  }
+  #gt-muctieu{
+    margin-bottom: 40px;
+    h3{
+      background-color: #1f45a8;
+      padding: 30px;
+      font-size: 25px;
+      text-transform: uppercase;
+      color: white;
+    }
+    .gt-info{
+      padding: 30px;
+      background-color: #f0f4f7;
+      font-size: 18px;
+      font-style: italic;
+      line-height: 1.4;
+      span::after{
+        font-family: 'FontAwesome';
+        font-weight: normal;
+        font-size: 25px;
+        top: 10px;
+        position: relative;
+        content: '\f10e';
+        font-style: normal;
+        vertical-align: bottom;
+      }
+    }
+  }
+}

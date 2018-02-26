@@ -1,0 +1,88 @@
+/*
+*
+*
+*******Liên Hệ Báo Giá
+*
+*
+*/
+.container-contact {
+  z-index: -5;
+  .contain-swap {
+    padding-top: 55px;
+    //background-color: #F3AD1D !important;
+    background-image: url(../images/temps/casebg.png);
+    background-size: cover !important;
+    padding-bottom: 111px !important;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-top: -5px;
+    .wp-contact {
+      .input-text, .input-area {
+        //background-color: rgba(255, 255, 255, 0.1);
+        background-color: white;
+        border-color: rgba(255, 255, 255, 0.01);
+        box-shadow: none;
+        margin-bottom: 0;
+        //color: rgba(255, 255, 255, 0.5);
+        color: black;
+        border-radius: 4px;
+        margin-bottom: 30px;
+        font-size: 18px;
+        position: relative;
+        &:hover {
+          border: solid 1px #f1773d;
+        }
+      }
+      .input-text {
+        height: 50px;
+        font-size: 18px;
+      }
+      .btn-contact {
+        height: 50px;
+        border-color: transparent;
+        font-size: 18px;
+        color: white;
+        font-weight: 700;
+        border-radius: 3px;
+        transition: all 300ms linear 0ms;
+        width: 100%;
+        background-color: #125fb7;
+        &:hover {
+          background-color: #cb5720;
+        }
+      }
+      .loadingSending {
+        display: none;
+        font-size: 20px;
+      }
+      .successSending{
+        display: none;
+        font-size: 20px;
+      }
+      [rel="popover"] {
+        position: absolute;
+        cursor: pointer;
+        display: inline-block;
+        left: -5px;
+        top: 20%;
+      }
+      .errorEmail,.errorName,.errorInfo{
+        display: none;
+        color: red;
+        animation: blinker 1s linear 3;
+      }
+      @keyframes blinker {
+        50% { opacity: 0; }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .container-contact {
+    z-index: -2;
+  }
+}
+
+//END Liên Hệ Báo Giá

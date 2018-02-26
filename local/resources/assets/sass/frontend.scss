@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@font-face {
+  font-family: UTMAVO;
+  src: url('../fonts/utm-avo.ttf');
+}
+
+
+body {
+  //font: 400 14px/20px Roboto,sans-serif!important;
+  font-family: 'Open Sans', sans-serif!important;
+  line-height: 1.6;
+  webkit-font-smoothing: antialiased;
+}
+#wrap-container{
+  //margin-top: 80px;
+}
+@media screen and(max-width: 768px) {
+  #wrap-container{
+    margin-top: 0px;
+    //margin-bottom: 20px;
+  }
+}
+@import "reset";
+@import "variables";
+@import "common";
+@import "flexbox";
+@import "fe.fancybox";
+@import "menu";
+@import "slider";
+@import "slider2";
+@import "fe.home";
+@import "m-category";
+@import "m-menu-blur";
+@import "fe.dichvu";
+@import "fe.gioithieu";
+@import "fe.baogia";
+@import "fe.tuyendung";
+@import "fe.tintuc";
+@import "fe.hoidap";
+@import "module9";
+@import "module11";
+@import "fe.phoneanimation";
+@import "pagespeedinsight";
+//@import "footer";
+@import "footer2";
+@import "contact1";
+@import "common/hinhthucvagia";
+@import "common/lienhebaogia";
+@import "demo/xulynuocthai";

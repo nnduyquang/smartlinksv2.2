@@ -1,0 +1,68 @@
+#hoi-dap {
+  #hd-content{
+    margin-bottom: 50px;
+    margin-top: 30px;
+    .hd-content-detail{
+      margin-bottom: 30px;
+    }
+    .toggle {
+      &:last-child {
+        border-bottom: 1px solid #ddd;
+      }
+      .toggle-title {
+        position: relative;
+        display: block;
+        border-top: 1px solid #ddd;
+        margin-bottom: 6px;
+
+        h3 {
+          font-size: 20px;
+          margin: 0px;
+          line-height: 1;
+          cursor: pointer;
+          font-weight: 200;
+
+        }
+        &.active h3 {
+        }
+      }
+      .toggle-inner {
+        padding: 7px 25px 10px 25px;
+        display: none;
+        margin: -7px 0 6px;
+        line-height: 1.5;
+        div {
+          max-width: 100%;
+        }
+      }
+      .toggle-title {
+        .title-name {
+          display: block;
+          padding: 25px 25px 14px;
+          color: #1f45a8;
+        }
+        a i {
+          font-size: 22px;
+          margin-right: 5px;
+        }
+        i {
+          position: absolute;
+          background: url('http://arielbeninca.com/Storage/plus_minus.png') 0px -24px no-repeat;
+          width: 24px;
+          height: 24px;
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          -ms-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+          margin: 20px;
+          right: 0;
+        }
+        &.active i {
+          background: url('http://arielbeninca.com/Storage/plus_minus.png') 0px 0px no-repeat;
+        }
+      }
+    }
+  }
+
+}

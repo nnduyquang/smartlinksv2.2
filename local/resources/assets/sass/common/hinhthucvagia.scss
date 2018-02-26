@@ -1,0 +1,175 @@
+/*
+*
+*
+*******Hình Thức Và Giá
+*
+*
+*/
+.container-prices {
+  .contain-swap {
+    padding-top: 55px;
+    background: #F8F9FB url(../images/temps/section_bg_02.png) center bottom !important;
+    background-repeat: no-repeat !important;
+    padding-bottom: 111px !important;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-top: -5px;
+  }
+  .one-price {
+    text-align: center;
+    min-height: 350px;
+    padding: 40px 15px;
+    position: relative;
+    border-radius: 350px;
+    &.bg-color1 {
+      color: white;
+      //background-color: #455a64;
+      background-color: #f3ad1d;
+      animation-duration: 2s;
+    }
+    &.bg-color1::after {
+      //box-shadow: 0 0 10px #455a64;
+      box-shadow: 0 0 10px #f3ad1d;
+    }
+    &.bg-color2 {
+      color: white;
+      background-color: #125fb7;
+      animation-duration: 2s
+    }
+    &.bg-color2::after {
+      box-shadow: 0 0 10px #125fb7;
+    }
+    &.bg-color3 {
+      color: white;
+      background-color: #f3ad1d;
+      animation-duration: 2s
+    }
+    &.bg-color3::after {
+      box-shadow: 0 0 10px #f3ad1d;
+    }
+    &::after {
+      top: -7px;
+      left: -7px;
+      padding: 7px;
+      transition: transform 0.2s, opacity 0.2s;
+      transform: scale(.8);
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      content: '';
+      box-sizing: content-box;
+    }
+    .price-header {
+      padding-top: 8px;
+      padding-bottom: 10px;
+
+      .price {
+        padding: 25px 0 10px;
+        font-weight: 700;
+        font-size: 25px;
+        margin: 0;
+        color: white;
+      }
+      .pricing-title {
+        color: white;
+        font-size: 15px;
+        padding: 0;
+        margin: 0;
+        font-weight: 400;
+      }
+    }
+    .price-feature {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: white;
+      li {
+        color: white;
+        padding: 2px 0;
+        font-size: 13px;
+        text-transform: uppercase;
+      }
+    }
+    .price-contact {
+      color: white;
+      a {
+        color: white;
+        text-transform: uppercase;
+        padding: 5px 20px 10px;
+        font-size: 13px;
+        background-color: transparent;
+        border-right: 0 solid rgba(255, 255, 255, 0.5);
+        border-left: 0 solid rgba(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        border-top: 0px solid rgba(255, 255, 255, 0.3);
+        margin-top: 11px;
+        border-radius: 0;
+        display: inline-block;
+        font-weight: 700;
+        text-decoration: none;
+      }
+    }
+
+  }
+  .one-price:hover::after {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
+
+//End Hình Thức Và Giá
+
+/*
+*
+*
+*******Màn Hình Di Động
+*
+*
+*/
+@media screen and(max-width: 480px) {
+  .container-prices {
+    .one-price {
+      border-radius: 0;
+      margin-top: 20px;
+      min-height: 300px;
+      &::after {
+        border-radius: 0 !important;
+      }
+    }
+  }
+}
+@media screen and(max-width: 768px) {
+  .container-prices {
+    .one-price {
+      border-radius: 0;
+      margin-top: 20px;
+      min-height: 300px;
+      &::after {
+        border-radius: 0 !important;
+      }
+    }
+    .price{
+      font-size: 30px!important;
+    }
+
+  }
+}
+@media screen and(max-width: 1024px) {
+  .container-prices {
+    .one-price {
+      border-radius: 0;
+      margin-top: 20px;
+      min-height: 300px;
+      &::after {
+        border-radius: 0 !important;
+      }
+    }
+
+  }
+}

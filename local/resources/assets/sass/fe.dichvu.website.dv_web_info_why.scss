@@ -1,0 +1,36 @@
+#dv_web_info_why {
+  padding: 100px 20px 40px 20px;
+  margin: 0 0 80px 0;
+  background: url("../images/temps/thietkeweb_taisao_bg.png") no-repeat center center fixed;
+  //background-repeat: no-repeat !important;
+  background-size: cover;
+  float: left;
+  width: 100%;
+  img.dv_web_info_why_img {
+    margin-left: -20px;
+    width: 100%;
+    height: 100%;
+  }
+  ul {
+    list-style: none;
+    li {
+      position: relative;
+      padding: 4px 8px 4px 15px;
+      line-height: 1.5;
+      &::before {
+        content: '';
+        position: absolute;
+        background: url(../images/temps/dvthietkewebsite_taisao_stick.png) center bottom;
+        top: 14px;
+        left: -20px;
+        width: 20px;
+        height: 24px;
+      }
+    }
+  }
+}
+@media (max-width: 767px){
+  #dv_web_info_why {
+    padding: 0 10px 40px 10px;
+  }
+}

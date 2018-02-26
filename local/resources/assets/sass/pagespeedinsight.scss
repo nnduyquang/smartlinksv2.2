@@ -1,0 +1,145 @@
+#exTab2 h3 {
+  color: white;
+  background-color: #428bca;
+  padding: 5px 15px;
+}
+
+//.tab-content{
+//  margin-top: 20px;
+//}
+.result-analytic-info  {
+  //border-right: 1px solid #ddd;
+  padding: 20px;
+}
+.result-analytic-image{
+  padding: 20px;
+  border-left: 1px solid #ddd;
+}
+.screenshot {
+  height: 510px;
+  margin-top: 30px;
+  position: relative;
+  width: 250px;
+}
+.screenshot.mobile{
+  background: url(../images/temps/n4_225-400.png) no-repeat;
+}
+.screenshot.desktop {
+  background: url(../images/temps/pixel.png) no-repeat;
+  height: 250px;
+}
+.screenshot.mobile .screenshot-img-container {
+  width: 225px;
+  height: 400px;
+  clip: rect(0,225px,400px,0);
+  top: 54px;
+  left: 12px;
+  right: 13px;
+}
+.screenshot-img-container {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.screenshot-img-container img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.result-group-title {
+  font-weight: normal;
+  margin: 24px 0 16px -10px;
+  padding: 0 10px;
+}
+.result-group-title .result-group-title-card {
+  background: #f0f0f0;
+  padding: 10px 16px;
+  display: inline-block;
+}
+.result-group-title .result-group-title-card .poor {
+  color: #dd4b39;
+}
+.result-group-title .result-group-title-card .needswork {
+  color: #fda100;
+}
+.result-group-title .result-group-title-card .good {
+  color: #009a2d;
+}
+.result-group-title .result-group-title-card .result-group-title-card-mark {
+  font-size: 30px;
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
+}
+.result-group-title .result-group-title-card .result-group-title-card-score {
+  font-size: 15px;
+  text-align: center;
+  color: #999;
+  margin: 0;
+  padding: 0;
+}
+.result-group-title .result-group-title-message {
+  color: #212121;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.screenshot.desktop .screenshot-img-container {
+  width: 180px;
+  height: 112px;
+  clip: rect(0,180px,112px,0);
+  top: 45px;
+  left: 32px;
+}
+.result-group-title .result-group-title-card .needswork {
+  color: #fda100;
+}
+.result-tabs .ranking {
+  color: #fff;
+  display: inline-block;
+  font-size: 13px;
+  vertical-align: top;
+}
+.result-tabs .ranking .icon {
+  display: inline-block;
+  margin: 0 6px;
+  position: relative;
+  top: -6px;
+}
+.result-tabs .tab-title {
+  display: inline;
+  padding: 0 8px;
+}
+.SPRITE_mobile_needswork {
+  background: no-repeat url(../images/temps/sprite.png) -82px -31px;
+  width: 18px;
+  height: 34px;
+}
+.SPRITE_mobile_poor {
+  background: no-repeat url(../images/temps/sprite.png) -18px -31px;
+  width: 18px;
+  height: 34px;
+}
+.SPRITE_mobile_good {
+  background: no-repeat url(../images/temps/sprite.png) 0 -31px;
+  width: 18px;
+  height: 34px;
+}
+.SPRITE_desktop_good {
+  background: no-repeat url(../images/temps/sprite.png) -46px 0;
+  width: 46px;
+  height: 31px;
+}
+.SPRITE_desktop_needswork {
+  background: no-repeat url(../images/temps/sprite.png) 0 0;
+  width: 46px;
+  height: 31px;
+}
+.SPRITE_desktop_poor {
+  background: no-repeat url(../images/temps/sprite.png) -36px -31px;
+  width: 46px;
+  height: 31px;
+}

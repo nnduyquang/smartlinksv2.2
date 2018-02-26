@@ -1,0 +1,214 @@
+#dv_web_info_process {
+  background-color: #f5f8fb;
+  padding-top: 70px;
+  .dv_header {
+    h4.sub_title {
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 1;
+      padding: 0;
+      color: black;
+      margin: 0;
+      text-transform: uppercase;
+    }
+    h3.title {
+      padding: 10px 0 0;
+      margin: 0;
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #125fb7;
+    }
+    hr {
+      width: 60px;
+      margin: 20px 0;
+      border: 1px dashed #f1773d;
+      margin-left: auto;
+      margin-right: auto;
+      float: none;
+    }
+  }
+  .one-item {
+    .card {
+      position: relative;
+      border: 1px solid #d8d9db;
+      margin-bottom: 40px;
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+      img.dv_web_info_process_img {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      h3.title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #38454f;
+        margin-bottom: 10px;
+      }
+      p.description {
+        line-height: 1.6;
+        text-align: center;
+      }
+    }
+    .card:before, .card:after {
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      z-index: 9;
+    }
+    .card:before {
+      border-top-color: #d8d9db;
+      margin-left: -17px;
+      top: 100%;
+      left: 50%;
+      border-width: 17px;
+    }
+    .card:after {
+      border-top-color: #fff;
+      margin-left: -15px;
+      top: 100%;
+      left: 50%;
+      border-width: 15px;
+    }
+  }
+  .process_count {
+    margin-top: 50px;
+    .bar {
+      display: block;
+      position: relative;
+      left: 15%;
+      width: 70%;
+      top: 50%;
+      border-bottom: 1px solid #6ecff5;
+    }
+    .step-below {
+      position: relative;
+      text-align: center;
+      top: -20px;
+    }
+  }
+  .process_result {
+    h3.title {
+      font-weight: 700;
+      color: #1f45a8;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .process_testimonials {
+    .chevron {
+      padding-left: 130px;
+      padding-right: 130px;
+      position: relative;
+      background: #6ACEF6;
+      text-align: center;
+      color: #fff;
+      font-size: 22px;
+      overflow: hidden;
+      height: 220px;
+      .content {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        .quote {
+          font-weight: 300;
+          font-size: 24px;
+          line-height: 1.4;
+        }
+        .author {
+          padding-top: 20px;
+          font-weight: 700;
+          font-size: 18px;
+        }
+      }
+    }
+    .chevron:before, .chevron:after {
+      border: rgba(255, 255, 255, 0) solid;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      border-width: 110px 70px;
+      margin-left: 0;
+
+    }
+    .chevron:before {
+      top: 0;
+      left: 0;
+      border-color: #2895d9 rgba(40, 149, 217, 0) rgba(40, 149, 217, .2) rgba(40, 149, 217, .5);
+    }
+    .chevron:after {
+      top: 0;
+      right: 0;
+      border-color: #2895d9 rgba(40, 149, 217, .5) rgba(40, 149, 217, .2) rgba(40, 149, 217, 0);
+    }
+  }
+  .card {
+    //border: none;
+    .card-body {
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #dv_web_info_process {
+    .dv_header {
+      h4.sub_title {
+        line-height: 1.5;
+        font-size: 13px;
+      }
+      h3.title {
+        font-size: 22px;
+        line-height: 1.5;
+      }
+    }
+    .one-item {
+      margin-bottom: 20px;
+    }
+    .process_testimonials {
+      .chevron {
+        padding: 0;
+        .content {
+          .quote {
+            font-size: 17px;
+          }
+          .author {
+            font-size: 14px;
+            line-height: 1.4;
+          }
+        }
+      }
+      .chevron:before, .chevron:after {
+        border: none;
+      }
+    }
+    .process_count {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #dv_web_info_process {
+    .process_testimonials {
+      .chevron {
+        .content {
+          .quote {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

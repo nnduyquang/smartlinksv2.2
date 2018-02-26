@@ -1,0 +1,44 @@
+#dv_ga_info_statistic{
+  margin: 40px 0 40px 0;
+  .one-item{
+    img{
+      padding: 0 0 20px 0;
+      width: 122px;
+      height: 114px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .numberHieuSuat {
+      font-size: 48px;
+      font-weight: bold;
+      &.hs1 {
+        color: #6da7e9;
+      }
+      &.hs2 {
+        color: #60bdef;
+      }
+      &.hs3 {
+        color: #58d4a9;
+      }
+      &.hs4 {
+        color: #9fc73d;
+      }
+    }
+    p.description{
+      margin-top: 20px;
+    }
+  }
+  .card {
+    border: none;
+    .card-body {
+      padding: 0;
+    }
+  }
+}
+@media (max-width: 767px) {
+  #dv_ga_info_statistic{
+    .one-item{
+      margin-bottom: 20px;
+    }
+  }
+}

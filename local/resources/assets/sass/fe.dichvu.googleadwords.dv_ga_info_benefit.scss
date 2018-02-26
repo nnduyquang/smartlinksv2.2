@@ -1,0 +1,54 @@
+#dv_ga_info_benefit {
+  img {
+    width: 100%;
+  }
+  .description {
+    padding: 0;
+    h3.title {
+    }
+    ul {
+      padding: 20px 0 0 0;
+      counter-reset: li;
+      li {
+        line-height: 1.5;
+        margin: 0 0 40px 2em;
+        padding: 4px 8px 4px 15px;
+        position: relative;
+        &::before {
+          content: counter(li);
+          counter-increment: li;
+          border: solid 2px #1f45a8;
+          position: absolute;
+          background-color: #eeeded;
+          width: 40px;
+          height: 40px;
+          top: -2px;
+          left: -40px;
+          margin: 0 8px 0 0;
+          text-align: center;
+          font-weight: bold;
+          padding: 8px;
+        }
+      }
+    }
+  }
+  .slogun {
+    text-align: center;
+    margin: 40px 0 40px 0;
+    h3 {
+      text-transform: uppercase;
+      font-size: 36px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #dv_ga_info_benefit {
+    .slogun {
+      h3 {
+        font-size: 20px;
+        line-height: 1.5;
+      }
+    }
+  }
+}

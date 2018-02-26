@@ -1,0 +1,23 @@
+#tuyen-dung{
+  #td-info{
+p{
+  margin-bottom: 20px;
+}
+  }
+  #td-content{
+    .one-item{
+      margin-bottom: 20px;
+      a{
+        color: #1f45a8;
+        img{
+          width: 100%;
+        }
+        p{
+          display: block;
+          line-height: 1.5;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

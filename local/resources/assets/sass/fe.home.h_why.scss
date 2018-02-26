@@ -1,0 +1,243 @@
+/*
+*
+*
+*******Tại Sao Chọn Smartlinks
+*
+*
+*/
+#h_why {
+  box-sizing: border-box;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  .one-item {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    //&.border1 {
+    //  border-right-width: 1px;
+    //  border-bottom-width: 1px;
+    //  border-right-color: #e0e0e0;
+    //  border-right-style: dashed;
+    //  border-bottom-color: #e0e0e0;
+    //  border-bottom-style: dashed;
+    //}
+    //&.border2 {
+    //  border-right-width: 1px;
+    //  border-bottom-width: 1px;
+    //  border-right-color: #e0e0e0;
+    //  border-right-style: dashed;
+    //  border-bottom-color: #e0e0e0;
+    //  border-bottom-style: dashed;
+    //}
+    //&.border3 {
+    //  border-bottom-width: 1px;
+    //  border-bottom-color: #e0e0e0;
+    //  border-bottom-style: dashed;
+    //}
+    //&.border4 {
+    //  border-right-width: 1px;
+    //  border-right-color: #e0e0e0;
+    //  border-right-style: dashed;
+    //}
+    //&.border5 {
+    //  border-right-width: 1px;
+    //  border-right-color: #e0e0e0;
+    //  border-right-style: dashed;
+    //}
+    //&.border6 {
+    //
+    //}
+    .icon-item {
+      width: 90px;
+      height: 90px;
+      border: none;
+      border-radius: 50%;
+      //float: left;
+      transform: translateY(7px);
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      &.bg-item1 {
+        background-color: #f3ad1d;
+      }
+      &.bg-item1::after {
+        box-shadow: 0 0 0 2px #f3ad1d;
+      }
+      &.bg-item2 {
+        //background-color: #fec606;
+        background-color: #f3ad1d;
+        animation-delay: 0.2s;
+      }
+      &.bg-item2::after {
+        //box-shadow: 0 0 0 2px #fec606;
+        box-shadow: 0 0 0 2px #f3ad1d;
+      }
+      &.bg-item3 {
+        //background-color: #71ba51;
+        background-color: #f3ad1d;
+        animation-delay: 0.4s;
+      }
+      &.bg-item3::after {
+        //box-shadow: 0 0 0 2px #71ba51;
+        box-shadow: 0 0 0 2px #f3ad1d;
+      }
+      &.bg-item4 {
+        //background-color: #6c8784;
+        background-color: #f3ad1d;
+        animation-delay: 0.6s;
+      }
+      &.bg-item4::after {
+        //box-shadow: 0 0 0 2px #6c8784;
+        box-shadow: 0 0 0 2px #f3ad1d;
+      }
+      &.bg-item5 {
+        //background-color: #3d8eb9;
+        background-color: #f3ad1d;
+        animation-delay: 0.8s;
+      }
+      &.bg-item5::after {
+        //box-shadow: 0 0 0 2px #3d8eb9;
+        box-shadow: 0 0 0 2px #f3ad1d;
+      }
+      &.bg-item6 {
+        //background-color: #d3324f;
+        background-color: #f3ad1d;
+        animation-delay: 1s;
+      }
+      &.bg-item6::after {
+        //box-shadow: 0 0 0 2px #d3324f;
+        box-shadow: 0 0 0 2px #f3ad1d;
+      }
+      &::after {
+        top: -7px;
+        left: -7px;
+        padding: 7px;
+        transition: transform 0.2s, opacity 0.2s;
+        transform: scale(.8);
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        content: '';
+        box-sizing: content-box;
+      }
+      .style-icon-why1 {
+        width: 50px;
+        height: 65px;
+        position: absolute;
+        top: 50%;
+        transform: translate(43%, -45%);
+      }
+      .style-icon-why2 {
+        width: 50px;
+        height: 65px;
+        position: absolute;
+        top: 50%;
+        transform: translate(40%, -50%);
+      }
+      .style-icon-why3 {
+        width: 75px;
+        height: 90px;
+        position: absolute;
+        top: 50%;
+        transform: translate(12%, -55%);
+      }
+      .style-icon-why4 {
+        position: absolute;
+        top: 50%;
+        transform: translate(8%, -45%);
+      }
+      .style-icon-why5 {
+        position: absolute;
+        top: 50%;
+        transform: translate(30%, -48%);
+      }
+      .style-icon-why6 {
+        position: absolute;
+        top: 50%;
+        transform: translate(15%, -48%);
+      }
+
+    }
+    .content-item {
+      padding-left: 20px;
+      overflow: hidden;
+      header {
+        padding: 0;
+      }
+      .entry-title {
+        font-size: 16px;
+        margin: 0 0 5px 0;
+        padding: 0;
+        letter-spacing: -0.03em;
+        line-height: 28px;
+        color: #212121;
+        text-transform: uppercase;
+        font-weight: 700;
+        &:hover {
+          color: #f1773d;
+        }
+      }
+      .description-item {
+        margin-bottom: 10px;
+        clear: both;
+        line-height: 24px;
+      }
+    }
+  }
+  .one-item:hover .icon-item:after {
+    transform: scale(1);
+    opacity: 1;
+  }
+  .card {
+    border: none;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-right-color: #e0e0e0;
+    border-right-style: dashed;
+    border-bottom-color: #e0e0e0;
+    border-bottom-style: dashed;
+    &.no-border-bottom{
+      border-bottom: none;
+    }
+    .card-body {
+      padding: 0;
+    }
+  }
+
+}
+
+//END Tại Sao Chọn Smartlinks
+/*
+*
+*
+*******Màn Hình Di Động
+*
+*
+*/
+
+@media screen and(max-width: 812px) {
+  #h_why{
+    .one-item{
+      .content-item{
+        text-align: center;
+      }
+    }
+    .card{
+      border: none;
+    }
+  }
+  .one-item {
+    &.border1, &.border2, &.border3, &.border4, &.border5, &.border6 {
+      border: none !important;
+    }
+  }
+}
+
+
