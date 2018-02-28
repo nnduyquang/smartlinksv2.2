@@ -24,7 +24,7 @@
             </ul>
         </div>
     @endif
-    {!! Form::model($categorypost,array('route' => ['categorypost.update',$page->id],'method'=>'PATCH')) !!}
+    {!! Form::model($categorypost,array('route' => ['categorypost.update',$categorypost->id],'method'=>'PATCH')) !!}
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-12">
@@ -38,7 +38,7 @@
                             <strong>Menu Cấp</strong>
                             <select class="form-control" name="parent">'
                                 @foreach($dd_categorie_posts as $key=>$data) {
-                                @if($data['index']===$category->parent_id)
+                                @if($data['index']===$categorypost->parent_id)
                                     <option value="{{$data['index']}}" selected>{{$data['value']}}</option>
                                 @else
                                     <option value="{{$data['index']}}">{{$data['value']}}</option>

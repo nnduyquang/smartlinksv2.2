@@ -24,6 +24,8 @@
     </li>
     <li><a href="{{ route('tuyendung.index') }}"><i class="fa fa-link"></i> <span>Tuyển Dụng</span></a>
     </li>
+    <li><a href="{{ route('thunghiem.create') }}"><i class="fa fa-link"></i> <span>Thử Nghiệm</span></a>
+    </li>
     <li class="treeview">
         <a href="#"><i class="fa fa-link"></i><span>Cấu Hình</span>
             <span class="pull-right-container">
