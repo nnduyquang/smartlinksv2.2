@@ -9,7 +9,7 @@ class Menu extends Model
 
     protected $fillable = [
 
-        'name','path','level', 'order','parent_id','created_at','updated_at'
+        'name','path','level', 'order','parent_id','content_id','type','isActive','created_at','updated_at'
 
     ];
 }

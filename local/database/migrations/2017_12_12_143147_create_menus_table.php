@@ -20,6 +20,8 @@ class CreateMenusTable extends Migration
             $table->unsignedTinyInteger('level');
             $table->integer('order')->default(1);
             $table->integer('parent_id')->nullable();
+            $table->integer('content_id')->nullable();
+            $table->unsignedTinyInteger('type')->nullable();
             $table->timestamps();
         });
     }
