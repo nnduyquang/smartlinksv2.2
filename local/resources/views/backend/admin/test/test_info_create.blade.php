@@ -7,15 +7,15 @@
         @endif
         <div class="row">
             <div class="col-md-3">
-                <button type="button" class="btn btn-primary w-100">Thêm Menu Chính</button>
-                <button type="button" class="btn btn-primary w-100">Thêm Menu Con</button>
+                <button id="addMoreMenu" type="button" class="btn btn-primary w-100">Thêm Menu Chính</button>
+                <button id="addSubMenu" type="button" class="btn btn-primary w-100">Thêm Menu Con</button>
                 <div id="tree"></div>
             </div>
             <div class="col-md-9">
                 <div class="test_info_right">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>Tên Menu</h3>
+                            <h3 class="title">Tạo Mới Menu</h3>
 
                         </div>
                         <div class="col-md-6 text-right">
@@ -24,6 +24,12 @@
                     </div>
                     <hr>
                     {!! Form::open(array('id'=>'frmCreateThuNghiem','route' => 'thunghiem.store','method'=>'POST')) !!}
+
+                    {{ Form::hidden('_method', 'POST') }}
+                    {{ Form::hidden('state', 'insert') }}
+                    {{ Form::hidden('parentId', '') }}
+                    {{ Form::hidden('mainId', '') }}
+                    {{ Form::hidden('level', '') }}
                     <div class="form-group row">
                         <div class="col-3 col-form-label">
                             Tên Menu <span class="thunghiem"></span>
