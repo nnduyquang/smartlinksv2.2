@@ -19,6 +19,7 @@
 
                         </div>
                         <div class="col-md-6 text-right">
+                            <button id="deleteMenu" type="button" class="btn btn-primary" style="display: none;">Xóa Menu</button>
                             <button id="sumbitFormThuNghiem" type="button" class="btn btn-primary">Lưu</button>
                         </div>
                     </div>

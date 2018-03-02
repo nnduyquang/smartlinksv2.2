@@ -127,6 +127,7 @@ function loadDataFormWhenSelectTreeMenu(data) {
     $('input[name=parentId]').val(data['parent_id']);
     $('input[name=mainId]').val(data.id);
     $('input[name=level]').val(data.level);
+    $('button#deleteMenu').show();
     $('.test_info_right h3.title').html('Cập Nhật Menu: ' + data.name);
     (data.isActive === 1) ? $('input[name=menu_is_active]').prop('checked', true) : $('input[name=menu_is_active]').prop('checked', false);
     if (data.type === 1) {
@@ -167,11 +168,11 @@ function loadTreeMenu() {
         url: getBaseURL() + "sml_admin/load-tree",
         dataType: 'json',
         success: function (data) {
-            console.log(data);
             var runTree = $('#tree').tree({
                 uiLibrary: 'bootstrap4',
                 dataSource: data,
                 primaryKey: 'id',
+                dragAndDrop: true
                 // imageUrlField: 'flagUrl'
             });
             runTree.bind('select', {key: data}, function (e, node, id) {
@@ -180,8 +181,19 @@ function loadTreeMenu() {
                     url: getBaseURL() + "sml_admin/find/" + id,
                     dataType: 'json',
                     success: function (data2) {
-                        console.log(data2);
                         loadDataFormWhenSelectTreeMenu(data2)
+                    }
+                });
+            });
+            runTree.on('nodeDrop', function (e, id, parentId, orderNumber) {
+                if (parentId == null)
+                    parentId = 0;
+                $.ajax({
+                    type: "GET",
+                    url: getBaseURL() + "sml_admin/updateNodeFamily/" + id + "/" + parentId,
+                    dataType: 'json',
+                    success: function (data2) {
+                        // loadDataFormWhenSelectTreeMenu(data2)
                     }
                 });
             });
@@ -226,9 +238,11 @@ $('#sumbitFormThuNghiem').click(function () {
     $('#frmCreateThuNghiem').submit();
 });
 $('button#addMoreMenu').click(function () {
+    $('button#deleteMenu').hide();
     resetForm();
 });
 $('button#addSubMenu').click(function () {
+    $('button#deleteMenu').hide();
     var id = $('input[name=mainId]').val();
     var name = $('input[name=name]').val();
     var level = $('input[name=level]').val();
@@ -237,6 +251,13 @@ $('button#addSubMenu').click(function () {
     $('input[name=parentId]').val(id);
     $('input[name=level]').val(level);
 
+});
+
+$('button#deleteMenu').click(function(){
+    var id = $('input[name=mainId]').val();
+    $('form#frmCreateThuNghiem').attr('action', getBaseURL() + "sml_admin/xoa-menu/"+id);
+    $('input[name=_method]').val('Delete');
+    $('#frmCreateThuNghiem').submit();
 });
 
 

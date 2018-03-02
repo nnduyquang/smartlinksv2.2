@@ -18,20 +18,24 @@ class ThuNghiemController extends Controller
             $data['text'] = $data->name;
             unset($data->name);
         }
-        $newArray = [];
+        $newArray = array();
         self::findChildMenu($menus, 0, $newArray);
         $newArray = array_reverse($newArray);
+//        $newArray2 = $newArray;
         foreach ($newArray as $key => $data) {
-            if ($key < count($newArray)) {
-                if ($data->parent_id == $newArray[$key + 1]->id) {
+            if ($data->level == 0)
+                continue;
+            foreach ($newArray as $key2 => $data2) {
+                if ($data2->id == $data->parent_id) {
                     $temp = array($data);
-                    $newArray[$key + 1]['children'] = $temp;
-                    unset($newArray[$key]);
+                    $data2->children = array_merge($data2->children, $temp);
+                    break;
                 }
             }
+            unset($newArray[$key]);
         }
+//        dd(json_encode($children2));
         $newArray = array_reverse($newArray);
-//        console.log($newArray);
         return response()->json($newArray);
     }
 
@@ -114,7 +118,7 @@ class ThuNghiemController extends Controller
         if ($isActive) {
             $menu->isActive = 1;
         }
-        $menu->level = 0;
+//        $menu->level = 0;
         $menu->name = $name;
         $menu->path = chuyen_chuoi_thanh_path($name);
         $menu->save();
@@ -136,6 +140,43 @@ class ThuNghiemController extends Controller
     {
         $menu = Menu::find($id);
         return response()->json($menu);
+    }
+
+    public function updateNodeFamily($id, $parentId)
+    {
+        $menu = Menu::find($id);
+        if ($parentId == 0) {
+            $menu->parent_id = null;
+            $menu->level = 0;
+        } else {
+            $menu->parent_id = $parentId;
+            $parentMenu = Menu::find($parentId);
+            $menu->level = (int)$parentMenu->level + 1;
+        }
+        $menu->save();
+    }
+
+    public function deleteMenu($id)
+    {
+        $listMenu = Menu::all();
+        $menu = Menu::find($id);
+
+        self::updateMenuChildDelete($listMenu, $menu);
+        $menu->delete();
+        return redirect()->route('thunghiem.index')->with('success', 'Xóa Thành Công Menu');
+    }
+
+    public function updateMenuChildDelete(&$listMenu, $menu)
+    {
+        foreach ($listMenu as $key => $data) {
+            if ($menu->id == $data->parent_id) {
+                $data->level = 0;
+                $data->parent_id = null;
+                $data->save();
+//                dd(json_encode($data));
+                self::updateMenuChildDelete($listMenu, $data);
+            }
+        }
     }
 
 }
