@@ -4,16 +4,18 @@
 @section('scripts')
 @stop
 @section('container')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-md-8">
                 <h2>Cập Nhật Trang</h2>
             </div>
-            <div class="pull-right">
+            <div class="col-md-4 text-right">
                 <a class="btn btn-primary" href="{{ route('page.index') }}"> Back</a>
             </div>
         </div>
     </div>
+
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <strong>Úi!</strong> Hình Như Có Gì Đó Sai Sai.<br><br>
@@ -53,20 +55,19 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="row">
-                    <div class="form-group">
-                        <strong>Nội Dung Trang:</strong>
-                        {!! Form::textarea('content',null,array('placeholder' => '','id'=>'content-page','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
-                    </div>
-                </div>
+                <strong>Nội Dung Trang:</strong>
+                {!! Form::textarea('content',null,array('placeholder' => '','id'=>'content-page','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+                <hr>
             </div>
+
             <div class="col-md-12">
-                <div class="row">
-                    <div class="line-break"></div>
+                <div class="row no-gutters">
                     <h3>SEO</h3>
-                    <div class="form-group">
-                        <strong>Tiêu Đề (title):</strong>
-                        {!! Form::text('seo_title',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <strong>Tiêu Đề (title):</strong>
+                            {!! Form::text('seo_title',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                        </div>
                     </div>
                     <div class="form-group">
                         <strong>Mô Tả (description):</strong>

@@ -10,7 +10,7 @@
                 <div id="tt-group-info" class="col-md-12">
                     <div class="container">
                         <div class="row row-flex row-flex-wrap">
-                            @foreach($tintucs as $key=>$data)
+                            @foreach($posts as $key=>$data)
                                 <div class="one-item col-md-3">
                                     <a href="{{URL::to('tin-tuc/'.$data->path)}}">
                                         <div class="flex-col">

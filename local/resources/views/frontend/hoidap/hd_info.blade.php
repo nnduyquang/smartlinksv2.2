@@ -27,7 +27,8 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    @foreach($hoidaps as $key=>$data)
+                    {{--@foreach($hoidaps as $key=>$data)--}}
+                    @foreach($posts as $key=>$data)
                         <div class="toggle">
                             <div class="toggle-title ">
                                 <h3>
