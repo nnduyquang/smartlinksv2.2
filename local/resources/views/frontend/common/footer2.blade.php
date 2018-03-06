@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="backToTop footer__jumpTop"><a href="#"><i class="fa fa-chevron-up"></i></a></div>
                 <div id="main-footer" class="col-md-12">
-                    {{--<div class="row">--}}
+                    <div class="row">
                         <div id="main-footer-left" class="col-md-6">
                             <div class="logo">
                                 {{ Html::image('images/logo/smartlinks-logo-footer.png','',array('class'=>'logo-footer')) }}
@@ -25,16 +25,16 @@
                             </div>
 
                         </div>
-                        {{--<div id="main-footer-right" class="col-md-6">--}}
-                            {{--<div class="fb-page" data-href="https://www.facebook.com/smartlinks.vn" data-tabs="timeline"--}}
-                                 {{--data-height="250" data-small-header="false" data-adapt-container-width="false"--}}
-                                 {{--data-hide-cover="false" data-show-facepile="false">--}}
-                                {{--<blockquote cite="https://www.facebook.com/smartlinks.vn" class="fb-xfbml-parse-ignore">--}}
-                                    {{--<a href="https://www.facebook.com/smartlinks.vn">SmartLinks Digital Marketing</a>--}}
-                                {{--</blockquote>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+                        <div id="main-footer-right" class="col-md-6">
+                            <div class="fb-page" data-href="https://www.facebook.com/smartlinks.vn" data-tabs="timeline"
+                                 data-height="250" data-small-header="false" data-adapt-container-width="false"
+                                 data-hide-cover="false" data-show-facepile="false">
+                                <blockquote cite="https://www.facebook.com/smartlinks.vn" class="fb-xfbml-parse-ignore">
+                                    <a href="https://www.facebook.com/smartlinks.vn">SmartLinks Digital Marketing</a>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
