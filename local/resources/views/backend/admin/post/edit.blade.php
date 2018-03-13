@@ -70,22 +70,35 @@
                     @endif
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <strong>Nội Dung Bài Viết:</strong>
-                    {!! Form::textarea('content',null,array('placeholder' => '','id'=>'content-post','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
-                    <hr>
-                </div>
+        </div>
+        <div class="col-md-12 p-0">
+            <div class="form-group">
+                <strong>Nội Dung Bài Viết:</strong>
+                {!! Form::textarea('content',null,array('placeholder' => '','id'=>'content-post','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+                <hr>
+            </div>
+        </div>
 
-
+        <div class="col-md-12 p-0">
+            <div class="row no-gutters">
                 <h3>SEO</h3>
-                <div class="form-group">
-                    <strong>Tiêu Đề (title):</strong>
-                    {!! Form::text('seo_title',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <strong>Tiêu Đề (title):</strong>
+                        {!! Form::text('seo_title',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                    </div>
                 </div>
-                <div class="form-group">
-                    <strong>Mô Tả (description):</strong>
-                    {!! Form::textarea('seo_description',null,array('placeholder' => '','id'=>'seo-description-post','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <strong>Mô Tả (description):</strong>
+                        {!! Form::textarea('seo_description',null,array('placeholder' => '','id'=>'seo-description-post','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <strong>Keywords (cách nhau dấu phẩy ','):</strong>
+                        {!! Form::text('seo_keywords',null, array('placeholder' => 'keywords cách nhau dấu phẩy','class' => 'form-control')) !!}
+                    </div>
                 </div>
                 <div class="form-group">
                     <strong>Kích Hoạt:</strong>

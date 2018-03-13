@@ -57,6 +57,7 @@ class PostController extends Controller
         $content = $request->input('content');
         $seoTitle = $request->input('seo_title');
         $seoDescription = $request->input('seo_description');
+        $seoKeywords=$request->input('seo_keywords');
         $isActive = $request->input('post_is_active');
         $image = $request->input('image');
         if ($image) {
@@ -77,6 +78,9 @@ class PostController extends Controller
         }
         if ($seoDescription) {
             $post->seo_description = $seoDescription;
+        }
+        if ($seoKeywords) {
+            $post->seo_keywords = $seoKeywords;
         }
         $post->title = $title;
         $post->path = chuyen_chuoi_thanh_path($title);
@@ -142,6 +146,7 @@ class PostController extends Controller
         $content = $request->input('content');
         $seoTitle = $request->input('seo_title');
         $seoDescription = $request->input('seo_description');
+        $seoKeywords=$request->input('seo_keywords');
         $isActive = $request->input('post_is_active');
         $image = $request->input('image');
         if ($image) {
@@ -164,6 +169,9 @@ class PostController extends Controller
         }
         if ($seoDescription) {
             $post->seo_description = $seoDescription;
+        }
+        if ($seoKeywords) {
+            $post->seo_keywords = $seoKeywords;
         }
         $post->title = $title;
         $post->path = chuyen_chuoi_thanh_path($title);

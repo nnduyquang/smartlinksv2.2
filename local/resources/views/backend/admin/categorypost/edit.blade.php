@@ -35,6 +35,18 @@
                             {!! Form::text('name',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
                         </div>
                         <div class="form-group">
+                            <strong>Chọn Trang Content</strong>
+                            <select name="page_id" class="custom-select mb-2 mr-sm-2 mb-sm-0">
+                                @foreach($pages as $key=>$data)
+                                    @if($data->id==$categorypost->page_id)
+                                        <option value="{{$data->id}}" selected>{{$data->title}}</option>
+                                    @else
+                                        <option value="{{$data->id}}">{{$data->title}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <strong>Menu Cấp</strong>
                             <select class="form-control" name="parent">'
                                 @foreach($dd_categorie_posts as $key=>$data) {
@@ -45,6 +57,10 @@
                                 @endif
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <strong>Chọn Giao Diện:</strong>
+                            {{Form::text('template',null,array('class'=>'form-control'))}}
                         </div>
                         <div class="form-group">
                             <strong>Thứ Tự:</strong>

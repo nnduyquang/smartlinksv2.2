@@ -4,12 +4,12 @@
 @section('scripts')
 @stop
 @section('container')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+    <div class="col-lg-12 margin-tb">
+        <div class="row">
+            <div class="col-md-8">
                 <h2>Quản Lý Chuyên Mục</h2>
             </div>
-            <div class="pull-right">
+            <div class="col-md-4 text-right">
                 @permission(('page-create'))
                 <a class="btn btn-success" href="{{ route('categorypost.create') }}"> Tạo Mới Chuyên Mục</a>
                 @endpermission

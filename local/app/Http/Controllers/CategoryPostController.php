@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CategoryPost;
+use App\Post;
 use Illuminate\Http\Request;
 
 class CategoryPostController extends Controller
@@ -36,6 +37,7 @@ class CategoryPostController extends Controller
      */
     public function create()
     {
+        $pages = Post::where('post_type', 1)->get();
         $dd_categorie_posts = CategoryPost::orderBy('order')->get();
         foreach ($dd_categorie_posts as $key => $data) {
             if ($data->level == CATEGORY_POST_CAP_1) {
@@ -49,7 +51,7 @@ class CategoryPostController extends Controller
         $newArray = [];
         self::showCategoryPostDropDown($dd_categorie_posts, 0, $newArray);
         $dd_categorie_posts = array_prepend(array_pluck($newArray, 'name', 'id'), 'Cấp Cha', '-1');
-        return view('backend.admin.categorypost.create', compact('roles', 'dd_categorie_posts'));
+        return view('backend.admin.categorypost.create', compact('roles', 'pages','dd_categorie_posts'));
     }
 
     /**
@@ -64,6 +66,8 @@ class CategoryPostController extends Controller
         $name = $request->input('name');
         $order = $request->input('order');
         $parentID = $request->input('parent');
+        $pageId = $request->input('page_id');
+        $template = $request->input('template');
         if ($parentID != CATEGORY_POST_CAP_CHA) {
             $categorypost->parent_id = $parentID;
             $level = CategoryPost::where('id', '=', $parentID)->first()->level;
@@ -73,7 +77,10 @@ class CategoryPostController extends Controller
         if ($order) {
             $categorypost->order = $order;
         }
+        $categorypost->page_id = $pageId;
+        $categorypost->template = $template;
         $categorypost->name = $name;
+        $categorypost->path = chuyen_chuoi_thanh_path($name);
         $categorypost->save();
         return redirect()->route('categorypost.index')->with('success', 'Tạo Mới Thành Công Chuyên Mục');
     }
@@ -98,6 +105,7 @@ class CategoryPostController extends Controller
     public function edit($id)
     {
         $categorypost = CategoryPost::find($id);
+        $pages = Post::where('post_type', 1)->get();
         $dd_categorie_posts = CategoryPost::orderBy('order')->get();
         foreach ($dd_categorie_posts as $key => $data) {
             if ($data->level == CATEGORY_POST_CAP_1) {
@@ -108,13 +116,13 @@ class CategoryPostController extends Controller
                 $data->name = ' ------------------ ' . $data->name;
             }
         }
-
+        $newArray=[];
         self::showCategoryPostDropDown($dd_categorie_posts, 0, $newArray);
         $dd_categorie_posts = array_prepend(array_pluck($newArray, 'name', 'id'), 'Cấp Cha', '-1');
         $dd_categorie_posts = array_map(function ($index, $value) {
             return ['index' => $index, 'value' => $value];
         }, array_keys($dd_categorie_posts), $dd_categorie_posts);
-        return view('backend.admin.categorypost.edit', compact('categorypost', 'dd_categorie_posts'));
+        return view('backend.admin.categorypost.edit', compact('categorypost', 'pages','dd_categorie_posts'));
     }
 
     /**
@@ -133,6 +141,8 @@ class CategoryPostController extends Controller
             $categorypost->order = $order;
         }
         $parentID = $request->input('parent');
+        $template = $request->input('template');
+        $pageId = $request->input('page_id');
         if ($parentID != $categorypost->parent_id) {
             if ($parentID != CATEGORY_POST_CAP_CHA) {
                 $categorypost->parent_id = $parentID;
@@ -143,7 +153,10 @@ class CategoryPostController extends Controller
                 $categorypost->level = 0;
             }
         }
+        $categorypost->page_id = $pageId;
+        $categorypost->template = $template;
         $categorypost->name = $name;
+        $categorypost->path = chuyen_chuoi_thanh_path($name);
         $categorypost->save();
         return redirect()->route('categorypost.index')->with('success', 'Cập Nhật Thành Công Chuyên Mục');
     }

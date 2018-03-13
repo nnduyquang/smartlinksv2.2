@@ -4,12 +4,12 @@
 @section('scripts')
 @stop
 @section('container')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-md-8">
                 <h2>Tạo Mới Chuyên Mục</h2>
             </div>
-            <div class="pull-right">
+            <div class="col-md-4 text-right">
                 <a class="btn btn-primary" href="{{ route('categorypost.index') }}"> Back</a>
             </div>
         </div>
@@ -35,8 +35,20 @@
                             {!! Form::text('name',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
                         </div>
                         <div class="form-group">
+                            <strong>Chọn Trang Content:</strong>
+                            <select name="page_id" class="custom-select mb-2 mr-sm-2 mb-sm-0">
+                                @foreach($pages as $key=>$data)
+                                    <option value="{{$data->id}}">{{$data->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <strong>Menu Cấp</strong>
                             {!! Form::select('parent',$dd_categorie_posts, null,array('class' => 'form-control')) !!}
+                        </div>
+                        <div class="form-group">
+                            <strong>Chọn Giao Diện:</strong>
+                            {{Form::text('template','',array('class'=>'form-control'))}}
                         </div>
                         <div class="form-group">
                             <strong>Thứ Tự:</strong>
