@@ -64,16 +64,43 @@ class CategoryPostController extends Controller
         $name = $request->input('name');
         $order = $request->input('order');
         $parentID = $request->input('parent');
+        $description = $request->input('description');
+        $seoTitle = $request->input('seo_title');
+        $seoDescription = $request->input('seo_description');
+        $seoKeywords=$request->input('seo_keywords');
+        $isActive = $request->input('page_is_active');
+        $image = $request->input('image');
+        $image = substr($image, strpos($image, 'images'), strlen($image) - 1);
         if ($parentID != CATEGORY_POST_CAP_CHA) {
             $categorypost->parent_id = $parentID;
             $level = CategoryPost::where('id', '=', $parentID)->first()->level;
             $categorypost->level = (int)$level + 1;
         } else
             $categorypost->level = 0;
-        if ($order) {
+        if (!IsNullOrEmptyString($order)) {
             $categorypost->order = $order;
         }
+        if (!IsNullOrEmptyString($isActive)) {
+            $categorypost->isActive = 1;
+        } else {
+            $categorypost->isActive = 0;
+        }
+        if (!IsNullOrEmptyString($description)) {
+            $categorypost->description = $description;
+        }
+        if (!IsNullOrEmptyString($seoTitle)) {
+            $categorypost->seo_title = $seoTitle;
+        }
+        if (!IsNullOrEmptyString($seoDescription)) {
+            $categorypost->seo_description = $seoDescription;
+        }
+        if (!IsNullOrEmptyString($seoKeywords)) {
+            $categorypost->seo_keywords = $seoKeywords;
+        }
         $categorypost->name = $name;
+//        $categorypost->type = CATEGORY_POST;
+        $categorypost->path = chuyen_chuoi_thanh_path($name);
+        $categorypost->image = $image;
         $categorypost->save();
         return redirect()->route('categorypost.index')->with('success', 'Tạo Mới Thành Công Chuyên Mục');
     }
@@ -98,8 +125,8 @@ class CategoryPostController extends Controller
     public function edit($id)
     {
         $categorypost = CategoryPost::find($id);
-        $dd_categorie_posts = CategoryPost::orderBy('order')->get();
-        foreach ($dd_categorie_posts as $key => $data) {
+        $dd_category_post = CategoryPost::orderBy('order')->get();
+        foreach ($dd_category_post as $key => $data) {
             if ($data->level == CATEGORY_POST_CAP_1) {
                 $data->name = ' ---- ' . $data->name;
             } else if ($data->level == CATEGORY_POST_CAP_2) {
@@ -109,12 +136,13 @@ class CategoryPostController extends Controller
             }
         }
 
-        self::showCategoryPostDropDown($dd_categorie_posts, 0, $newArray);
-        $dd_categorie_posts = array_prepend(array_pluck($newArray, 'name', 'id'), 'Cấp Cha', '-1');
-        $dd_categorie_posts = array_map(function ($index, $value) {
+        $newArray=[];
+        self::showCategoryPostDropDown($dd_category_post, 0, $newArray);
+        $dd_category_post = array_prepend(array_pluck($newArray, 'name', 'id'), 'Cấp Cha', '-1');
+        $dd_category_post = array_map(function ($index, $value) {
             return ['index' => $index, 'value' => $value];
-        }, array_keys($dd_categorie_posts), $dd_categorie_posts);
-        return view('backend.admin.categorypost.edit', compact('categorypost', 'dd_categorie_posts'));
+        }, array_keys($dd_category_post), $dd_category_post);
+        return view('backend.admin.categorypost.edit', compact('categorypost', 'dd_category_post'));
     }
 
     /**
@@ -129,21 +157,44 @@ class CategoryPostController extends Controller
         $categorypost = CategoryPost::find($id);
         $name = $request->input('name');
         $order = $request->input('order');
-        if ($order) {
+        $parentID = $request->input('parent');
+        $description = $request->input('description');
+        $seoTitle = $request->input('seo_title');
+        $seoDescription = $request->input('seo_description');
+        $seoKeywords=$request->input('seo_keywords');
+        $isActive = $request->input('page_is_active');
+        $image = $request->input('image');
+        $image = substr($image, strpos($image, 'images'), strlen($image) - 1);
+        if ($parentID != CATEGORY_POST_CAP_CHA) {
+            $categorypost->parent_id = $parentID;
+            $level = CategoryPost::where('id', '=', $parentID)->first()->level;
+            $categorypost->level = (int)$level + 1;
+        } else
+            $categorypost->level = 0;
+        if (!IsNullOrEmptyString($order)) {
             $categorypost->order = $order;
         }
-        $parentID = $request->input('parent');
-        if ($parentID != $categorypost->parent_id) {
-            if ($parentID != CATEGORY_POST_CAP_CHA) {
-                $categorypost->parent_id = $parentID;
-                $level = CategoryPost::where('id', '=', $parentID)->first()->level;
-                $categorypost->level = (int)$level + 1;
-            } else {
-                $categorypost->parent_id = 0;
-                $categorypost->level = 0;
-            }
+        if (!IsNullOrEmptyString($isActive)) {
+            $categorypost->isActive = 1;
+        } else {
+            $categorypost->isActive = 0;
+        }
+        if (!IsNullOrEmptyString($description)) {
+            $categorypost->description = $description;
+        }
+        if (!IsNullOrEmptyString($seoTitle)) {
+            $categorypost->seo_title = $seoTitle;
+        }
+        if (!IsNullOrEmptyString($seoDescription)) {
+            $categorypost->seo_description = $seoDescription;
+        }
+        if (!IsNullOrEmptyString($seoKeywords)) {
+            $categorypost->seo_keywords = $seoKeywords;
         }
         $categorypost->name = $name;
+//        $categorypost->type = CATEGORY_POST;
+        $categorypost->path = chuyen_chuoi_thanh_path($name);
+        $categorypost->image = $image;
         $categorypost->save();
         return redirect()->route('categorypost.index')->with('success', 'Cập Nhật Thành Công Chuyên Mục');
     }

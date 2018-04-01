@@ -1,9 +1,9 @@
 @extends('frontend.master')
 @section('title')
-    {{$page->seo_title}}
+    {{$data['postMain']->seo_title}}
 @stop
 @section('description')
-    {{$page->seo_description}}
+    {{$data['postMain']->seo_description}}
 @stop
 @section('container')
     @include('frontend.hoidap.hd_header')

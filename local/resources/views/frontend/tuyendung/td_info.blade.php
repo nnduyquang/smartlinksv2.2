@@ -3,12 +3,12 @@
         <div class="container">
             <div id="td-info" class="col-md-12">
                 <div class="row">
-                    <p>{!! $page->description !!}</p>
+                    <p>{!! $data['tuyendungMain']->description !!}</p>
                 </div>
             </div>
             <div id="td-content" class="col-md-12">
                 <div class="row">
-                    @foreach($posts as $key=>$data)
+                    @foreach( $data['tuyendungs'] as $key=>$data)
                         <div class="one-item col-md-12">
                             <div class="row">
                                 <div class="col-md-3">

@@ -9,9 +9,10 @@ use App\Repositories\EloquentRepository;
 
 class MenuRepository extends EloquentRepository implements MenuRepositoryInterface
 {
+
     public function getAllMenuTree()
     {
-        $menus = Menu::orderBy('order')->get(['id', 'name','order', 'type', 'isActive', 'content_id', 'parent_id', 'level']);
+        $menus = Menu::orderBy('order')->get(['id', 'name', 'order', 'type', 'isActive', 'content_id', 'parent_id', 'level']);
         $children = array();
         foreach ($menus as $key => $data) {
             $data['children'] = $children;
@@ -23,9 +24,9 @@ class MenuRepository extends EloquentRepository implements MenuRepositoryInterfa
                 } else {
                     $data['url'] = '#';
                 }
-            }else if($data->type == 2){
-                $categoryPost=CategoryPost::where('id', $data->content_id)->first();
-                $data['url'] = 'danh-muc/'.$categoryPost->path;
+            } else if ($data->type == 2) {
+                $categoryPost = CategoryPost::where('id', $data->content_id)->first();
+                $data['url'] = 'danh-muc/' . $categoryPost->path;
             }
             unset($data->name);
         }
@@ -199,6 +200,20 @@ class MenuRepository extends EloquentRepository implements MenuRepositoryInterfa
         foreach ($listMenu as $key => $data) {
 
         }
+    }
+
+    public function getFrontendMenu()
+    {
+        $data = [];
+        $service = CategoryPost::where('level', MENU_GOC)->where('path', 'dich-vu')->first();
+        $listServices = Post::where('post_type', $service->id)->get();
+        $data['service'] = $service;
+        $data['listServices'] = $listServices;
+        $faqs = CategoryPost::where('parent_id', function ($query) {
+            $query->select('id')->from(with(new CategoryPost)->getTable())->where('path', 'hoi-dap');
+        })->get();
+        $data['faqs'] = $faqs;
+        return $data;
     }
 
 

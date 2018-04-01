@@ -23,12 +23,12 @@
             <div id="hd-content" class="col-md-12">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="hd-content-detail">{!! $page->content !!}</div>
+                        {{--<div class="hd-content-detail">{!! $data['postMain']->description !!}</div>--}}
                     </div>
                 </div>
                 <div class="col-md-12">
                     {{--@foreach($hoidaps as $key=>$data)--}}
-                    @foreach($posts as $key=>$data)
+                    @foreach($data['post'] as $key=>$data)
                         <div class="toggle">
                             <div class="toggle-title ">
                                 <h3>

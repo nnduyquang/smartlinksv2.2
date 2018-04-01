@@ -16,7 +16,7 @@ class MenuComposer
      */
     public function __construct(MenuRepository $menu)
     {
-       $this->listMenu = $menu->getAllMenuTree();
+       $this->listMenu = $menu->getFrontendMenu();
     }
 
     /**

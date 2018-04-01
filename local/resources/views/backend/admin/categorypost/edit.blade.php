@@ -4,12 +4,12 @@
 @section('scripts')
 @stop
 @section('container')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Cập Nhật Chuyên Mục</h2>
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Cập Nhật Chuyên Mục Sản Phẩm</h2>
             </div>
-            <div class="pull-right">
+            <div class="col-md-4 text-right">
                 <a class="btn btn-primary" href="{{ route('categorypost.index') }}"> Back</a>
             </div>
         </div>
@@ -37,7 +37,7 @@
                         <div class="form-group">
                             <strong>Menu Cấp</strong>
                             <select class="form-control" name="parent">'
-                                @foreach($dd_categorie_posts as $key=>$data) {
+                                @foreach($dd_category_post as $key=>$data) {
                                 @if($data['index']===$categorypost->parent_id)
                                     <option value="{{$data['index']}}" selected>{{$data['value']}}</option>
                                 @else
@@ -47,14 +47,57 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <strong>Mô Tả Ngắn:</strong>
+                            {!! Form::textarea('description',null,array('placeholder' => '','id'=>'description-page','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+                        </div>
+                        <div class="form-group">
                             <strong>Thứ Tự:</strong>
                             {!! Form::text('order',null, array('placeholder' => 'Thứ Tự','class' => 'form-control')) !!}
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <strong>Hình Đại Diện: </strong>
+                            {!! Form::text('image', url('/').'/'.$categorypost->image, array('class' => 'form-control','id'=>'pathImage')) !!}
+                            <br>
+                            {!! Form::button('Tìm', array('id' => 'btnBrowseImage','class'=>'btn btn-primary')) !!}
+                        </div>
+                        <div class="form-group">
+                            {{ Html::image($categorypost->image,'',array('id'=>'showHinh','class'=>'show-image'))}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="col-md-12">
+                <div class="row no-gutters">
+                    <h3>SEO</h3>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <strong>Tiêu Đề (title):</strong>
+                            {!! Form::text('seo_title',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <strong>Mô Tả (description):</strong>
+                            {!! Form::textarea('seo_description',null,array('placeholder' => '','id'=>'seo-description','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <strong>Keywords (cách nhau dấu phẩy ','):</strong>
+                            {!! Form::text('seo_keywords',null, array('placeholder' => 'keywords cách nhau dấu phẩy','class' => 'form-control')) !!}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <strong>Kích Hoạt:</strong>
+                        <input {{$categorypost->isActive==1?'checked':''}} name="page_is_active" data-on="Có" data-off="Không" type="checkbox" data-toggle="toggle">
+                    </div>
                 </div>
             </div>
             <div class="col-md-12" style="text-align:  center;">
-                <button id="btnDanhMuc" type="submit" class="btn btn-primary">Tạo Mới Chuyên Mục</button>
+                <button id="btnDanhMuc" type="submit" class="btn btn-primary">Cập Nhật Chuyên Mục Bài Viết</button>
             </div>
         </div>
     </div>

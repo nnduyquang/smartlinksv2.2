@@ -23,4 +23,6 @@ interface MenuRepositoryInterface
     public function deleteMenu($id);
 
     public function showMenu();
+
+    public function getFrontendMenu();
 }

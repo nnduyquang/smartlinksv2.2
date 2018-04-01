@@ -4,13 +4,13 @@
             <div id="tt-content" class="col-md-12">
                 <div id="tt-header" class="col-md-12">
                     <div class="row">
-                        <div class="tt-content-detail">{!! $page->content !!}</div>
+                        <div class="tt-content-detail">{!! $data['newsMain']->description !!}</div>
                     </div>
                 </div>
                 <div id="tt-group-info" class="col-md-12">
                     <div class="container">
                         <div class="row row-flex row-flex-wrap">
-                            @foreach($posts as $key=>$data)
+                            @foreach($data['news'] as $key=>$data)
                                 <div class="one-item col-md-3">
                                     <a href="{{URL::to('tin-tuc/'.$data->path)}}">
                                         <div class="flex-col">

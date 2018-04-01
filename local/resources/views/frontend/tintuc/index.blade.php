@@ -1,9 +1,9 @@
 @extends('frontend.master')
 @section('title')
-    {{$page->seo_title}}
+    {{$data['newsMain']->seo_title}}
 @stop
 @section('description')
-    {{$page->seo_description}}
+    {{$data['newsMain']->seo_description}}
 @stop
 @section('container')
     @include('frontend.tintuc.tt_header')
