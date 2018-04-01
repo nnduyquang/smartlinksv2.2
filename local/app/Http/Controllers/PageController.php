@@ -44,6 +44,7 @@ class PageController extends Controller
         $content = $request->input('content');
         $seoTitle = $request->input('seo_title');
         $seoDescription = $request->input('seo_description');
+        $seoKeywords=$request->input('seo_keywords');
         $isActive = $request->input('page_is_active');
         $image = $request->input('image');
         $image = substr($image, strpos($image, 'images'), strlen($image) - 1);
@@ -60,6 +61,9 @@ class PageController extends Controller
         }
         if ($seoDescription) {
             $page->seo_description = $seoDescription;
+        }
+        if ($seoKeywords) {
+            $page->seo_keywords = $seoKeywords;
         }
         $page->title = $title;
         $page->path = chuyen_chuoi_thanh_path($title);
@@ -110,6 +114,7 @@ class PageController extends Controller
         $content = $request->input('content');
         $seoTitle = $request->input('seo_title');
         $seoDescription = $request->input('seo_description');
+        $seoKeywords=$request->input('seo_keywords');
         $isActive = $request->input('page_is_active');
         $image = $request->input('image');
         $image = substr($image, strpos($image, 'images'), strlen($image) - 1);
@@ -126,6 +131,9 @@ class PageController extends Controller
         }
         if ($seoDescription) {
             $page->seo_description = $seoDescription;
+        }
+        if ($seoKeywords) {
+            $page->seo_keywords = $seoKeywords;
         }
         $page->title = $title;
         $page->path = chuyen_chuoi_thanh_path($title);
