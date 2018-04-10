@@ -11,7 +11,7 @@
                             </div>
                             <div class="footer-info">
                                 <ul>
-                                    <li><i class="fa fa-home" aria-hidden="true"></i>20/13 Nguyễn Trường Tộ, P.12, Quận 4,
+                                    <li><i class="fa fa-home" aria-hidden="true"></i>25 Hoàng Diệu, P.12, Quận 4,
                                         TPHCM
                                     </li>
                                     <li><i class="fa fa-phone-square" aria-hidden="true"></i>(028) 66 83 00 91 -
