@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.3
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th4 01, 2018 lúc 02:16 PM
--- Phiên bản máy phục vụ: 5.6.37
--- Phiên bản PHP: 5.6.30
+-- Host: 127.0.0.1
+-- Generation Time: Apr 19, 2018 at 02:26 AM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `smaa7688_smartlinksv2`
+-- Database: `smartlinksv2`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `accounts`
+-- Table structure for table `accounts`
 --
 
 CREATE TABLE `accounts` (
@@ -40,7 +38,7 @@ CREATE TABLE `accounts` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `campaigns`
+-- Table structure for table `campaigns`
 --
 
 CREATE TABLE `campaigns` (
@@ -57,7 +55,7 @@ CREATE TABLE `campaigns` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category_permissions`
+-- Table structure for table `category_permissions`
 --
 
 CREATE TABLE `category_permissions` (
@@ -68,7 +66,7 @@ CREATE TABLE `category_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `category_permissions`
+-- Dumping data for table `category_permissions`
 --
 
 INSERT INTO `category_permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -83,7 +81,7 @@ INSERT INTO `category_permissions` (`id`, `name`, `created_at`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category_posts`
+-- Table structure for table `category_posts`
 --
 
 CREATE TABLE `category_posts` (
@@ -93,28 +91,35 @@ CREATE TABLE `category_posts` (
   `level` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `template` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `parent_id` int(10) UNSIGNED DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_title` varchar(54) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_description` varchar(230) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_keywords` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `page_id` int(11) NOT NULL DEFAULT '0',
   `order` int(11) NOT NULL DEFAULT '1',
+  `isActive` tinyint(4) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `category_posts`
+-- Dumping data for table `category_posts`
 --
 
-INSERT INTO `category_posts` (`id`, `name`, `path`, `level`, `template`, `parent_id`, `page_id`, `order`, `created_at`, `updated_at`) VALUES
-(1, 'Trang', 'trang', 0, NULL, NULL, 0, 1, '2018-01-26 03:16:05', '2018-01-26 03:16:05'),
-(2, 'Tin Tức', 'tin-tuc', 0, 'tintuc.index', NULL, 6, 1, '2018-01-26 03:16:22', '2018-01-26 03:16:22'),
-(3, 'Tuyển Dụng', 'tuyen-dung', 0, 'tuyendung.index', NULL, 4, 1, '2018-01-26 03:16:31', '2018-01-26 03:16:31'),
-(4, 'Hỏi Đáp', 'hoi-dap', 0, NULL, NULL, 0, 1, '2018-01-26 03:16:38', '2018-01-26 03:16:38'),
-(5, 'Hỏi Đáp Google Adwords', 'hoi-dap-google-adwords', 1, 'hoidap.index', 4, 8, 1, '2018-01-26 03:17:02', '2018-01-26 03:17:02'),
-(6, 'Hỏi Đáp Thiết Kế Website', 'hoi-dap-thiet-ke-website', 1, 'hoidap.index', 4, 7, 1, '2018-01-26 03:59:54', '2018-01-26 03:59:54');
+INSERT INTO `category_posts` (`id`, `name`, `path`, `level`, `template`, `parent_id`, `description`, `image`, `seo_title`, `seo_description`, `seo_keywords`, `page_id`, `order`, `isActive`, `created_at`, `updated_at`) VALUES
+(1, 'Trang', 'trang', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 1, '2018-01-26 03:16:05', '2018-01-26 03:16:05'),
+(2, 'Tin Tức', 'tin-tuc', 0, 'tintuc.index', NULL, '<p>\r\n	Chuyên Trang Tổng Hợp Tin Tức Digital Marketing\r\n</p>', 'images/uploads/images/Page/gt_1.jpg', 'Chuyên Trang Tổng Hợp Tin Tức Digital Marketing', 'Chuyên Trang Tổng Hợp Tin Tức Digital Marketing', NULL, 6, 1, 1, '2018-01-26 03:16:22', '2018-04-01 09:23:33'),
+(3, 'Tuyển Dụng', 'tuyen-dung', 0, 'tuyendung.index', NULL, '<p>\r\n	Tuyển Dụng\r\n</p>', 'images/uploads/images/Page/tuyendung_1.png', 'Tuyển Dụng', 'Tuyển Dụng', 'Tuyển Dụng', 4, 1, 1, '2018-01-26 03:16:31', '2018-04-01 11:01:36'),
+(4, 'Hỏi Đáp', 'hoi-dap', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 1, '2018-01-26 03:16:38', '2018-01-26 03:16:38'),
+(5, 'Hỏi Đáp Google Adwords', 'hoi-dap-google-adwords', 1, 'hoidap.index', 4, NULL, 'images/uploads/images/Page/gt_1.jpg', NULL, NULL, NULL, 8, 1, 1, '2018-01-26 03:17:02', '2018-04-01 09:32:49'),
+(6, 'Hỏi Đáp Thiết Kế Website', 'hoi-dap-thiet-ke-website', 1, 'hoidap.index', 4, NULL, 'images/uploads/images/Page/gt_1.jpg', NULL, NULL, NULL, 7, 1, 1, '2018-01-26 03:59:54', '2018-04-01 09:32:56'),
+(7, 'Dịch Vụ', 'dich-vu', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 1, '2018-04-01 08:15:42', '2018-04-01 08:15:42');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `configs`
+-- Table structure for table `configs`
 --
 
 CREATE TABLE `configs` (
@@ -129,7 +134,7 @@ CREATE TABLE `configs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `configs`
+-- Dumping data for table `configs`
 --
 
 INSERT INTO `configs` (`id`, `name`, `content`, `description`, `order`, `user_id`, `created_at`, `updated_at`) VALUES
@@ -138,13 +143,13 @@ INSERT INTO `configs` (`id`, `name`, `content`, `description`, `order`, `user_id
 (3, 'email-sender-from', 'Smartlinks', 'Cấu Hình From Gửi Khách Hàng', 3, 1, '2017-08-26 06:53:21', '2017-08-26 07:20:55'),
 (4, 'email-receive-subject', 'BÁO GIÁ MỚI TỪ KHÁCH HÀNG', 'Cấu Hình Subject Nhận Báo Giá', 4, 1, '2017-08-26 06:53:21', '2017-08-26 07:20:55'),
 (5, 'email-receive-from', 'Smartlinks', 'Cấu Hình From Nhận Báo Giá', 5, 1, '2017-08-26 06:53:21', '2017-08-26 07:20:55'),
-(6, 'email-signatures', '<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\">-- </span></pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\">__________________________________________________________________</span></pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\"> </span></pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\">V&otilde; Thị Ngọc Yến</span></pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\">Nh&acirc;n Vi&ecirc;n Kinh Doanh</span></pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\">__________________________________________________________________</span></pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\"> </span></pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\">C&ocirc;ng Ty TNHH Truyền Th&ocirc;ng V&agrave; Đầu Tư Smartlinks</span></pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\">Địa chỉ: 20/13 Nguyễn Trường Tộ, P.12, Quận 4, TPHCM</span></pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\">Mobile: (+84) 911.177.131</span></pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\">Email: <a href=\"mailto:yenvtn.sml@gmail.com\" style=\"color:blue; text-decoration:underline\" target=\"_blank\">yenvtn.sml@gmail.com</a></span></pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style=\"margin-left:0cm; margin-right:0cm\">\r\n<span style=\"font-size:10pt\">Website: <a href=\"http://smartlinks.vn\" style=\"color:blue; text-decoration:underline\" target=\"_blank\">http://smartlinks.vn</a></span></pre>', 'Cấu Hình Chữ Ký', 7, 1, '2017-08-26 06:53:21', '2017-12-13 02:03:12'),
-(7, 'email-sender-content', '<h1 style=\"margin-left:0cm; margin-right:0cm\"><span style=\"font-size:24pt\">Ch&uacute;ng T&ocirc;i Đ&atilde; Nhận Được Mail, Xin Ch&acirc;n Th&agrave;nh Cảm Ơn</span></h1>', 'Cấu Hình Nội Dung Gửi Khách Hàng', 6, 1, '2017-08-26 06:53:21', '2017-12-13 02:03:12');
+(6, 'email-signatures', '<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt">-- </span></pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt">__________________________________________________________________</span></pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt"> </span></pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt">V&otilde; Thị Ngọc Yến</span></pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt">Nh&acirc;n Vi&ecirc;n Kinh Doanh</span></pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt">__________________________________________________________________</span></pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt"> </span></pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt">C&ocirc;ng Ty TNHH Truyền Th&ocirc;ng V&agrave; Đầu Tư Smartlinks</span></pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt">Địa chỉ: 20/13 Nguyễn Trường Tộ, P.12, Quận 4, TPHCM</span></pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt">Mobile: (+84) 911.177.131</span></pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt">Email: <a href="mailto:yenvtn.sml@gmail.com" style="color:blue; text-decoration:underline" target="_blank">yenvtn.sml@gmail.com</a></span></pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n\r\n&nbsp;</pre>\r\n\r\n<pre style="margin-left:0cm; margin-right:0cm">\r\n<span style="font-size:10pt">Website: <a href="http://smartlinks.vn" style="color:blue; text-decoration:underline" target="_blank">http://smartlinks.vn</a></span></pre>', 'Cấu Hình Chữ Ký', 7, 1, '2017-08-26 06:53:21', '2017-12-13 02:03:12'),
+(7, 'email-sender-content', '<h1 style="margin-left:0cm; margin-right:0cm"><span style="font-size:24pt">Ch&uacute;ng T&ocirc;i Đ&atilde; Nhận Được Mail, Xin Ch&acirc;n Th&agrave;nh Cảm Ơn</span></h1>', 'Cấu Hình Nội Dung Gửi Khách Hàng', 6, 1, '2017-08-26 06:53:21', '2017-12-13 02:03:12');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `employees`
+-- Table structure for table `employees`
 --
 
 CREATE TABLE `employees` (
@@ -163,7 +168,7 @@ CREATE TABLE `employees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `employees`
+-- Dumping data for table `employees`
 --
 
 INSERT INTO `employees` (`id`, `emp_name`, `emp_phone`, `emp_email`, `emp_skype`, `emp_duty`, `emp_note`, `emp_order`, `emp_is_work`, `emp_image`, `created_at`, `updated_at`) VALUES
@@ -175,7 +180,7 @@ INSERT INTO `employees` (`id`, `emp_name`, `emp_phone`, `emp_email`, `emp_skype`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `histories`
+-- Table structure for table `histories`
 --
 
 CREATE TABLE `histories` (
@@ -195,7 +200,7 @@ CREATE TABLE `histories` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `keywords`
+-- Table structure for table `keywords`
 --
 
 CREATE TABLE `keywords` (
@@ -208,7 +213,7 @@ CREATE TABLE `keywords` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `menus`
+-- Table structure for table `menus`
 --
 
 CREATE TABLE `menus` (
@@ -226,7 +231,7 @@ CREATE TABLE `menus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `menus`
+-- Dumping data for table `menus`
 --
 
 INSERT INTO `menus` (`id`, `name`, `path`, `level`, `order`, `parent_id`, `content_id`, `type`, `isActive`, `created_at`, `updated_at`) VALUES
@@ -248,7 +253,7 @@ INSERT INTO `menus` (`id`, `name`, `path`, `level`, `order`, `parent_id`, `conte
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -258,7 +263,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -281,7 +286,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -293,7 +298,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `permissions`
+-- Table structure for table `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -307,7 +312,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `permissions`
+-- Dumping data for table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `category_permission_id`, `created_at`, `updated_at`) VALUES
@@ -343,7 +348,7 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `categor
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `permission_role`
+-- Table structure for table `permission_role`
 --
 
 CREATE TABLE `permission_role` (
@@ -352,7 +357,7 @@ CREATE TABLE `permission_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `permission_role`
+-- Dumping data for table `permission_role`
 --
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
@@ -388,7 +393,7 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `posts`
+-- Table structure for table `posts`
 --
 
 CREATE TABLE `posts` (
@@ -399,8 +404,8 @@ CREATE TABLE `posts` (
   `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `template` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `seo_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `seo_description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_title` varchar(54) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_description` varchar(230) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seo_keywords` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `post_type` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `isActive` tinyint(1) NOT NULL DEFAULT '1',
@@ -410,32 +415,37 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `posts`
+-- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`id`, `title`, `path`, `description`, `content`, `template`, `image`, `seo_title`, `seo_description`, `seo_keywords`, `post_type`, `isActive`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Youtube Ads', 'youtube-ads', '<p>\r\n	Youtube Ads\r\n</p>', '<p style=\"line-height:1.5\">\r\n	Theo số liệu thống kê thì mỗi tháng có hơn 1 tỷ người dung, dành ra 6 tỷ giờ để xem video trên Youtube. Thu hút hàng triệu lượt xem nên Youtube đã trở thành một trong những thị trường hấp dẫn của các nhà đầu tư quảng cáo và các doanh nghiệp muốn tăng thị phần của mình bằng cách đăng quảng cáo trên youtube. Ngoài ra, hơn một nửa số lượt xem video trên Youtube là đến từ các thiết bị di động. Điều này cho thấy có rất nhiều khách hàng tiềm năng đối với các doanh nghiệp.<br>\r\n	Và Youtube là một mạng xã hội video trực tuyến lớn nhất thế giới và là trang tìm kiếm lớn thứ 2 sau Google.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<h2>\r\n	<span style=\"font-size:22px\"><strong>Lợi ích của&nbsp;quảng cáo trên Youtube trong kinh doanh.</strong></span>\r\n</h2>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Quảng cáo trên youtube chính là cầu nối giữa nhà quảng cáo, doanh nghiệp và người xem.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Giúp kết nối với khách hàng tiềm năng theo cách độc đáo và đa dạng.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Doanh nghiệp có thể chia sẻ thông tin, lợi ích của sản phẩm hoặc dịch vụ mang lại.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Tạo chiến dịch trên quảng cáo youtube chỉ trong ít phút.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Tiếp cận đúng đối tượng, tiết kiệm và hiệu quả.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong><em>Youtube Video Ads (Qu</em></strong><strong><em>ả</em></strong><strong><em>ng cáo trong video c</em></strong><strong><em>ủ</em></strong><strong><em>a Youtube)</em></strong><em>&nbsp;</em><strong>bao g</strong><strong>ồ</strong><strong>m:</strong>\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>1. YouTube Homepage (Quảng cáo hiển thị trên trang chủ YouTube)</strong>\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	Quảng cáo xuất hiện ngay trang chủ Youtube rất bắt mắt và thu hút người xem, có tính tương tác cao trong 24h. Người xem dễ nhìn thấy quảng cáo nên có lượt xem, tỉ lệ nhấp chuột cao và tùy chọn điều chỉnh không giới hạn đồng thời có thể tiếp thị lại.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	<img alt=\"\" class=\"visible-xs-block\" src=\"http://smartlinks.vn/images/uploads/images/Page/yt_1.jpg\" style=\"height:80%; width:80%\">\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>2. YouTube Video Ads (Quảng cáo trong video của YouTube)</strong>\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	Định dạng&nbsp;<strong>Trueview In-Stream,</strong>&nbsp;quảng cáo được phát trước giúp bạn tiếp cận người dùng khi họ xem video nhưng người dùng chỉ có thể bỏ qua sau 5 giây quảng cáo. Nhà quảng cáo chỉ phải trả tiền sau 30 giây hoặc khi kết thúc video.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	<img alt=\"\" src=\"http://smartlinks.vn/images/uploads/images/Page/yt_2.jpg\" style=\"height:100%; width:100%\">\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>In-Stream Non-skippable(không thể bỏ qua)</strong>&nbsp;là dạng quảng cáo xuất hiện trên các trang YouTube và các wesbstie thuộc hệ thống Display của Google có hỗ trợ quảng cáo video.&nbsp;Người dùng không thể bỏ qua quảng cáo.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	<img alt=\"\" src=\"http://smartlinks.vn/images/uploads/images/Page/yt_3.jpg\" style=\"height:80%; width:80%\">\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>In-Stream Preroll Ads</strong>&nbsp;là hình thức quảng cáo xuất hiện không chỉ trên YouTube mà còn những trang embed(nhúng) video từ YouTube. Người dùng không thể bỏ qua quảng cáo cho đến hết thời gian mặc định.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	<img alt=\"\" src=\"http://smartlinks.vn/images/uploads/images/Page/yt_4.jpg\" style=\"height:80%; width:80%\">\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>In-Stream Select(lựa chọn)</strong>&nbsp;là dạng Quảng cáo xuất hiện trên YouTube và các website nhúng link video từ YouTube, trong đó người dùng có thể bỏ qua quảng cáo.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	<img alt=\"\" src=\"http://smartlinks.vn/images/uploads/images/Page/yt_5.png\" style=\"height:80%; width:80%\">\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>3. YouTube Display Ads (Quảng cáo hiển thị trên YouTube)</strong>\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong><em>TrueView In-Display on&nbsp;Watch page&nbsp;</em></strong>là dạng&nbsp;<strong>quảng cáo YouTube</strong>&nbsp;xuất hiện bên cạnh một video khi bạn xem. Nhà quảng cáo phải trả tiền khi người dùng ấn vào và xem video.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	<img alt=\"\" src=\"http://smartlinks.vn/images/uploads/images/Page/yt_6.png\" style=\"height:80%; width:80%\">\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	Còn<em>&nbsp;</em><em><strong>TrueView In-Display on Search Page</strong></em><strong>&nbsp;</strong>thì xuất hiện khi người dùng tìm kiếm, nhà quảng cáo phải trả tiền khi người dùng ấn vào và xem video.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	<img alt=\"\" src=\"http://smartlinks.vn/images/uploads/images/Page/yt_7.png\" style=\"height:80%; width:80%\">\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>Standard Display</strong>&nbsp; xuất hiện bên cạnh một video khi bạn xem hoặc tìm kiếm trên YouTube. Nhà quảng cáo phải trả tiền khi người dùng ấn vào banner quảng cáo, link đích có thể là YouTube channel, video hoặc website của bạn.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	<img alt=\"\" src=\"http://smartlinks.vn/images/uploads/images/Page/yt_8.png\" style=\"height:80%; width:80%\">\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>In-Video (Overlay)</strong>&nbsp;xuất hiện trong luồng khi bạn xem một video. Nhà quảng cáo phải trả tiền khi người dùng ấn vào banner quảng cáo, link đích có thể là YouTube channel, video hoặc website của bạn.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	<img alt=\"\" src=\"http://smartlinks.vn/images/uploads/images/Page/yt_9.jpg\" style=\"height:80%; width:80%\">\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>4.YouTube Brand Channel&nbsp;</strong>là mạng xã hội giúp doanh nghiệp lưu trữ và truyền tải video đến đông đảo khách hàng, với giao diện tùy chỉnh một cách chuyên nghiệp và đẳng cấp tạo nét cá tính riêng. Quảng cáo này có chi phí rất cao.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	<img alt=\"\" src=\"http://smartlinks.vn/images/uploads/images/Page/yt_10.jpg\" style=\"height:80%; width:80%\">\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>5. Quảng bá với GDN</strong>\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>Hover to Play</strong>&nbsp;là hệ&nbsp;thống&nbsp;trang&nbsp;xuất&nbsp;hiện trên GDN&nbsp;network (Bao gồm YouTube và xuất hiện dạng banner).\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	<img alt=\"\" src=\"http://smartlinks.vn/images/uploads/images/Page/yt_11.png\" style=\"height:80%; width:80%\">\r\n</p>\r\n\r\n<p style=\"text-align:center\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>Hover to Expand</strong>&nbsp;xuất hiện tại các vị trí cho phép đặt quảng cáo của các trang thuộc GDN, với thời lượng tối đa 4 phút (tốt nhất trong 30 giây).\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<strong>Click to Expand</strong>&nbsp;có vị&nbsp;trí&nbsp;xuất&nbsp;hiện banner xuất hiện tại các vị trí cho phép đặt quảng cáo của các trang thuộc GDN, cũng có thời lượng tối đa 4 phút (tốt nhất trong 30 giây). &nbsp; &nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<em>Để được tư vấn sâu hơn, cụ thể hơn, bạn có thể liên lạc với chúng tôi.</em>\r\n</p>', 'dichvu.common.index', 'images/uploads/images/Page/youtube_banner.jpg', 'Youtube Ads', '<p>\r\n	Youtube Ads\r\n</p>', NULL, 1, 1, 1, '2018-01-12 03:27:27', '2018-01-18 03:32:32'),
-(2, 'Giới Thiệu', 'gioi-thieu', '<p>\r\n	Giới Thiệu\r\n</p>', '<h2>\r\n	<span style=\"font-size:22px\"><span style=\"color:#1f45a8\">GIỚI THIỆU VỀ SMARTLINKS</span></span>\r\n</h2>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	SmartLinks tự hào khi được đánh giá là một đơn vị tuy còn non trẻ nhưng biết &ldquo;đi tắt đón đầu công nghệ&rdquo; để mang đến những thành công ngoài mong đợi cho khách hàng trong các lĩnh vực truyền thông trực tuyến.<br>\r\n	SmartLinks biết cách khai thác các thế mạnh của khoa học công nghệ để đưa ra các &ldquo;giải pháp marketing online&rdquo; hiệu quả phù hợp cho từng giai đoạn phát triển của doanh nghiệp với từng mặt hàng cụ thể nhắm đến khách hàng mục tiêu khác nhau của doanh nghiệp, mang đến những thành công không chỉ ở việc làm gia tăng được doanh số bán hàng, xây dựng và quảng bá thương hiệu, hình ảnh doanh nghiệp mà còn giúp doanh nghiệp khai thác triệt để&nbsp;khách hàng tiềm năng của mình.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<h2>\r\n	<span style=\"font-size:22px\"><span style=\"color:#1f45a8\">SMARTLINKS MANG ĐẾN CHO DOANH NGHIỆP&hellip;</span></span>\r\n</h2>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	Không chỉ báo giá thông thường, SmartLinks sẽ giúp doanh nghiệp nghiên cứu vị thế của mình trên thị trường &amp; xu hướng của người dùng trước khi xây dựng kế hoạch quảng cáo trực tuyến chi tiết và hiệu quả.<br>\r\n	Chúng tôi sẽ tư vấn chi tiết chiến dịch quảng cáo, thời gian triển khai, lựa chọn kênh quảng cáo và xây dựng thông điệp quảng cáo phù hợp với mục tiêu. Chúng tôi cũng sẽ giúp doanh nghiệp theo dõi và tối ưu hóa quảng cáo hàng ngày, gửi báo cáo theo tuần, theo tháng nhằm mang lại hiệu quả cao nhất cho doanh nghiệp.\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	Smart Links đã biết phát huy thế mạnh và khai thác triệt để các thành tựu công nghệ đem đến thành công cho khách hàng, SmartLinks đã khẳng định khả năng chăm sóc chu đáo cho các khách hàng trong nước, được khách hàng tin tưởng và đánh giá rất cao.\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	&nbsp;\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Giới Thiệu', '<p>\r\n	Giới Thiệu\r\n</p>', NULL, 1, 1, 1, '2018-01-16 04:17:26', '2018-01-23 04:13:09'),
-(3, 'Thiết Kế Logo', 'thiet-ke-logo', '<p>\r\n	Thiết Kế Logo\r\n</p>', '<p style=\"line-height:1.5\">\r\n	Logo là hình ảnh đại diện cho thương hiệu của bạn, nó là hình ảnh đầu tiên làm khách hàng liên tưởng tới công ty bạn. Logo là biểu tượng sản phẩm qua hình vẽ, hoa văn, kiểu chữ hoặc một dấu hiệu đặc biệt nào đó để xây dựng sự nhận biết của khách hàng về thương hiệu, sản phẩm, dịch vụ của công ty bạn.\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<span style=\"color:#1f45a8\"><strong>TẠI SAO PHẢI&nbsp; THIẾT KẾ LOGO?</strong></span>\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	&nbsp;\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Làm khách hàng ấn tượng và nhớ đến công ty, sản phẩm và dịch vụ của bạn.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Thể hiện tầm nhìn, sức mạnh và tăng giá trị thương hiệu của bạn.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p style=\"line-height:1.5\">\r\n	Logo không chỉ là một sản phẩm đồ họa, thiết kế logo đòi hỏi những hiểu biết sâu sắc về lĩnh vực kinh doanh và chiến lược thương hiệu.Vì vậy Logo cần được thiết kế ấn tượng, khác biệt nhưng đơn giản và tinh tế, &nbsp;tập trung thể hiện những giá trị tinh túy và cốt lõi nhất và truyền tải thông điệp của thương hiệu đến khách hàng. Giúp cho công ty bạn tăng lợi thế cạnh tranh với các công ty đối thủ.\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<span style=\"color:#1f45a8\"><strong>DỊCH VỤ THIẾT KẾ LOGO CHUYÊN NGHIỆP CỦA SMARTLINKS MANG ĐẾN CHO BẠN.</strong></span>\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Một logo truyền tải được sứ mệnh kinh doanh của bạn: Bất kể lĩnh vực kinh doanh của bạn có phức tạp và khó diễn giải đến đâu, chúng tôi sẽ giúp bạn truyền tải những thông điệp của mình qua logo một cách đơn giản tinh tế và sâu sắc nhất.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Một logo được nhận biết tức thì bởi khách hàng mục tiêu của bạn: Dựa trên yêu cầu và mong muốn của quý khách hàng, chúng tôi sẽ đem đến cho bạn những tác phẩm độc đáo, khác &nbsp;biệt nhưng đơn giản, dễ nhớ và gần gũi tạo cho khách hàng của bạn nhiều ấn tượng sâu sắc và đánh dấu thương hiệu trong tâm trí khách hàng.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p>\r\n	​\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	​<span style=\"color:#1f45a8\"><strong>LÝ DO BẠN LỰA CHỌN DỊCH VỤ THIẾT KẾ CỦA &nbsp;</strong><em><strong>SMARTLINKS</strong></em></span>\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Chúng tôi có một đội ngũ thiết kế và marketing giỏi, năng động, sáng tạo đã được đào tạo bài bản và có nhiều năm kinh nghiệm.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Chúng tôi luôn cố gắng và nhiệt tình để mang lại cho khách hàng những sản phẩm truyền thông tốt nhất trong việc phát triển thương hiệu.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Chi phí hợp lý với những sản phẩm nhận được.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style=\"line-height:1.5\">\r\n			Và chúng tôi mong muốn góp phần vào thành công của quý doanh nghiệp. Bởi sự thành công của quý doanh nghiệp là niềm tự hào cho chính chúng tôi.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style=\"line-height:1.5\">\r\n	<span style=\"color:#1f45a8\"><em><strong>Xin vui lòng liên hệ với chúng tôi để được sự hỗ trợ tốt nhất!</strong></em></span>\r\n</p>', 'dichvu.common.index', 'images/uploads/images/Page/logo-design.jpg', 'Thiết Kế Logo', '<p>\r\n	Thiết Kế Logo\r\n</p>', NULL, 1, 1, 1, '2018-01-17 02:33:17', '2018-01-18 03:32:48'),
+(1, 'Youtube Ads', 'youtube-ads', '<p>\r\n	Youtube Ads\r\n</p>', '<p style="line-height:1.5">\r\n	Theo số liệu thống kê thì mỗi tháng có hơn 1 tỷ người dung, dành ra 6 tỷ giờ để xem video trên Youtube. Thu hút hàng triệu lượt xem nên Youtube đã trở thành một trong những thị trường hấp dẫn của các nhà đầu tư quảng cáo và các doanh nghiệp muốn tăng thị phần của mình bằng cách đăng quảng cáo trên youtube. Ngoài ra, hơn một nửa số lượt xem video trên Youtube là đến từ các thiết bị di động. Điều này cho thấy có rất nhiều khách hàng tiềm năng đối với các doanh nghiệp.<br>\r\n	Và Youtube là một mạng xã hội video trực tuyến lớn nhất thế giới và là trang tìm kiếm lớn thứ 2 sau Google.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<h2>\r\n	<span style="font-size:22px"><strong>Lợi ích của&nbsp;quảng cáo trên Youtube trong kinh doanh.</strong></span>\r\n</h2>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Quảng cáo trên youtube chính là cầu nối giữa nhà quảng cáo, doanh nghiệp và người xem.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Giúp kết nối với khách hàng tiềm năng theo cách độc đáo và đa dạng.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Doanh nghiệp có thể chia sẻ thông tin, lợi ích của sản phẩm hoặc dịch vụ mang lại.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Tạo chiến dịch trên quảng cáo youtube chỉ trong ít phút.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Tiếp cận đúng đối tượng, tiết kiệm và hiệu quả.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong><em>Youtube Video Ads (Qu</em></strong><strong><em>ả</em></strong><strong><em>ng cáo trong video c</em></strong><strong><em>ủ</em></strong><strong><em>a Youtube)</em></strong><em>&nbsp;</em><strong>bao g</strong><strong>ồ</strong><strong>m:</strong>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>1. YouTube Homepage (Quảng cáo hiển thị trên trang chủ YouTube)</strong>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	Quảng cáo xuất hiện ngay trang chủ Youtube rất bắt mắt và thu hút người xem, có tính tương tác cao trong 24h. Người xem dễ nhìn thấy quảng cáo nên có lượt xem, tỉ lệ nhấp chuột cao và tùy chọn điều chỉnh không giới hạn đồng thời có thể tiếp thị lại.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" class="visible-xs-block" src="http://smartlinks.vn/images/uploads/images/Page/yt_1.jpg" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>2. YouTube Video Ads (Quảng cáo trong video của YouTube)</strong>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	Định dạng&nbsp;<strong>Trueview In-Stream,</strong>&nbsp;quảng cáo được phát trước giúp bạn tiếp cận người dùng khi họ xem video nhưng người dùng chỉ có thể bỏ qua sau 5 giây quảng cáo. Nhà quảng cáo chỉ phải trả tiền sau 30 giây hoặc khi kết thúc video.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_2.jpg" style="height:100%; width:100%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>In-Stream Non-skippable(không thể bỏ qua)</strong>&nbsp;là dạng quảng cáo xuất hiện trên các trang YouTube và các wesbstie thuộc hệ thống Display của Google có hỗ trợ quảng cáo video.&nbsp;Người dùng không thể bỏ qua quảng cáo.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_3.jpg" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>In-Stream Preroll Ads</strong>&nbsp;là hình thức quảng cáo xuất hiện không chỉ trên YouTube mà còn những trang embed(nhúng) video từ YouTube. Người dùng không thể bỏ qua quảng cáo cho đến hết thời gian mặc định.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_4.jpg" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>In-Stream Select(lựa chọn)</strong>&nbsp;là dạng Quảng cáo xuất hiện trên YouTube và các website nhúng link video từ YouTube, trong đó người dùng có thể bỏ qua quảng cáo.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_5.png" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>3. YouTube Display Ads (Quảng cáo hiển thị trên YouTube)</strong>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong><em>TrueView In-Display on&nbsp;Watch page&nbsp;</em></strong>là dạng&nbsp;<strong>quảng cáo YouTube</strong>&nbsp;xuất hiện bên cạnh một video khi bạn xem. Nhà quảng cáo phải trả tiền khi người dùng ấn vào và xem video.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_6.png" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	Còn<em>&nbsp;</em><em><strong>TrueView In-Display on Search Page</strong></em><strong>&nbsp;</strong>thì xuất hiện khi người dùng tìm kiếm, nhà quảng cáo phải trả tiền khi người dùng ấn vào và xem video.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_7.png" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>Standard Display</strong>&nbsp; xuất hiện bên cạnh một video khi bạn xem hoặc tìm kiếm trên YouTube. Nhà quảng cáo phải trả tiền khi người dùng ấn vào banner quảng cáo, link đích có thể là YouTube channel, video hoặc website của bạn.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_8.png" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>In-Video (Overlay)</strong>&nbsp;xuất hiện trong luồng khi bạn xem một video. Nhà quảng cáo phải trả tiền khi người dùng ấn vào banner quảng cáo, link đích có thể là YouTube channel, video hoặc website của bạn.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_9.jpg" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>4.YouTube Brand Channel&nbsp;</strong>là mạng xã hội giúp doanh nghiệp lưu trữ và truyền tải video đến đông đảo khách hàng, với giao diện tùy chỉnh một cách chuyên nghiệp và đẳng cấp tạo nét cá tính riêng. Quảng cáo này có chi phí rất cao.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_10.jpg" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>5. Quảng bá với GDN</strong>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>Hover to Play</strong>&nbsp;là hệ&nbsp;thống&nbsp;trang&nbsp;xuất&nbsp;hiện trên GDN&nbsp;network (Bao gồm YouTube và xuất hiện dạng banner).\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_11.png" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>Hover to Expand</strong>&nbsp;xuất hiện tại các vị trí cho phép đặt quảng cáo của các trang thuộc GDN, với thời lượng tối đa 4 phút (tốt nhất trong 30 giây).\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>Click to Expand</strong>&nbsp;có vị&nbsp;trí&nbsp;xuất&nbsp;hiện banner xuất hiện tại các vị trí cho phép đặt quảng cáo của các trang thuộc GDN, cũng có thời lượng tối đa 4 phút (tốt nhất trong 30 giây). &nbsp; &nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<em>Để được tư vấn sâu hơn, cụ thể hơn, bạn có thể liên lạc với chúng tôi.</em>\r\n</p>', 'dichvu.common.index', 'images/uploads/images/Page/youtube_banner.jpg', 'Youtube Ads', '<p>\r\n	Youtube Ads\r\n</p>', NULL, 1, 1, 1, '2018-01-12 03:27:27', '2018-01-18 03:32:32'),
+(2, 'Giới Thiệu', 'gioi-thieu', '<p>\r\n	Giới Thiệu\r\n</p>', '<h2>\r\n	<span style="font-size:22px"><span style="color:#1f45a8">GIỚI THIỆU VỀ SMARTLINKS</span></span>\r\n</h2>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	SmartLinks tự hào khi được đánh giá là một đơn vị tuy còn non trẻ nhưng biết &ldquo;đi tắt đón đầu công nghệ&rdquo; để mang đến những thành công ngoài mong đợi cho khách hàng trong các lĩnh vực truyền thông trực tuyến.<br>\r\n	SmartLinks biết cách khai thác các thế mạnh của khoa học công nghệ để đưa ra các &ldquo;giải pháp marketing online&rdquo; hiệu quả phù hợp cho từng giai đoạn phát triển của doanh nghiệp với từng mặt hàng cụ thể nhắm đến khách hàng mục tiêu khác nhau của doanh nghiệp, mang đến những thành công không chỉ ở việc làm gia tăng được doanh số bán hàng, xây dựng và quảng bá thương hiệu, hình ảnh doanh nghiệp mà còn giúp doanh nghiệp khai thác triệt để&nbsp;khách hàng tiềm năng của mình.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<h2>\r\n	<span style="font-size:22px"><span style="color:#1f45a8">SMARTLINKS MANG ĐẾN CHO DOANH NGHIỆP&hellip;</span></span>\r\n</h2>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	Không chỉ báo giá thông thường, SmartLinks sẽ giúp doanh nghiệp nghiên cứu vị thế của mình trên thị trường &amp; xu hướng của người dùng trước khi xây dựng kế hoạch quảng cáo trực tuyến chi tiết và hiệu quả.<br>\r\n	Chúng tôi sẽ tư vấn chi tiết chiến dịch quảng cáo, thời gian triển khai, lựa chọn kênh quảng cáo và xây dựng thông điệp quảng cáo phù hợp với mục tiêu. Chúng tôi cũng sẽ giúp doanh nghiệp theo dõi và tối ưu hóa quảng cáo hàng ngày, gửi báo cáo theo tuần, theo tháng nhằm mang lại hiệu quả cao nhất cho doanh nghiệp.\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	Smart Links đã biết phát huy thế mạnh và khai thác triệt để các thành tựu công nghệ đem đến thành công cho khách hàng, SmartLinks đã khẳng định khả năng chăm sóc chu đáo cho các khách hàng trong nước, được khách hàng tin tưởng và đánh giá rất cao.\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	&nbsp;\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Giới Thiệu', '<p>\r\n	Giới Thiệu\r\n</p>', NULL, 1, 1, 1, '2018-01-16 04:17:26', '2018-01-23 04:13:09'),
+(3, 'Thiết Kế Logo', 'thiet-ke-logo', '<p>\r\n	Thiết Kế Logo\r\n</p>', '<p style="line-height:1.5">\r\n	Logo là hình ảnh đại diện cho thương hiệu của bạn, nó là hình ảnh đầu tiên làm khách hàng liên tưởng tới công ty bạn. Logo là biểu tượng sản phẩm qua hình vẽ, hoa văn, kiểu chữ hoặc một dấu hiệu đặc biệt nào đó để xây dựng sự nhận biết của khách hàng về thương hiệu, sản phẩm, dịch vụ của công ty bạn.\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<span style="color:#1f45a8"><strong>TẠI SAO PHẢI&nbsp; THIẾT KẾ LOGO?</strong></span>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	&nbsp;\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Làm khách hàng ấn tượng và nhớ đến công ty, sản phẩm và dịch vụ của bạn.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Thể hiện tầm nhìn, sức mạnh và tăng giá trị thương hiệu của bạn.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p style="line-height:1.5">\r\n	Logo không chỉ là một sản phẩm đồ họa, thiết kế logo đòi hỏi những hiểu biết sâu sắc về lĩnh vực kinh doanh và chiến lược thương hiệu.Vì vậy Logo cần được thiết kế ấn tượng, khác biệt nhưng đơn giản và tinh tế, &nbsp;tập trung thể hiện những giá trị tinh túy và cốt lõi nhất và truyền tải thông điệp của thương hiệu đến khách hàng. Giúp cho công ty bạn tăng lợi thế cạnh tranh với các công ty đối thủ.\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<span style="color:#1f45a8"><strong>DỊCH VỤ THIẾT KẾ LOGO CHUYÊN NGHIỆP CỦA SMARTLINKS MANG ĐẾN CHO BẠN.</strong></span>\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Một logo truyền tải được sứ mệnh kinh doanh của bạn: Bất kể lĩnh vực kinh doanh của bạn có phức tạp và khó diễn giải đến đâu, chúng tôi sẽ giúp bạn truyền tải những thông điệp của mình qua logo một cách đơn giản tinh tế và sâu sắc nhất.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Một logo được nhận biết tức thì bởi khách hàng mục tiêu của bạn: Dựa trên yêu cầu và mong muốn của quý khách hàng, chúng tôi sẽ đem đến cho bạn những tác phẩm độc đáo, khác &nbsp;biệt nhưng đơn giản, dễ nhớ và gần gũi tạo cho khách hàng của bạn nhiều ấn tượng sâu sắc và đánh dấu thương hiệu trong tâm trí khách hàng.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p>\r\n	​\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	​<span style="color:#1f45a8"><strong>LÝ DO BẠN LỰA CHỌN DỊCH VỤ THIẾT KẾ CỦA &nbsp;</strong><em><strong>SMARTLINKS</strong></em></span>\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Chúng tôi có một đội ngũ thiết kế và marketing giỏi, năng động, sáng tạo đã được đào tạo bài bản và có nhiều năm kinh nghiệm.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Chúng tôi luôn cố gắng và nhiệt tình để mang lại cho khách hàng những sản phẩm truyền thông tốt nhất trong việc phát triển thương hiệu.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Chi phí hợp lý với những sản phẩm nhận được.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Và chúng tôi mong muốn góp phần vào thành công của quý doanh nghiệp. Bởi sự thành công của quý doanh nghiệp là niềm tự hào cho chính chúng tôi.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<span style="color:#1f45a8"><em><strong>Xin vui lòng liên hệ với chúng tôi để được sự hỗ trợ tốt nhất!</strong></em></span>\r\n</p>', 'dichvu.common.index', 'images/uploads/images/Page/logo-design.jpg', 'Thiết Kế Logo', '<p>\r\n	Thiết Kế Logo\r\n</p>', NULL, 1, 1, 1, '2018-01-17 02:33:17', '2018-01-18 03:32:48'),
 (4, 'Tuyển Dụng', 'tuyen-dung', '<p>\r\n	Chuyên Trang Tuyển Dụng Công Ty Smartlinks\r\n</p>', '<p>\r\n	Chuyên Trang Tuyển Dụng Công Ty Smartlinks\r\n</p>', NULL, 'images/uploads/images/Page/tuyendung_1.png', 'Tuyển Dụng', '<p>\r\n	Tuyển Dụng\r\n</p>', NULL, 1, 1, 1, '2018-01-17 09:34:20', '2018-01-19 01:41:49'),
-(5, 'Tuyển Dụng Nhân Viên Kinh Doanh Marketing', 'tuyen-dung-nhan-vien-kinh-doanh-marketing', '<p>\r\n	Tuyển Dụng Nhân Viên Kinh Doanh Marketing\r\n</p>', '<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" class=\"table-style\" style=\"width:100%;\">\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n				<p>\r\n					<span style=\"font-size:18px;\"><strong><span style=\"color:#1f45a8;\">CÔNG TY TNHH TRUYỀN THÔNG VÀ ĐẦU TƯ SMARTLINKS</span></strong></span>\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Thu nhập:</strong>&nbsp;5-15 triệu\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Kinh nghiệm:</strong>&nbsp;1 năm\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Trình độ:</strong>&nbsp;Cao đẳng\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Tỉnh/Thành phố:</strong>&nbsp;Việc làm Hồ Chí Minh\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Ngành nghề:</strong>&nbsp;Bán hàng, Kinh doanh, Quảng cáo/Marketing/PR\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Số lượng tuyển dụng:</strong>&nbsp;10\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Giới tính:</strong>&nbsp;Nữ\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Tính chất công việc:</strong>&nbsp;Giờ hành chính\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Hình thức làm việc:</strong>&nbsp;Nhân viên chính thức\r\n				</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" class=\"table-style\" style=\"width:100%;\">\r\n	<tbody>\r\n		<tr>\r\n			<td colspan=\"2\" style=\"text-align: center;\">\r\n				<span style=\"font-size:18px;\"><strong><span style=\"color:#1f45a8;\">THÔNG TIN TUYỂN DỤNG</span></strong></span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style=\"color:#1f45a8;\">Mô Tả</span></strong>\r\n			</td>\r\n			<td colspan=\"2\">\r\n				&nbsp;- Tìm kiếm khách hàng có nhu cầu quảng bá thương hiệu, tăng doanh thu qua kênh trực tuyến cụ thể Dịch vụ Quảng Cáo Google Adwords<br>\r\n				&nbsp;- Tư vấn về sản phẩm mà khách hàng quan tâm, Triển khai chiến dịch quảng cáo Google Adword <span style=\"font-family:\">&nbsp;</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Sàng lọc danh sách khách hàng (được CTY cung cấp)</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Gọi điện thoại tư vấn dịch vụ, đưa ra giải pháp chiến lược tốt nhất cho KH.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Phối hợp với bộ phận kỹ thuật để đem lại dịch vụ tốt nhất cho khách hàng.</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style=\"color:#1f45a8;\">Yêu Cầu</span></strong>\r\n			</td>\r\n			<td>\r\n				<span style=\"font-family:\">&nbsp;- Nhận sinh viên mới ra trường vào đào tạo làm việc.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Không cần kinh nghiệm, được đào tạo trong môi trường chuyên nghiệp.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Ưu tiên các bạn kinh nghiệm, bằng cấp liên quan tới ngành kinh doanh, tài chính...(Trung cấp, cao đẳng, đại học...)</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Có kỹ năng sử dụng máy tính tốt và khả năng tìm kiếm internet.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Ngoại hình ưa nhìn , giọng nói dễ nghe.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Kỹ năng giao tiếp tốt.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Nhanh nhẹn, sáng tạo trong công việc</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Khả năng làm việc nhóm và độc lập cao.</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style=\"color:#1f45a8;\">Quyền Lợi</span></strong>\r\n			</td>\r\n			<td>\r\n				<span style=\"font-family:\">&nbsp;- Chương trình training thường xuyên giúp bạn luôn tự tin trong môi trường làm việc năng động.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Được tạo điều kiện phát huy hết khả năng của bản thân.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Ghi nhận và thưởng xứng đáng thành quả kinh doanh của bạn</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Hưởng đầy đủ các chế độ theo quy định của luật lao động</span><br>\r\n				<span style=\"font-family:\">&nbsp;- </span>Thu nhập từ 05 - 15tr hoặc <strong>KHÔNG GIỚI HẠN TÙY THEO KHẢ NĂNG CỦA BẠN</strong> (bao gồm lương cứng và thưởng hoa hồng theo thành tích)<br>\r\n				<span style=\"font-family:\">&nbsp;- Nghỉ: Thứ 7, CN&nbsp;</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style=\"color:#1f45a8;\">Hồ Sơ</span></strong>\r\n			</td>\r\n			<td>\r\n				&nbsp;- Đơn xin việc.<br>\r\n				&nbsp;- Sơ yếu lý lịch.<br>\r\n				&nbsp;- Các bằng cấp có liên quan.<br>\r\n				Gửi CV về email liên hệ bên dưới<br>\r\n				<span style=\"font-family:\">Mail: info@smartlinks.vn - : 028 66830091 (Ms.Trang) </span><br>\r\n				<span style=\"font-family:\">Website: www.smartlinks.vn</span><br>\r\n				<span style=\"font-family:\">Địa chỉ phỏng vấn:Thuỷ Anh Office, Lầu 7, 20/13 Nguyễn Trường Tộ, P12, Quận 4, TP HCM.</span>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', NULL, 'images/uploads/images/Page/Marketing.jpg', 'Tuyển Dụng Nhận Viên Kinh Doanh Marketing', '<p>\r\n	Tuyển Dụng Nhân Viên Kinh Doanh Marketing\r\n</p>', NULL, 3, 1, 1, '2018-01-19 01:33:09', '2018-01-19 01:42:00'),
+(5, 'Tuyển Dụng Nhân Viên Kinh Doanh Marketing', 'tuyen-dung-nhan-vien-kinh-doanh-marketing', '<p>\r\n	Tuyển Dụng Nhân Viên Kinh Doanh Marketing\r\n</p>', '<table border="1" cellpadding="1" cellspacing="1" class="table-style" style="width:100%;">\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n				<p>\r\n					<span style="font-size:18px;"><strong><span style="color:#1f45a8;">CÔNG TY TNHH TRUYỀN THÔNG VÀ ĐẦU TƯ SMARTLINKS</span></strong></span>\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Thu nhập:</strong>&nbsp;5-15 triệu\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Kinh nghiệm:</strong>&nbsp;1 năm\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Trình độ:</strong>&nbsp;Cao đẳng\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Tỉnh/Thành phố:</strong>&nbsp;Việc làm Hồ Chí Minh\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Ngành nghề:</strong>&nbsp;Bán hàng, Kinh doanh, Quảng cáo/Marketing/PR\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Số lượng tuyển dụng:</strong>&nbsp;10\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Giới tính:</strong>&nbsp;Nữ\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Tính chất công việc:</strong>&nbsp;Giờ hành chính\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Hình thức làm việc:</strong>&nbsp;Nhân viên chính thức\r\n				</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<table border="1" cellpadding="1" cellspacing="1" class="table-style" style="width:100%;">\r\n	<tbody>\r\n		<tr>\r\n			<td colspan="2" style="text-align: center;">\r\n				<span style="font-size:18px;"><strong><span style="color:#1f45a8;">THÔNG TIN TUYỂN DỤNG</span></strong></span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style="color:#1f45a8;">Mô Tả</span></strong>\r\n			</td>\r\n			<td colspan="2">\r\n				&nbsp;- Tìm kiếm khách hàng có nhu cầu quảng bá thương hiệu, tăng doanh thu qua kênh trực tuyến cụ thể Dịch vụ Quảng Cáo Google Adwords<br>\r\n				&nbsp;- Tư vấn về sản phẩm mà khách hàng quan tâm, Triển khai chiến dịch quảng cáo Google Adword <span style="font-family:">&nbsp;</span><br>\r\n				<span style="font-family:">&nbsp;- Sàng lọc danh sách khách hàng (được CTY cung cấp)</span><br>\r\n				<span style="font-family:">&nbsp;- Gọi điện thoại tư vấn dịch vụ, đưa ra giải pháp chiến lược tốt nhất cho KH.</span><br>\r\n				<span style="font-family:">&nbsp;- Phối hợp với bộ phận kỹ thuật để đem lại dịch vụ tốt nhất cho khách hàng.</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style="color:#1f45a8;">Yêu Cầu</span></strong>\r\n			</td>\r\n			<td>\r\n				<span style="font-family:">&nbsp;- Nhận sinh viên mới ra trường vào đào tạo làm việc.</span><br>\r\n				<span style="font-family:">&nbsp;- Không cần kinh nghiệm, được đào tạo trong môi trường chuyên nghiệp.</span><br>\r\n				<span style="font-family:">&nbsp;- Ưu tiên các bạn kinh nghiệm, bằng cấp liên quan tới ngành kinh doanh, tài chính...(Trung cấp, cao đẳng, đại học...)</span><br>\r\n				<span style="font-family:">&nbsp;- Có kỹ năng sử dụng máy tính tốt và khả năng tìm kiếm internet.</span><br>\r\n				<span style="font-family:">&nbsp;- Ngoại hình ưa nhìn , giọng nói dễ nghe.</span><br>\r\n				<span style="font-family:">&nbsp;- Kỹ năng giao tiếp tốt.</span><br>\r\n				<span style="font-family:">&nbsp;- Nhanh nhẹn, sáng tạo trong công việc</span><br>\r\n				<span style="font-family:">&nbsp;- Khả năng làm việc nhóm và độc lập cao.</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style="color:#1f45a8;">Quyền Lợi</span></strong>\r\n			</td>\r\n			<td>\r\n				<span style="font-family:">&nbsp;- Chương trình training thường xuyên giúp bạn luôn tự tin trong môi trường làm việc năng động.</span><br>\r\n				<span style="font-family:">&nbsp;- Được tạo điều kiện phát huy hết khả năng của bản thân.</span><br>\r\n				<span style="font-family:">&nbsp;- Ghi nhận và thưởng xứng đáng thành quả kinh doanh của bạn</span><br>\r\n				<span style="font-family:">&nbsp;- Hưởng đầy đủ các chế độ theo quy định của luật lao động</span><br>\r\n				<span style="font-family:">&nbsp;- </span>Thu nhập từ 05 - 15tr hoặc <strong>KHÔNG GIỚI HẠN TÙY THEO KHẢ NĂNG CỦA BẠN</strong> (bao gồm lương cứng và thưởng hoa hồng theo thành tích)<br>\r\n				<span style="font-family:">&nbsp;- Nghỉ: Thứ 7, CN&nbsp;</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style="color:#1f45a8;">Hồ Sơ</span></strong>\r\n			</td>\r\n			<td>\r\n				&nbsp;- Đơn xin việc.<br>\r\n				&nbsp;- Sơ yếu lý lịch.<br>\r\n				&nbsp;- Các bằng cấp có liên quan.<br>\r\n				Gửi CV về email liên hệ bên dưới<br>\r\n				<span style="font-family:">Mail: info@smartlinks.vn - : 028 66830091 (Ms.Trang) </span><br>\r\n				<span style="font-family:">Website: www.smartlinks.vn</span><br>\r\n				<span style="font-family:">Địa chỉ phỏng vấn:Thuỷ Anh Office, Lầu 7, 20/13 Nguyễn Trường Tộ, P12, Quận 4, TP HCM.</span>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', NULL, 'images/uploads/images/Page/Marketing.jpg', 'Tuyển Dụng Nhận Viên Kinh Doanh Marketing', '<p>\r\n	Tuyển Dụng Nhân Viên Kinh Doanh Marketing\r\n</p>', NULL, 3, 1, 1, '2018-01-19 01:33:09', '2018-01-19 01:42:00'),
 (6, 'Tin Tức', 'tin-tuc', '<p>\r\n	Chuyên Trang Tổng Hợp Tin Tức Digital Marketing\r\n</p>', '<p>\r\n	Chuyên Trang Tổng Hợp Tin Tức Digital Marketing\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Chuyên Trang Tổng Hợp Tin Tức Digital Marketing', '<p>\r\n	Chuyên Trang Tổng Hợp Tin Tức Digital Marketing\r\n</p>', NULL, 1, 1, 1, '2018-01-29 08:26:30', '2018-01-29 08:26:30'),
 (7, 'Hỏi Đáp Thiết Kế Website', 'hoi-dap-thiet-ke-website', '<p>\r\n	Chuyên Trang Giải Đáp Thắc Mắc Về Thiết Kế Website\r\n</p>', '<p>\r\n	Chuyên Trang Giải Đáp Thắc Mắc Về Thiết Kế Website\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Chuyên Trang Giải Đáp Thắc Mắc Về Thiết Kế Website', '<p>\r\n	Chuyên Trang Giải Đáp Thắc Mắc Về Thiết Kế Website\r\n</p>', NULL, 1, 1, 1, '2018-01-29 08:29:23', '2018-01-29 08:31:17'),
-(8, 'Hỏi Đáp Google Adwords', 'hoi-dap-google-adwords', '<p>\r\n	Chuyên Trang Giải Đáp Thắc Mắc Về&nbsp;Hỏi Đáp Google Adwords\r\n</p>', '<p>\r\n	Chuyên Trang Giải Đáp Thắc Mắc Về&nbsp;Hỏi Đáp Google Adwords\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Chuyên Trang Giải Đáp Thắc Mắc Về Hỏi Đáp Google Adwords', '<p>\r\n	Chuyên Trang Giải Đáp Thắc Mắc Về&nbsp;Hỏi Đáp Google Adwords\r\n</p>', NULL, 1, 1, 1, '2018-01-29 08:31:48', '2018-01-29 08:31:48'),
-(9, 'Tại sao quảng cáo của tôi không hiển thị trong kết quả tìm kiếm dù máy khác có hiển thị', 'tai-sao-quang-cao-cua-toi-khong-hien-thi-trong-ket-qua-tim-kiem-du-may-khac-co-hien-thi', '<p>\r\n	Tại sao quảng cáo của tôi không hiển thị trong kết quả tìm kiếm dù máy khác có hiển thị\r\n</p>', '<p>\r\n	Nguyên nhân do theo chính sách của Google, nếu bạn liên tục tìm kiếm doanh nghiệp của mình trên Google nhưng không nhấp chuột vào quảng cáo, thì bạn có thể ngừng thấy quảng cáo sau một thời gian. Đó là vì hệ thống của Google nhận ra máy tính của bạn và ngừng hiển thị quảng cáo mà hệ thống cho rằng bạn không quan tâm.\r\n</p>\r\n\r\n<p>\r\n	Link chính sách:&nbsp;<a href=\"https://support.google.com/adwords/express/answer/1692504?hl=vi\">https://support.google.com/adwords/express/answer/1692504?hl=vi</a>\r\n</p>\r\n\r\n<p>\r\n	Phương án khắc phục tạm thời:\r\n</p>\r\n\r\n<p>\r\n	- Tạm ngừng việc tìm kiếm quảng cáo\r\n</p>\r\n\r\n<p>\r\n	- Xóa cookie trình duyệt website\r\n</p>\r\n\r\n<p>\r\n	Sau khi thử các phương án trên nhưng vẫn không hiển thị quảng cáo, nghĩa là Google đã đánh giá IP máy bạn không phù hợp với nội dung quảng cáo. Bạn có thể reset modem để lấy lại IP khác kiểm tra quảng cáo hoặc dùng 3G để thay đổi IP\r\n</p>\r\n\r\n<p>\r\n	Link thảo luận của chuyên gia Google:&nbsp;<a href=\"https://productforums.google.com/forum/#!topic/adwords-vi/L2fczBYaXIA\">https://productforums.google.com/forum/#!topic/adwords-vi/L2fczBYaXIA</a>\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Tại sao quảng cáo của tôi không hiển thị trong kết quả tìm kiếm dù máy khác có hiển thị', '<p>\r\n	Tại sao quảng cáo của tôi không hiển thị trong kết quả tìm kiếm dù máy khác có hiển thị\r\n</p>', NULL, 5, 1, 1, '2018-01-30 02:40:56', '2018-01-30 02:40:56'),
-(10, 'Trong trường hợp tôi kiểm tra từ khóa dẫn đến mất hiển thị thì khách hàng khi tìm kiếm có bị giống như vậy không?', 'trong-truong-hop-toi-kiem-tra-tu-khoa-dan-den-mat-hien-thi-thi-khach-hang-khi-tim-kiem-co-bi-giong-nhu-vay-khong', '<p>\r\n	Trong trường hợp tôi kiểm tra từ khóa dẫn đến mất hiển thị thì khách hàng khi tìm kiếm có bị giống như vậy không?\r\n</p>', '<p>\r\n	Đứng về phía khách hàng, khi&nbsp;đang có nhu cầu mua sản phẩm, thông thường họ chỉ cần tìm kiếm đôi lần là đã ra kết quả mình mong muốn, chứ không có thời gian tìm kiếm kiểm tra liên tục bộ tư khóa của tất cả sản phẩm. <a href=\"http://smartlinks.vn/dich-vu/google-adwords\">Quảng cáo Google</a> chỉ mất hiển thị khi mình vi phạm chính sách tìm kiếm của Google (đã trả lời ở câu hỏi 1)\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Trong trường hợp tôi kiểm tra từ khóa dẫn đến mất hiển thị thì khách hàng khi tìm kiếm có bị giống như vậy không?', '<p>\r\n	Trong trường hợp tôi kiểm tra từ khóa dẫn đến mất hiển thị thì khách hàng khi tìm kiếm có bị giống như vậy không?\r\n</p>', NULL, 5, 1, 1, '2018-01-30 02:46:14', '2018-01-30 03:12:18'),
-(11, 'Quảng cáo Google Adword hiển thị tốt nhưng lượng đơn hàng về thấp hoặc không có?', 'quang-cao-google-adword-hien-thi-tot-nhung-luong-don-hang-ve-thap-hoac-khong-co', '<p>\r\n	Quảng cáo Google Adword hiển thị tốt nhưng lượng đơn hàng về thấp hoặc không có?\r\n</p>', '<p>\r\n	Mục đích của <a href=\"http://smartlinks.vn/dich-vu/google-adwords\">quảng cáo Google</a> nói riêng và các hình thức quảng cáo khác nói chung là đem lại nguồn khách hàng tiếp cận đến <a href=\"http://smartlinks.vn/dich-vu/thiet-ke-website\">website</a> hoặc <a href=\"http://smartlinks.vn/dich-vu/facebook-ads\">fanpage</a> của khách hàng.\r\n</p>\r\n\r\n<p>\r\n	Như vậy công việc tiếp theo là nội dung (content) của trang đích có cung cấp thông tin hấp dẫn&nbsp;mà khách hàng đang cần hay không, theo thống kê của Google khách hàng có 3 phút để tham quan <a href=\"http://smartlinks.vn/dich-vu/thiet-ke-website\">website</a> của doanh nghiệp, họ sẵn sàng rời đi nếu không có đủ thông tin mà họ quan tâm. Chưa kể các chỉ số phụ như&nbsp;<a href=\"http://smartlinks.vn/dich-vu/thiet-ke-website\">website</a> đó phải có tốc độ load trang trong tầm 3s hoặc có tối ưu trên đa nền tảng hay không?\r\n</p>\r\n\r\n<p>\r\n	Nếu <a href=\"http://smartlinks.vn/dich-vu/thiet-ke-website\">website</a> hoặc <a href=\"http://smartlinks.vn/dich-vu/facebook-ads\">fanpage</a> của doanh nghiệp có thể đáp ứng tối thiểu những tiêu chí trên thì lượng đơn hàng đem về sẽ tăng 80%. Hoặc tốt nhất bạn nên <a href=\"http://smartlinks.vn/dich-vu/thiet-ke-website\">thiết kế website</a> mới đáp ứng có tiêu chí mới nhất hiện nay\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Quảng cáo Google Adword hiển thị tốt nhưng lượng đơn hàng về thấp hoặc không có?', '<p>\r\n	Quảng cáo Google Adword hiển thị tốt nhưng lượng đơn hàng về thấp hoặc không có?\r\n</p>', NULL, 5, 1, 1, '2018-01-30 02:54:22', '2018-01-30 03:14:55'),
-(12, 'Tuyển Dụng Thực Tập Sinh Marketing', 'tuyen-dung-thuc-tap-sinh-marketing', '<p>\r\n	Tuyển Dụng Thực Tập Sinh Marketing\r\n</p>', '<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" class=\"table-style\" style=\"width:100%;\">\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n				<p>\r\n					<span style=\"font-size:18px;\"><strong><span style=\"color:#1f45a8;\">CÔNG TY TNHH TRUYỀN THÔNG VÀ ĐẦU TƯ SMARTLINKS</span></strong></span>\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Kinh nghiệm:</strong>&nbsp;Không cần kinh nghiệm\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Trình độ:</strong>&nbsp;Sinh viên năm 3, 4 hoặc đã tốt nghiệp\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Tỉnh/Thành phố:</strong>&nbsp;Việc làm Hồ Chí Minh\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Ngành nghề:</strong>&nbsp;Bán hàng, Kinh doanh, Quảng cáo/Marketing/PR\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Số lượng tuyển dụng:</strong>&nbsp;10\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Giới tính:</strong>&nbsp;Nữ\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Tính chất công việc:</strong>&nbsp;Bán thời gian / Giờ Hành Chính\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Hình thức làm việc:</strong>&nbsp;Nhân viên chính thức\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Mức Lương:</strong> 1.000.000/tháng\r\n				</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" class=\"table-style\" style=\"width:100%;\">\r\n	<tbody>\r\n		<tr>\r\n			<td colspan=\"2\" style=\"text-align: center;\">\r\n				<span style=\"font-size:18px;\"><strong><span style=\"color:#1f45a8;\">THÔNG TIN TUYỂN DỤNG</span></strong></span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style=\"color:#1f45a8;\">Mô Tả</span></strong>\r\n			</td>\r\n			<td colspan=\"2\">\r\n				&nbsp;- Tìm kiếm khách hàng có nhu cầu quảng bá thương hiệu, tăng doanh thu qua kênh trực tuyến cụ thể Dịch vụ Quảng Cáo Google Adwords<br>\r\n				&nbsp;- Tư vấn về sản phẩm mà khách hàng quan tâm, Triển khai chiến dịch quảng cáo Google Adword <span style=\"font-family:\">&nbsp;</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Sàng lọc danh sách khách hàng (được CTY cung cấp)</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Gọi điện thoại tư vấn dịch vụ, đưa ra giải pháp chiến lược tốt nhất cho KH.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Phối hợp với bộ phận kỹ thuật để đem lại dịch vụ tốt nhất cho khách hàng.</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style=\"color:#1f45a8;\">Yêu Cầu</span></strong>\r\n			</td>\r\n			<td>\r\n				<span style=\"font-family:\">&nbsp;- Nhận sinh viên mới ra trường vào đào tạo làm việc.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Không cần kinh nghiệm, được đào tạo trong môi trường chuyên nghiệp.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Có kỹ năng sử dụng máy tính tốt và khả năng tìm kiếm internet.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Ngoại hình ưa nhìn , giọng nói dễ nghe.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Kỹ năng giao tiếp tốt.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Nhanh nhẹn, sáng tạo trong công việc</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Khả năng làm việc nhóm và độc lập cao.</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style=\"color:#1f45a8;\">Quyền Lợi</span></strong>\r\n			</td>\r\n			<td>\r\n				<span style=\"font-family:\">&nbsp;- Chương trình training thường xuyên giúp bạn luôn tự tin trong môi trường làm việc năng động.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Được tạo điều kiện phát huy hết khả năng của bản thân.</span><br>\r\n				<span style=\"font-family:\">&nbsp;- Ghi nhận và thưởng xứng đáng thành quả kinh doanh của bạn</span><br>\r\n				<span style=\"font-family:\">&nbsp;- </span>Cơ hội thăng tiến lên các vị trí chính thức với mức lương và thu nhập thưởng hấp dẫn<br>\r\n				<span style=\"font-family:\">&nbsp;- Nghỉ: Thứ 7, CN&nbsp;</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style=\"color:#1f45a8;\">Hồ Sơ</span></strong>\r\n			</td>\r\n			<td>\r\n				&nbsp;- Đơn xin việc.<br>\r\n				&nbsp;- Sơ yếu lý lịch.<br>\r\n				&nbsp;- Các bằng cấp có liên quan.<br>\r\n				Gửi CV về email liên hệ bên dưới<br>\r\n				<span style=\"font-family:\">Mail: info@smartlinks.vn - : 028 66830091 (Ms.Trang) </span><br>\r\n				<span style=\"font-family:\">Website: www.smartlinks.vn</span><br>\r\n				<span style=\"font-family:\">Địa chỉ phỏng vấn:Thuỷ Anh Office, Lầu 7, 20/13 Nguyễn Trường Tộ, P12, Quận 4, TP HCM.</span>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', NULL, 'images/uploads/images/Page/Marketing.jpg', 'Tuyển Dụng Thực Tập Sinh Marketing', '<p>\r\n	Tuyển Dụng Thực Tập Sinh Marketing\r\n</p>', NULL, 3, 1, 1, '2018-02-22 12:30:27', '2018-02-22 12:30:27'),
+(8, 'Hỏi Đáp Google Adwords', 'hoi-dap-google-adwords', '<p>\r\n	Chuyên Trang Giải Đáp Thắc Mắc Về&nbsp;Hỏi Đáp Google Adwords\r\n</p>', '<p>\r\n	Chuyên Trang Giải Đáp Thắc Mắc Về&nbsp;Hỏi Đáp Google Adwords\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Chuyên Trang Giải Đáp Thắc Mắc Về Hỏi Đáp Google Adwor', '<p>\r\n	Chuyên Trang Giải Đáp Thắc Mắc Về&nbsp;Hỏi Đáp Google Adwords\r\n</p>', NULL, 1, 1, 1, '2018-01-29 08:31:48', '2018-01-29 08:31:48'),
+(9, 'Tại sao quảng cáo của tôi không hiển thị trong kết quả tìm kiếm dù máy khác có hiển thị', 'tai-sao-quang-cao-cua-toi-khong-hien-thi-trong-ket-qua-tim-kiem-du-may-khac-co-hien-thi', '<p>\r\n	Tại sao quảng cáo của tôi không hiển thị trong kết quả tìm kiếm dù máy khác có hiển thị\r\n</p>', '<p>\r\n	Nguyên nhân do theo chính sách của Google, nếu bạn liên tục tìm kiếm doanh nghiệp của mình trên Google nhưng không nhấp chuột vào quảng cáo, thì bạn có thể ngừng thấy quảng cáo sau một thời gian. Đó là vì hệ thống của Google nhận ra máy tính của bạn và ngừng hiển thị quảng cáo mà hệ thống cho rằng bạn không quan tâm.\r\n</p>\r\n\r\n<p>\r\n	Link chính sách:&nbsp;<a href="https://support.google.com/adwords/express/answer/1692504?hl=vi">https://support.google.com/adwords/express/answer/1692504?hl=vi</a>\r\n</p>\r\n\r\n<p>\r\n	Phương án khắc phục tạm thời:\r\n</p>\r\n\r\n<p>\r\n	- Tạm ngừng việc tìm kiếm quảng cáo\r\n</p>\r\n\r\n<p>\r\n	- Xóa cookie trình duyệt website\r\n</p>\r\n\r\n<p>\r\n	Sau khi thử các phương án trên nhưng vẫn không hiển thị quảng cáo, nghĩa là Google đã đánh giá IP máy bạn không phù hợp với nội dung quảng cáo. Bạn có thể reset modem để lấy lại IP khác kiểm tra quảng cáo hoặc dùng 3G để thay đổi IP\r\n</p>\r\n\r\n<p>\r\n	Link thảo luận của chuyên gia Google:&nbsp;<a href="https://productforums.google.com/forum/#!topic/adwords-vi/L2fczBYaXIA">https://productforums.google.com/forum/#!topic/adwords-vi/L2fczBYaXIA</a>\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Tại sao quảng cáo của tôi không hiển thị trong kết quả', '<p>\r\n	Tại sao quảng cáo của tôi không hiển thị trong kết quả tìm kiếm dù máy khác có hiển thị\r\n</p>', NULL, 5, 1, 1, '2018-01-30 02:40:56', '2018-01-30 02:40:56'),
+(10, 'Trong trường hợp tôi kiểm tra từ khóa dẫn đến mất hiển thị thì khách hàng khi tìm kiếm có bị giống như vậy không?', 'trong-truong-hop-toi-kiem-tra-tu-khoa-dan-den-mat-hien-thi-thi-khach-hang-khi-tim-kiem-co-bi-giong-nhu-vay-khong', '<p>\r\n	Trong trường hợp tôi kiểm tra từ khóa dẫn đến mất hiển thị thì khách hàng khi tìm kiếm có bị giống như vậy không?\r\n</p>', '<p>\r\n	Đứng về phía khách hàng, khi&nbsp;đang có nhu cầu mua sản phẩm, thông thường họ chỉ cần tìm kiếm đôi lần là đã ra kết quả mình mong muốn, chứ không có thời gian tìm kiếm kiểm tra liên tục bộ tư khóa của tất cả sản phẩm. <a href="http://smartlinks.vn/dich-vu/google-adwords">Quảng cáo Google</a> chỉ mất hiển thị khi mình vi phạm chính sách tìm kiếm của Google (đã trả lời ở câu hỏi 1)\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Trong trường hợp tôi kiểm tra từ khóa dẫn đến mất hiển', '<p>\r\n	Trong trường hợp tôi kiểm tra từ khóa dẫn đến mất hiển thị thì khách hàng khi tìm kiếm có bị giống như vậy không?\r\n</p>', NULL, 5, 1, 1, '2018-01-30 02:46:14', '2018-01-30 03:12:18'),
+(11, 'Quảng cáo Google Adword hiển thị tốt nhưng lượng đơn hàng về thấp hoặc không có?', 'quang-cao-google-adword-hien-thi-tot-nhung-luong-don-hang-ve-thap-hoac-khong-co', '<p>\r\n	Quảng cáo Google Adword hiển thị tốt nhưng lượng đơn hàng về thấp hoặc không có?\r\n</p>', '<p>\r\n	Mục đích của <a href="http://smartlinks.vn/dich-vu/google-adwords">quảng cáo Google</a> nói riêng và các hình thức quảng cáo khác nói chung là đem lại nguồn khách hàng tiếp cận đến <a href="http://smartlinks.vn/dich-vu/thiet-ke-website">website</a> hoặc <a href="http://smartlinks.vn/dich-vu/facebook-ads">fanpage</a> của khách hàng.\r\n</p>\r\n\r\n<p>\r\n	Như vậy công việc tiếp theo là nội dung (content) của trang đích có cung cấp thông tin hấp dẫn&nbsp;mà khách hàng đang cần hay không, theo thống kê của Google khách hàng có 3 phút để tham quan <a href="http://smartlinks.vn/dich-vu/thiet-ke-website">website</a> của doanh nghiệp, họ sẵn sàng rời đi nếu không có đủ thông tin mà họ quan tâm. Chưa kể các chỉ số phụ như&nbsp;<a href="http://smartlinks.vn/dich-vu/thiet-ke-website">website</a> đó phải có tốc độ load trang trong tầm 3s hoặc có tối ưu trên đa nền tảng hay không?\r\n</p>\r\n\r\n<p>\r\n	Nếu <a href="http://smartlinks.vn/dich-vu/thiet-ke-website">website</a> hoặc <a href="http://smartlinks.vn/dich-vu/facebook-ads">fanpage</a> của doanh nghiệp có thể đáp ứng tối thiểu những tiêu chí trên thì lượng đơn hàng đem về sẽ tăng 80%. Hoặc tốt nhất bạn nên <a href="http://smartlinks.vn/dich-vu/thiet-ke-website">thiết kế website</a> mới đáp ứng có tiêu chí mới nhất hiện nay\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Quảng cáo Google Adword hiển thị tốt nhưng lượng đơn h', '<p>\r\n	Quảng cáo Google Adword hiển thị tốt nhưng lượng đơn hàng về thấp hoặc không có?\r\n</p>', NULL, 5, 1, 1, '2018-01-30 02:54:22', '2018-01-30 03:14:55'),
+(12, 'Tuyển Dụng Thực Tập Sinh Marketing', 'tuyen-dung-thuc-tap-sinh-marketing', '<p>\r\n	Tuyển Dụng Thực Tập Sinh Marketing\r\n</p>', '<table border="1" cellpadding="1" cellspacing="1" class="table-style" style="width:100%;">\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n				<p>\r\n					<span style="font-size:18px;"><strong><span style="color:#1f45a8;">CÔNG TY TNHH TRUYỀN THÔNG VÀ ĐẦU TƯ SMARTLINKS</span></strong></span>\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Kinh nghiệm:</strong>&nbsp;Không cần kinh nghiệm\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Trình độ:</strong>&nbsp;Sinh viên năm 3, 4 hoặc đã tốt nghiệp\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Tỉnh/Thành phố:</strong>&nbsp;Việc làm Hồ Chí Minh\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Ngành nghề:</strong>&nbsp;Bán hàng, Kinh doanh, Quảng cáo/Marketing/PR\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Số lượng tuyển dụng:</strong>&nbsp;10\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Giới tính:</strong>&nbsp;Nữ\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Tính chất công việc:</strong>&nbsp;Bán thời gian / Giờ Hành Chính\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Hình thức làm việc:</strong>&nbsp;Nhân viên chính thức\r\n				</p>\r\n\r\n				<p>\r\n					<strong>Mức Lương:</strong> 1.000.000/tháng\r\n				</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<table border="1" cellpadding="1" cellspacing="1" class="table-style" style="width:100%;">\r\n	<tbody>\r\n		<tr>\r\n			<td colspan="2" style="text-align: center;">\r\n				<span style="font-size:18px;"><strong><span style="color:#1f45a8;">THÔNG TIN TUYỂN DỤNG</span></strong></span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style="color:#1f45a8;">Mô Tả</span></strong>\r\n			</td>\r\n			<td colspan="2">\r\n				&nbsp;- Tìm kiếm khách hàng có nhu cầu quảng bá thương hiệu, tăng doanh thu qua kênh trực tuyến cụ thể Dịch vụ Quảng Cáo Google Adwords<br>\r\n				&nbsp;- Tư vấn về sản phẩm mà khách hàng quan tâm, Triển khai chiến dịch quảng cáo Google Adword <span style="font-family:">&nbsp;</span><br>\r\n				<span style="font-family:">&nbsp;- Sàng lọc danh sách khách hàng (được CTY cung cấp)</span><br>\r\n				<span style="font-family:">&nbsp;- Gọi điện thoại tư vấn dịch vụ, đưa ra giải pháp chiến lược tốt nhất cho KH.</span><br>\r\n				<span style="font-family:">&nbsp;- Phối hợp với bộ phận kỹ thuật để đem lại dịch vụ tốt nhất cho khách hàng.</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style="color:#1f45a8;">Yêu Cầu</span></strong>\r\n			</td>\r\n			<td>\r\n				<span style="font-family:">&nbsp;- Nhận sinh viên mới ra trường vào đào tạo làm việc.</span><br>\r\n				<span style="font-family:">&nbsp;- Không cần kinh nghiệm, được đào tạo trong môi trường chuyên nghiệp.</span><br>\r\n				<span style="font-family:">&nbsp;- Có kỹ năng sử dụng máy tính tốt và khả năng tìm kiếm internet.</span><br>\r\n				<span style="font-family:">&nbsp;- Ngoại hình ưa nhìn , giọng nói dễ nghe.</span><br>\r\n				<span style="font-family:">&nbsp;- Kỹ năng giao tiếp tốt.</span><br>\r\n				<span style="font-family:">&nbsp;- Nhanh nhẹn, sáng tạo trong công việc</span><br>\r\n				<span style="font-family:">&nbsp;- Khả năng làm việc nhóm và độc lập cao.</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style="color:#1f45a8;">Quyền Lợi</span></strong>\r\n			</td>\r\n			<td>\r\n				<span style="font-family:">&nbsp;- Chương trình training thường xuyên giúp bạn luôn tự tin trong môi trường làm việc năng động.</span><br>\r\n				<span style="font-family:">&nbsp;- Được tạo điều kiện phát huy hết khả năng của bản thân.</span><br>\r\n				<span style="font-family:">&nbsp;- Ghi nhận và thưởng xứng đáng thành quả kinh doanh của bạn</span><br>\r\n				<span style="font-family:">&nbsp;- </span>Cơ hội thăng tiến lên các vị trí chính thức với mức lương và thu nhập thưởng hấp dẫn<br>\r\n				<span style="font-family:">&nbsp;- Nghỉ: Thứ 7, CN&nbsp;</span>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n				<strong><span style="color:#1f45a8;">Hồ Sơ</span></strong>\r\n			</td>\r\n			<td>\r\n				&nbsp;- Đơn xin việc.<br>\r\n				&nbsp;- Sơ yếu lý lịch.<br>\r\n				&nbsp;- Các bằng cấp có liên quan.<br>\r\n				Gửi CV về email liên hệ bên dưới<br>\r\n				<span style="font-family:">Mail: info@smartlinks.vn - : 028 66830091 (Ms.Trang) </span><br>\r\n				<span style="font-family:">Website: www.smartlinks.vn</span><br>\r\n				<span style="font-family:">Địa chỉ phỏng vấn:Thuỷ Anh Office, Lầu 7, 20/13 Nguyễn Trường Tộ, P12, Quận 4, TP HCM.</span>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', NULL, 'images/uploads/images/Page/Marketing.jpg', 'Tuyển Dụng Thực Tập Sinh Marketing', '<p>\r\n	Tuyển Dụng Thực Tập Sinh Marketing\r\n</p>', NULL, 3, 1, 1, '2018-02-22 12:30:27', '2018-02-22 12:30:27'),
 (13, 'Google Adwords', 'google-adwords', '<p>\r\n	Google Adwords\r\n</p>', '<p>\r\n	Google Adwords\r\n</p>', 'dichvu.googleadwords.index', 'images/uploads/images/Page/gt_1.jpg', 'Google Adwords', '<p>\r\n	Google Adwords\r\n</p>', NULL, 1, 1, 1, '2018-03-03 13:41:00', '2018-03-03 13:41:00'),
 (14, 'Thiết Kế Website', 'thiet-ke-website', '<p>\r\n	Thiết Kế Website\r\n</p>', '<p>\r\n	Thiết Kế Website\r\n</p>', 'dichvu.website.index', 'images/uploads/images/Page/gt_1.jpg', 'Thiết Kế Website', '<p>\r\n	Thiết Kế Website\r\n</p>', NULL, 1, 1, 1, '2018-03-03 13:46:00', '2018-03-03 13:46:00'),
 (15, 'Facebook Ads', 'facebook-ads', '<p>\r\n	Facebook Ads\r\n</p>', '<p>\r\n	Facebook Ads\r\n</p>', 'dichvu.facebook.index', 'images/uploads/images/Page/gt_1.jpg', 'Facebook Ads', '<p>\r\n	Facebook Ads\r\n</p>', NULL, 1, 1, 1, '2018-03-03 14:15:22', '2018-03-03 14:15:22'),
 (16, 'Báo Giá', 'bao-gia', '<p>\r\n	Báo Giá\r\n</p>', '<p>\r\n	Báo Giá\r\n</p>', 'baogia.baogia', 'images/uploads/images/Page/gt_1.jpg', 'Báo Giá', '<p>\r\n	Báo Giá\r\n</p>', NULL, 1, 1, 1, '2018-03-04 04:31:34', '2018-03-04 04:31:34'),
-(17, 'Liên Hệ', 'lien-he', '<p>\r\n	Liên Hệ\r\n</p>', '<p>\r\n	Liên Hệ\r\n</p>', 'contact.contact1', 'images/uploads/images/Page/gt_1.jpg', 'Liên Hệ', '<p>\r\n	Liên Hệ\r\n</p>', NULL, 1, 1, 1, '2018-03-05 02:59:43', '2018-03-05 02:59:43');
+(17, 'Liên Hệ', 'lien-he', '<p>\r\n	Liên Hệ\r\n</p>', '<p>\r\n	Liên Hệ\r\n</p>', 'contact.contact1', 'images/uploads/images/Page/gt_1.jpg', 'Liên Hệ', '<p>\r\n	Liên Hệ\r\n</p>', NULL, 1, 1, 1, '2018-03-05 02:59:43', '2018-03-05 02:59:43'),
+(18, 'Google Adwords', 'google-adwords', '<p>\r\n	Google Adwords\r\n</p>', '<p>\r\n	Google Adwords\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Google Adwords', '<p>\r\n	Google Adwords\r\n</p>', NULL, 7, 1, 1, '2018-04-01 08:17:44', '2018-04-01 08:17:44'),
+(19, 'Thiết Kế Website', 'thiet-ke-website', '<p>\r\n	Thiết Kế Website\r\n</p>', '<p>\r\n	Thiết Kế Website\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Thiết Kế Website', '<p>\r\n	Thiết Kế Website\r\n</p>', NULL, 7, 1, 1, '2018-04-01 08:18:28', '2018-04-01 08:18:28'),
+(20, 'Facebook Ads', 'facebook-ads', '<p>\r\n	Facebook Ads\r\n</p>', '<p>\r\n	Facebook Ads\r\n</p>', NULL, 'images/uploads/images/Page/gt_1.jpg', 'Facebook Ads', '<p>\r\n	Facebook Ads\r\n</p>', NULL, 7, 1, 1, '2018-04-01 08:19:12', '2018-04-01 08:19:12'),
+(21, 'Youtube Ads', 'youtube-ads', '<p>\r\n	Youtube Ads\r\n</p>', '<p style="line-height:1.5">\r\n	Theo số liệu thống kê thì mỗi tháng có hơn 1 tỷ người dung, dành ra 6 tỷ giờ để xem video trên Youtube. Thu hút hàng triệu lượt xem nên Youtube đã trở thành một trong những thị trường hấp dẫn của các nhà đầu tư quảng cáo và các doanh nghiệp muốn tăng thị phần của mình bằng cách đăng quảng cáo trên youtube. Ngoài ra, hơn một nửa số lượt xem video trên Youtube là đến từ các thiết bị di động. Điều này cho thấy có rất nhiều khách hàng tiềm năng đối với các doanh nghiệp.<br>\r\n	Và Youtube là một mạng xã hội video trực tuyến lớn nhất thế giới và là trang tìm kiếm lớn thứ 2 sau Google.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<h2>\r\n	<span style="font-size:22px"><strong>Lợi ích của&nbsp;quảng cáo trên Youtube trong kinh doanh.</strong></span>\r\n</h2>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Quảng cáo trên youtube chính là cầu nối giữa nhà quảng cáo, doanh nghiệp và người xem.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Giúp kết nối với khách hàng tiềm năng theo cách độc đáo và đa dạng.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Doanh nghiệp có thể chia sẻ thông tin, lợi ích của sản phẩm hoặc dịch vụ mang lại.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Tạo chiến dịch trên quảng cáo youtube chỉ trong ít phút.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Tiếp cận đúng đối tượng, tiết kiệm và hiệu quả.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong><em>Youtube Video Ads (Qu</em></strong><strong><em>ả</em></strong><strong><em>ng cáo trong video c</em></strong><strong><em>ủ</em></strong><strong><em>a Youtube)</em></strong><em>&nbsp;</em><strong>bao g</strong><strong>ồ</strong><strong>m:</strong>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>1. YouTube Homepage (Quảng cáo hiển thị trên trang chủ YouTube)</strong>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	Quảng cáo xuất hiện ngay trang chủ Youtube rất bắt mắt và thu hút người xem, có tính tương tác cao trong 24h. Người xem dễ nhìn thấy quảng cáo nên có lượt xem, tỉ lệ nhấp chuột cao và tùy chọn điều chỉnh không giới hạn đồng thời có thể tiếp thị lại.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" class="visible-xs-block" src="http://smartlinks.vn/images/uploads/images/Page/yt_1.jpg" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>2. YouTube Video Ads (Quảng cáo trong video của YouTube)</strong>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	Định dạng&nbsp;<strong>Trueview In-Stream,</strong>&nbsp;quảng cáo được phát trước giúp bạn tiếp cận người dùng khi họ xem video nhưng người dùng chỉ có thể bỏ qua sau 5 giây quảng cáo. Nhà quảng cáo chỉ phải trả tiền sau 30 giây hoặc khi kết thúc video.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_2.jpg" style="height:100%; width:100%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>In-Stream Non-skippable(không thể bỏ qua)</strong>&nbsp;là dạng quảng cáo xuất hiện trên các trang YouTube và các wesbstie thuộc hệ thống Display của Google có hỗ trợ quảng cáo video.&nbsp;Người dùng không thể bỏ qua quảng cáo.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_3.jpg" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>In-Stream Preroll Ads</strong>&nbsp;là hình thức quảng cáo xuất hiện không chỉ trên YouTube mà còn những trang embed(nhúng) video từ YouTube. Người dùng không thể bỏ qua quảng cáo cho đến hết thời gian mặc định.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_4.jpg" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>In-Stream Select(lựa chọn)</strong>&nbsp;là dạng Quảng cáo xuất hiện trên YouTube và các website nhúng link video từ YouTube, trong đó người dùng có thể bỏ qua quảng cáo.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_5.png" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>3. YouTube Display Ads (Quảng cáo hiển thị trên YouTube)</strong>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong><em>TrueView In-Display on&nbsp;Watch page&nbsp;</em></strong>là dạng&nbsp;<strong>quảng cáo YouTube</strong>&nbsp;xuất hiện bên cạnh một video khi bạn xem. Nhà quảng cáo phải trả tiền khi người dùng ấn vào và xem video.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_6.png" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	Còn<em>&nbsp;</em><em><strong>TrueView In-Display on Search Page</strong></em><strong>&nbsp;</strong>thì xuất hiện khi người dùng tìm kiếm, nhà quảng cáo phải trả tiền khi người dùng ấn vào và xem video.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_7.png" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>Standard Display</strong>&nbsp; xuất hiện bên cạnh một video khi bạn xem hoặc tìm kiếm trên YouTube. Nhà quảng cáo phải trả tiền khi người dùng ấn vào banner quảng cáo, link đích có thể là YouTube channel, video hoặc website của bạn.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_8.png" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>In-Video (Overlay)</strong>&nbsp;xuất hiện trong luồng khi bạn xem một video. Nhà quảng cáo phải trả tiền khi người dùng ấn vào banner quảng cáo, link đích có thể là YouTube channel, video hoặc website của bạn.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_9.jpg" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>4.YouTube Brand Channel&nbsp;</strong>là mạng xã hội giúp doanh nghiệp lưu trữ và truyền tải video đến đông đảo khách hàng, với giao diện tùy chỉnh một cách chuyên nghiệp và đẳng cấp tạo nét cá tính riêng. Quảng cáo này có chi phí rất cao.\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_10.jpg" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>5. Quảng bá với GDN</strong>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>Hover to Play</strong>&nbsp;là hệ&nbsp;thống&nbsp;trang&nbsp;xuất&nbsp;hiện trên GDN&nbsp;network (Bao gồm YouTube và xuất hiện dạng banner).\r\n</p>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	<img alt="" src="http://smartlinks.vn/images/uploads/images/Page/yt_11.png" style="height:80%; width:80%">\r\n</p>\r\n\r\n<p style="text-align:center">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>Hover to Expand</strong>&nbsp;xuất hiện tại các vị trí cho phép đặt quảng cáo của các trang thuộc GDN, với thời lượng tối đa 4 phút (tốt nhất trong 30 giây).\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<strong>Click to Expand</strong>&nbsp;có vị&nbsp;trí&nbsp;xuất&nbsp;hiện banner xuất hiện tại các vị trí cho phép đặt quảng cáo của các trang thuộc GDN, cũng có thời lượng tối đa 4 phút (tốt nhất trong 30 giây). &nbsp; &nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<em>Để được tư vấn sâu hơn, cụ thể hơn, bạn có thể liên lạc với chúng tôi.</em>\r\n</p>', NULL, 'images/uploads/images/Page/youtube_banner.jpg', 'Youtube Ads', '<p>\r\n	Youtube Ads\r\n</p>', NULL, 7, 1, 1, '2018-04-01 08:19:45', '2018-04-01 08:21:39'),
+(22, 'Thiết Kế Logo', 'thiet-ke-logo', '<p>\r\n	Thiết Kế Logo\r\n</p>', '<p style="line-height:1.5">\r\n	Logo là hình ảnh đại diện cho thương hiệu của bạn, nó là hình ảnh đầu tiên làm khách hàng liên tưởng tới công ty bạn. Logo là biểu tượng sản phẩm qua hình vẽ, hoa văn, kiểu chữ hoặc một dấu hiệu đặc biệt nào đó để xây dựng sự nhận biết của khách hàng về thương hiệu, sản phẩm, dịch vụ của công ty bạn.\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<span style="color:#1f45a8"><strong>TẠI SAO PHẢI&nbsp; THIẾT KẾ LOGO?</strong></span>\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	&nbsp;\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Làm khách hàng ấn tượng và nhớ đến công ty, sản phẩm và dịch vụ của bạn.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Thể hiện tầm nhìn, sức mạnh và tăng giá trị thương hiệu của bạn.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p style="line-height:1.5">\r\n	Logo không chỉ là một sản phẩm đồ họa, thiết kế logo đòi hỏi những hiểu biết sâu sắc về lĩnh vực kinh doanh và chiến lược thương hiệu.Vì vậy Logo cần được thiết kế ấn tượng, khác biệt nhưng đơn giản và tinh tế, &nbsp;tập trung thể hiện những giá trị tinh túy và cốt lõi nhất và truyền tải thông điệp của thương hiệu đến khách hàng. Giúp cho công ty bạn tăng lợi thế cạnh tranh với các công ty đối thủ.\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<span style="color:#1f45a8"><strong>DỊCH VỤ THIẾT KẾ LOGO CHUYÊN NGHIỆP CỦA SMARTLINKS MANG ĐẾN CHO BẠN.</strong></span>\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Một logo truyền tải được sứ mệnh kinh doanh của bạn: Bất kể lĩnh vực kinh doanh của bạn có phức tạp và khó diễn giải đến đâu, chúng tôi sẽ giúp bạn truyền tải những thông điệp của mình qua logo một cách đơn giản tinh tế và sâu sắc nhất.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Một logo được nhận biết tức thì bởi khách hàng mục tiêu của bạn: Dựa trên yêu cầu và mong muốn của quý khách hàng, chúng tôi sẽ đem đến cho bạn những tác phẩm độc đáo, khác &nbsp;biệt nhưng đơn giản, dễ nhớ và gần gũi tạo cho khách hàng của bạn nhiều ấn tượng sâu sắc và đánh dấu thương hiệu trong tâm trí khách hàng.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p>\r\n	​\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	​<span style="color:#1f45a8"><strong>LÝ DO BẠN LỰA CHỌN DỊCH VỤ THIẾT KẾ CỦA &nbsp;</strong><em><strong>SMARTLINKS</strong></em></span>\r\n</p>\r\n\r\n<ol>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Chúng tôi có một đội ngũ thiết kế và marketing giỏi, năng động, sáng tạo đã được đào tạo bài bản và có nhiều năm kinh nghiệm.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Chúng tôi luôn cố gắng và nhiệt tình để mang lại cho khách hàng những sản phẩm truyền thông tốt nhất trong việc phát triển thương hiệu.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Chi phí hợp lý với những sản phẩm nhận được.\r\n		</p>\r\n	</li>\r\n	<li>\r\n		<p style="line-height:1.5">\r\n			Và chúng tôi mong muốn góp phần vào thành công của quý doanh nghiệp. Bởi sự thành công của quý doanh nghiệp là niềm tự hào cho chính chúng tôi.\r\n		</p>\r\n	</li>\r\n</ol>\r\n\r\n<p>\r\n	&nbsp;\r\n</p>\r\n\r\n<p style="line-height:1.5">\r\n	<span style="color:#1f45a8"><em><strong>Xin vui lòng liên hệ với chúng tôi để được sự hỗ trợ tốt nhất!</strong></em></span>\r\n</p>', NULL, 'images/uploads/images/Page/logo-design.jpg', 'Thiết Kế Logo', '<p>\r\n	Thiết Kế Logo\r\n</p>', NULL, 7, 1, 1, '2018-04-01 08:20:31', '2018-04-01 08:21:08');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -448,7 +458,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
@@ -457,7 +467,7 @@ INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `role_user`
+-- Table structure for table `role_user`
 --
 
 CREATE TABLE `role_user` (
@@ -466,7 +476,7 @@ CREATE TABLE `role_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `role_user`
+-- Dumping data for table `role_user`
 --
 
 INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
@@ -475,7 +485,7 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `sliders`
+-- Table structure for table `sliders`
 --
 
 CREATE TABLE `sliders` (
@@ -488,7 +498,7 @@ CREATE TABLE `sliders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `sliders`
+-- Dumping data for table `sliders`
 --
 
 INSERT INTO `sliders` (`id`, `slider_order`, `slider_is_active`, `slider_image`, `created_at`, `updated_at`) VALUES
@@ -498,7 +508,7 @@ INSERT INTO `sliders` (`id`, `slider_order`, `slider_is_active`, `slider_image`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -512,57 +522,57 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'nnduyquang', 'nnduyquang@gmail.com', '$2y$10$uM5fRQBa7zKsDAHP/Vaid.P7LihKYXlRZu.4QZeOou5.5HXrMglOW', 'hTHpzDWltpSNIiZJfX8Z7pXUJbUz6QdXUGmfzdE6DWgg2CEISYbcAmQjnFLi', '2017-08-26 05:22:25', NULL);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `accounts`
+-- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `campaigns`
+-- Indexes for table `campaigns`
 --
 ALTER TABLE `campaigns`
   ADD PRIMARY KEY (`id`),
   ADD KEY `campaigns_account_id_foreign` (`account_id`);
 
 --
--- Chỉ mục cho bảng `category_permissions`
+-- Indexes for table `category_permissions`
 --
 ALTER TABLE `category_permissions`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `category_permissions_name_unique` (`name`);
 
 --
--- Chỉ mục cho bảng `category_posts`
+-- Indexes for table `category_posts`
 --
 ALTER TABLE `category_posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `configs`
+-- Indexes for table `configs`
 --
 ALTER TABLE `configs`
   ADD PRIMARY KEY (`id`),
   ADD KEY `configs_user_id_foreign` (`user_id`);
 
 --
--- Chỉ mục cho bảng `employees`
+-- Indexes for table `employees`
 --
 ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `histories`
+-- Indexes for table `histories`
 --
 ALTER TABLE `histories`
   ADD PRIMARY KEY (`id`),
@@ -570,31 +580,31 @@ ALTER TABLE `histories`
   ADD KEY `histories_keyword_id_foreign` (`keyword_id`);
 
 --
--- Chỉ mục cho bảng `keywords`
+-- Indexes for table `keywords`
 --
 ALTER TABLE `keywords`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `menus`
+-- Indexes for table `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Chỉ mục cho bảng `permissions`
+-- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`),
@@ -602,174 +612,173 @@ ALTER TABLE `permissions`
   ADD KEY `permissions_category_permission_id_foreign` (`category_permission_id`);
 
 --
--- Chỉ mục cho bảng `permission_role`
+-- Indexes for table `permission_role`
 --
 ALTER TABLE `permission_role`
   ADD PRIMARY KEY (`permission_id`,`role_id`),
   ADD KEY `permission_role_role_id_foreign` (`role_id`);
 
 --
--- Chỉ mục cho bảng `posts`
+-- Indexes for table `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `posts_user_id_foreign` (`user_id`);
 
 --
--- Chỉ mục cho bảng `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `roles_name_unique` (`name`);
 
 --
--- Chỉ mục cho bảng `role_user`
+-- Indexes for table `role_user`
 --
 ALTER TABLE `role_user`
   ADD PRIMARY KEY (`user_id`,`role_id`),
   ADD KEY `role_user_role_id_foreign` (`role_id`);
 
 --
--- Chỉ mục cho bảng `sliders`
+-- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `accounts`
+-- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT cho bảng `campaigns`
+-- AUTO_INCREMENT for table `campaigns`
 --
 ALTER TABLE `campaigns`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT cho bảng `category_permissions`
+-- AUTO_INCREMENT for table `category_permissions`
 --
 ALTER TABLE `category_permissions`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT cho bảng `category_posts`
+-- AUTO_INCREMENT for table `category_posts`
 --
 ALTER TABLE `category_posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT cho bảng `configs`
+-- AUTO_INCREMENT for table `configs`
 --
 ALTER TABLE `configs`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT cho bảng `employees`
+-- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT cho bảng `histories`
+-- AUTO_INCREMENT for table `histories`
 --
 ALTER TABLE `histories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT cho bảng `keywords`
+-- AUTO_INCREMENT for table `keywords`
 --
 ALTER TABLE `keywords`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT cho bảng `menus`
+-- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
--- AUTO_INCREMENT cho bảng `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
--- AUTO_INCREMENT cho bảng `permissions`
+-- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
--- AUTO_INCREMENT cho bảng `posts`
+-- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
--- AUTO_INCREMENT cho bảng `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT cho bảng `sliders`
+-- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `campaigns`
+-- Constraints for table `campaigns`
 --
 ALTER TABLE `campaigns`
   ADD CONSTRAINT `campaigns_account_id_foreign` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `configs`
+-- Constraints for table `configs`
 --
 ALTER TABLE `configs`
   ADD CONSTRAINT `configs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `histories`
+-- Constraints for table `histories`
 --
 ALTER TABLE `histories`
   ADD CONSTRAINT `histories_campaign_id_foreign` FOREIGN KEY (`campaign_id`) REFERENCES `campaigns` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `histories_keyword_id_foreign` FOREIGN KEY (`keyword_id`) REFERENCES `keywords` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `permissions`
+-- Constraints for table `permissions`
 --
 ALTER TABLE `permissions`
   ADD CONSTRAINT `permissions_category_permission_id_foreign` FOREIGN KEY (`category_permission_id`) REFERENCES `category_permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `permission_role`
+-- Constraints for table `permission_role`
 --
 ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `posts`
+-- Constraints for table `posts`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `role_user`
+-- Constraints for table `role_user`
 --
 ALTER TABLE `role_user`
   ADD CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
