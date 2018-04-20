@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\CategoryPost;
+use App\CategoryItem;
 use Illuminate\Http\Request;
 
-class CategoryPostController extends Controller
+class CategoryItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class CategoryPostController extends Controller
      */
     public function index(Request $request)
     {
-        $dd_categorie_posts = CategoryPost::orderBy('order')->get();
+        $dd_categorie_posts = CategoryItem::orderBy('order')->get();
         foreach ($dd_categorie_posts as $key => $data) {
             if ($data->level == CATEGORY_POST_CAP_1) {
                 $data->name = ' ---- ' . $data->name;
@@ -25,7 +25,7 @@ class CategoryPostController extends Controller
             }
         }
         $categoryposts = [];
-        self::showCategoryPostDropDown($dd_categorie_posts, 0, $categoryposts);
+        self::showCategoryItemDropDown($dd_categorie_posts, 0, $categoryposts);
         return view('backend.admin.categorypost.index', compact('categoryposts'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -36,7 +36,7 @@ class CategoryPostController extends Controller
      */
     public function create()
     {
-        $dd_categorie_posts = CategoryPost::orderBy('order')->get();
+        $dd_categorie_posts = CategoryItem::orderBy('order')->get();
         foreach ($dd_categorie_posts as $key => $data) {
             if ($data->level == CATEGORY_POST_CAP_1) {
                 $data->name = ' ---- ' . $data->name;
@@ -47,7 +47,7 @@ class CategoryPostController extends Controller
             }
         }
         $newArray = [];
-        self::showCategoryPostDropDown($dd_categorie_posts, 0, $newArray);
+        self::showCategoryItemDropDown($dd_categorie_posts, 0, $newArray);
         $dd_categorie_posts = array_prepend(array_pluck($newArray, 'name', 'id'), 'Cấp Cha', '-1');
         return view('backend.admin.categorypost.create', compact('roles', 'dd_categorie_posts'));
     }
@@ -60,7 +60,7 @@ class CategoryPostController extends Controller
      */
     public function store(Request $request)
     {
-        $categorypost = new CategoryPost();
+        $categorypost = new CategoryItem();
         $name = $request->input('name');
         $order = $request->input('order');
         $parentID = $request->input('parent');
@@ -68,22 +68,22 @@ class CategoryPostController extends Controller
         $seoTitle = $request->input('seo_title');
         $seoDescription = $request->input('seo_description');
         $seoKeywords=$request->input('seo_keywords');
-        $isActive = $request->input('page_is_active');
+        $is_active = $request->input('page_is_active');
         $image = $request->input('image');
         $image = substr($image, strpos($image, 'images'), strlen($image) - 1);
         if ($parentID != CATEGORY_POST_CAP_CHA) {
             $categorypost->parent_id = $parentID;
-            $level = CategoryPost::where('id', '=', $parentID)->first()->level;
+            $level = CategoryItem::where('id', '=', $parentID)->first()->level;
             $categorypost->level = (int)$level + 1;
         } else
             $categorypost->level = 0;
         if (!IsNullOrEmptyString($order)) {
             $categorypost->order = $order;
         }
-        if (!IsNullOrEmptyString($isActive)) {
-            $categorypost->isActive = 1;
+        if (!IsNullOrEmptyString($is_active)) {
+            $categorypost->is_active = 1;
         } else {
-            $categorypost->isActive = 0;
+            $categorypost->is_active = 0;
         }
         if (!IsNullOrEmptyString($description)) {
             $categorypost->description = $description;
@@ -98,7 +98,7 @@ class CategoryPostController extends Controller
             $categorypost->seo_keywords = $seoKeywords;
         }
         $categorypost->name = $name;
-//        $categorypost->type = CATEGORY_POST;
+        $categorypost->type = CATEGORY_POST;
         $categorypost->path = chuyen_chuoi_thanh_path($name);
         $categorypost->image = $image;
         $categorypost->save();
@@ -124,8 +124,8 @@ class CategoryPostController extends Controller
      */
     public function edit($id)
     {
-        $categorypost = CategoryPost::find($id);
-        $dd_category_post = CategoryPost::orderBy('order')->get();
+        $categorypost = CategoryItem::find($id);
+        $dd_category_post = CategoryItem::orderBy('order')->get();
         foreach ($dd_category_post as $key => $data) {
             if ($data->level == CATEGORY_POST_CAP_1) {
                 $data->name = ' ---- ' . $data->name;
@@ -137,7 +137,7 @@ class CategoryPostController extends Controller
         }
 
         $newArray=[];
-        self::showCategoryPostDropDown($dd_category_post, 0, $newArray);
+        self::showCategoryItemDropDown($dd_category_post, 0, $newArray);
         $dd_category_post = array_prepend(array_pluck($newArray, 'name', 'id'), 'Cấp Cha', '-1');
         $dd_category_post = array_map(function ($index, $value) {
             return ['index' => $index, 'value' => $value];
@@ -154,7 +154,7 @@ class CategoryPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $categorypost = CategoryPost::find($id);
+        $categorypost = CategoryItem::find($id);
         $name = $request->input('name');
         $order = $request->input('order');
         $parentID = $request->input('parent');
@@ -162,22 +162,22 @@ class CategoryPostController extends Controller
         $seoTitle = $request->input('seo_title');
         $seoDescription = $request->input('seo_description');
         $seoKeywords=$request->input('seo_keywords');
-        $isActive = $request->input('page_is_active');
+        $is_active = $request->input('page_is_active');
         $image = $request->input('image');
         $image = substr($image, strpos($image, 'images'), strlen($image) - 1);
         if ($parentID != CATEGORY_POST_CAP_CHA) {
             $categorypost->parent_id = $parentID;
-            $level = CategoryPost::where('id', '=', $parentID)->first()->level;
+            $level = CategoryItem::where('id', '=', $parentID)->first()->level;
             $categorypost->level = (int)$level + 1;
         } else
             $categorypost->level = 0;
         if (!IsNullOrEmptyString($order)) {
             $categorypost->order = $order;
         }
-        if (!IsNullOrEmptyString($isActive)) {
-            $categorypost->isActive = 1;
+        if (!IsNullOrEmptyString($is_active)) {
+            $categorypost->is_active = 1;
         } else {
-            $categorypost->isActive = 0;
+            $categorypost->is_active = 0;
         }
         if (!IsNullOrEmptyString($description)) {
             $categorypost->description = $description;
@@ -192,7 +192,7 @@ class CategoryPostController extends Controller
             $categorypost->seo_keywords = $seoKeywords;
         }
         $categorypost->name = $name;
-//        $categorypost->type = CATEGORY_POST;
+        $categorypost->type = CATEGORY_POST;
         $categorypost->path = chuyen_chuoi_thanh_path($name);
         $categorypost->image = $image;
         $categorypost->save();
@@ -207,18 +207,18 @@ class CategoryPostController extends Controller
      */
     public function destroy($id)
     {
-        $categorypost = CategoryPost::find($id);
+        $categorypost = CategoryItem::find($id);
         $categorypost->delete();
         return redirect()->route('categorypost.index')->with('success', 'Đã Xóa Thành Công');
     }
 
-    public function showCategoryPostDropDown($dd_categorie_posts, $parent_id = 0, &$newArray)
+    public function showCategoryItemDropDown($dd_categorie_posts, $parent_id = 0, &$newArray)
     {
         foreach ($dd_categorie_posts as $key => $data) {
             if ($data->parent_id == $parent_id) {
                 array_push($newArray, $data);
                 $dd_categorie_posts->forget($key);
-                self::showCategoryPostDropDown($dd_categorie_posts, $data->id, $newArray);
+                self::showCategoryItemDropDown($dd_categorie_posts, $data->id, $newArray);
             }
         }
     }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\CategoryPost;
+use App\CategoryItem;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $dd_categorie_posts = CategoryPost::whereNotIn('id', [1, 3])->orderBy('order')->get();
+        $dd_categorie_posts = CategoryItem::whereNotIn('id', [1, 3])->orderBy('order')->get();
         foreach ($dd_categorie_posts as $key => $data) {
             if ($data->level == CATEGORY_POST_CAP_1) {
                 $data->name = ' ---- ' . $data->name;
@@ -38,7 +38,7 @@ class PostController extends Controller
             }
         }
         $newArray = [];
-        self::showCategoryPostDropDown($dd_categorie_posts, 0, $newArray);
+        self::showCategoryItemDropDown($dd_categorie_posts, 0, $newArray);
         $dd_categorie_posts = array_pluck($newArray, 'name', 'id');
         return view('backend.admin.post.create', compact('roles', 'dd_categorie_posts'));
     }
@@ -112,7 +112,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        $dd_categorie_posts = CategoryPost::orderBy('order')->get();
+        $dd_categorie_posts = CategoryItem::orderBy('order')->get();
         foreach ($dd_categorie_posts as $key => $data) {
             if ($data->level == CATEGORY_POST_CAP_1) {
                 $data->name = ' ---- ' . $data->name;
@@ -123,7 +123,7 @@ class PostController extends Controller
             }
         }
         $newArray = [];
-        self::showCategoryPostDropDown($dd_categorie_posts, 0, $newArray);
+        self::showCategoryItemDropDown($dd_categorie_posts, 0, $newArray);
         $dd_categorie_posts = array_pluck($newArray, 'name', 'id');
         $dd_categorie_posts = array_map(function ($index, $value) {
             return ['index' => $index, 'value' => $value];
@@ -194,13 +194,13 @@ class PostController extends Controller
         //
     }
 
-    public function showCategoryPostDropDown($dd_categorie_posts, $parent_id = 0, &$newArray)
+    public function showCategoryItemDropDown($dd_categorie_posts, $parent_id = 0, &$newArray)
     {
         foreach ($dd_categorie_posts as $key => $data) {
             if ($data->parent_id == $parent_id) {
                 array_push($newArray, $data);
                 $dd_categorie_posts->forget($key);
-                self::showCategoryPostDropDown($dd_categorie_posts, $data->id, $newArray);
+                self::showCategoryItemDropDown($dd_categorie_posts, $data->id, $newArray);
             }
         }
     }

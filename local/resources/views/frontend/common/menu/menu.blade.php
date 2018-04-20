@@ -1,1 +1,61 @@
-<div class="container-fluid">    <div class="row">        <div id="top-bar" class="col-md-12 d-none d-md-block">            <div class="container">                <div class="top-bar-left">                    <ul class="links">                        <li class="home-link"><a href="{{URL::to('/')}}">Trang Chủ</a></li>                        </li>                        <li class="intro-link"><a href="{{URL::to('trang/gioi-thieu')}}">Giới Thiệu</a></li>                        </li>                    </ul>                </div>                <div class="top-bar-right">                    <ul class="links">                        <li class="location-link"><a title="Location" href="/location">20/13 Nguyễn Trường Tộ, P.12,                                Quận 4,                                TPHCM</a></li>                        <li class="phone-link"><a title="Phone" itemprop="telephone" href="tel:02866830091">(028)66 83                                00                                91</a>                        </li>                    </ul>                </div>            </div>        </div>    </div></div><div class="header d-none d-md-block">    <div class="container">        <a href="{{URL::to('/')}}" title="Anya Bridal" class="logo abs-center-logo"><strong>Anya                Bridal</strong>            {{ Html::image('images/logo/smartlinks-logo.png','',array('class'=>'no-style')) }}        </a>        <div class="header-wrapper">            <div class="main-nav">                <div class="menu-wrapper">                    <div class="menu-all-pages-container">                        <ul class="menu left-menu">                            <li class="has-item-down"><a href="{{URL::to('#')}}"                                                         class="">{{$listMenu['service']->name}}</a>                                <ul>                                    @foreach($listMenu['listServices'] as$key=>$data)                                        <li><a href="{{URL::to('dich-vu/'.$data->path)}}">{{$data->title}}</a></li>                                    @endforeach                                </ul>                            </li>                            <li class="li-normal"><a href="{{URL::to('tin-tuc')}}"                                                     class="">Tin Tức</a>                            <li class="has-item-down"><a href="{{URL::to('#')}}"                                                         class="">Hỏi Đáp</a>                                <ul>                                    @foreach($listMenu['faqs'] as$key=>$data)                                        <li><a href="{{URL::to('hoi-dap/'.$data->path)}}">{{$data->name}}</a></li>                                    @endforeach                                </ul>                            </li>                            {{--</li>--}}                            {{--@php--}}                                {{--$count=0;--}}                                {{--$temp_key=0;--}}                            {{--@endphp--}}                            {{--@foreach($listMenu as$key=>$data)--}}                                {{--@php--}}                                    {{--$count++;--}}                                {{--@endphp--}}                                {{--@if($count<4)--}}                                    {{--@if(count($data->children)==0)--}}                                        {{--<li class="li-normal"><a href="{{URL::to($data->url)}}"--}}                                                                 {{--class="">{{$data->text}}</a>--}}                                        {{--</li>--}}                                        {{--@php--}}                                            {{--$temp_key=$key;--}}                                        {{--@endphp--}}                                    {{--@else--}}                                        {{--<li class="has-item-down"><a href="{{URL::to($data->url)}}"--}}                                                                     {{--class="">{{$data->text}}</a>--}}                                            {{--<ul>--}}                                                {{--@foreach($data->children as$key2=>$data2)--}}                                                    {{--<li><a href="{{URL::to($data2->url)}}">{{$data2->text}}</a></li>--}}                                                {{--@endforeach--}}                                            {{--</ul>--}}                                        {{--</li>--}}                                        {{--@php--}}                                            {{--$temp_key=$key;--}}                                        {{--@endphp--}}                                    {{--@endif--}}                                {{--@endif--}}                            {{--@endforeach--}}                        </ul>                        <ul class="menu right-menu">                            <li class="li-normal"><a href="{{URL::to('bao-gia')}}"                                                     class="">Báo Giá</a>                            <li class="li-normal"><a href="{{URL::to('tuyen-dung')}}"                                                     class="">Tuyển Dụng</a>                            <li class="li-normal"><a href="{{URL::to('trang/lien-he')}}"                                                     class="">Liên Hệ</a>                            {{--@php--}}                            {{--$count=0;--}}                            {{--@endphp--}}                            {{--@foreach($listMenu as$key=>$data)--}}                                {{--@if($key>$temp_key)--}}                                    {{--@php--}}                                        {{--$count++;--}}                                    {{--@endphp--}}                                    {{--@if($count<4)--}}                                        {{--@if(count($data->children)==0)--}}                                            {{--<li class="li-normal"><a href="{{URL::to($data->url)}}"--}}                                                                     {{--class="">{{$data->text}}</a>--}}                                            {{--</li>--}}                                        {{--@else--}}                                            {{--<li class="has-item-down"><a href="{{URL::to($data->url)}}"--}}                                                                         {{--class="">{{$data->text}}</a>--}}                                                {{--<ul>--}}                                                    {{--@foreach($data->children as$key2=>$data2)--}}                                                        {{--<li><a href="{{URL::to($data2->url)}}">{{$data2->text}}</a></li>--}}                                                    {{--@endforeach--}}                                                {{--</ul>--}}                                        {{--@endif--}}                                    {{--@endif--}}                                {{--@endif--}}                            {{--@endforeach--}}                        </ul>                    </div>                </div>            </div>        </div>    </div></div>
+<div id="menu" class="d-none d-md-block">
+    <div id="menu_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        <li><a href="{{URL::to('/')}}">Trang Chủ</a></li>
+                        <li><a href="{{URL::to('trang/gioi-thieu')}}">Giới Thiệu</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-right">
+                    <ul>
+                        <li>25 Hoàng Diệu, P.12, Q.4, TPHCM</li>
+                        <li>(028) 66 83 00 91</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="menu_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col justify-content-center align-self-center">
+                    <ul class="left-menu">
+                        <li class="has-item-down"><a href="{{URL::to('#')}}"
+                                                     class="">Dịch Vụ</a>
+                            <ul>
+                                @foreach($listMenu['categoryService'] as$key=>$data)
+                                    <li><a href="{{URL::to('dich-vu/'.$data->path)}}">{{$data->title}}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li class="li-normal"><a href="{{URL::to('tin-tuc')}}"
+                                                 class="">Tin Tức</a>
+                        <li class="has-item-down"><a href="{{URL::to('#')}}"
+                                                     class="">Hỏi Đáp</a>
+                            <ul>
+                                @foreach($listMenu['categoryFAQ'] as$key=>$data)
+                                    <li><a href="{{URL::to('hoi-dap/'.$data->path)}}">{{$data->name}}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4 text-center">
+                    {{ Html::image('images/logo/smartlinks-logo.png','',array('class'=>'img-logo')) }}
+                </div>
+                <div class="col justify-content-center align-self-center text-right">
+                    <ul class="right-menu">
+                        <li class="li-normal"><a href="{{URL::to('bao-gia')}}"
+                                                 class="">Báo Giá</a>
+                        <li class="li-normal"><a href="{{URL::to('tuyen-dung')}}"
+                                                 class="">Tuyển Dụng</a>
+                        <li class="li-normal"><a href="{{URL::to('trang/lien-he')}}"
+                                                 class="">Liên Hệ</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

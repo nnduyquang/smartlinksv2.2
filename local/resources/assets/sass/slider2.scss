@@ -41,6 +41,7 @@
         }
         .typed-cursor {
           animation: blinker 1s linear infinite;
+          font-size: 25px;
         }
 
         @keyframes blinker {

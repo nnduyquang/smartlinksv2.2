@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Menu;
 
+use App\CategoryItem;
 use App\CategoryPost;
 use App\Menu;
 use App\Post;
@@ -34,8 +35,7 @@ class MenuRepository extends EloquentRepository implements MenuRepositoryInterfa
         self::findChildMenu($menus, 0, $newArray);
         $newArray = array_reverse($newArray);
         foreach ($newArray as $key => $data) {
-            if ($data->level == 0)
-                continue;
+            if ($data->level == 0) continue;
             foreach ($newArray as $key2 => $data2) {
                 if ($data2->id == $data->parent_id) {
                     $temp = array($data);
@@ -205,14 +205,15 @@ class MenuRepository extends EloquentRepository implements MenuRepositoryInterfa
     public function getFrontendMenu()
     {
         $data = [];
-        $service = CategoryPost::where('level', MENU_GOC)->where('path', 'dich-vu')->first();
-        $listServices = Post::where('post_type', $service->id)->get();
-        $data['service'] = $service;
-        $data['listServices'] = $listServices;
-        $faqs = CategoryPost::where('parent_id', function ($query) {
-            $query->select('id')->from(with(new CategoryPost)->getTable())->where('path', 'hoi-dap');
+        $categoryService = Post::where('post_type', IS_PAGE)->where('category_item_id', function ($query) {
+            $query->select('id')->from(with(new CategoryItem)->getTable())->where('path', 'dich-vu');
         })->get();
-        $data['faqs'] = $faqs;
+        $categoryFAQ = CategoryItem::where('parent_id', function ($query) {
+            $query->select('id')->from(with(new CategoryItem)->getTable())->where('path', 'hoi-dap');
+        })->get();
+        $data['categoryService'] = $categoryService;
+
+        $data['categoryFAQ'] = $categoryFAQ;
         return $data;
     }
 

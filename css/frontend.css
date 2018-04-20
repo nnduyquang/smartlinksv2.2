@@ -55,6 +55,22 @@ a, a:hover, a:active {
   text-decoration: none !important;
 }
 
+.card {
+  border: none;
+  background-color: inherit;
+  border-radius: 0;
+}
+
+.card .card-body {
+  padding: 0;
+}
+
+.card .card-footer {
+  padding: 0;
+  background-color: inherit;
+  border: none;
+}
+
 .heading-text {
   text-align: center;
   margin-bottom: 54px;
@@ -85,7 +101,7 @@ a, a:hover, a:active {
   line-height: 1;
   font-weight: 700;
   text-transform: uppercase;
-  color: #125fb7;
+  color: #020084;
 }
 
 .heading-text .heading.in {
@@ -189,88 +205,47 @@ a, a:hover, a:active {
   }
 }
 
-#top-bar {
+#menu #menu_top {
   background-color: #1f45a8;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-#top-bar .top-bar-left {
-  float: left;
-}
-
-#top-bar .top-bar-right {
-  float: right;
-}
-
-#top-bar .top-bar-left ul, #top-bar .top-bar-right ul {
+#menu #menu_top ul {
   list-style: none;
 }
 
-#top-bar .top-bar-left ul li, #top-bar .top-bar-right ul li {
-  height: 35px;
-  margin-right: 24px;
-  color: #7e786b;
-  line-height: 1;
-  padding: 10px;
+#menu #menu_top ul li {
   display: inline-block;
+  color: white;
+  text-transform: capitalize;
+  padding-left: 30px;
 }
 
-#top-bar .top-bar-left ul li a, #top-bar .top-bar-right ul li a {
-  font-size: 13px;
-  color: #ffffff;
-  line-height: 12px;
+#menu #menu_top ul li a {
+  color: white;
 }
 
-.header {
-  position: relative;
+#menu #menu_bottom img.img-logo {
+  width: 70%;
 }
 
-.header .header-wrapper {
-  min-height: 105px;
-}
-
-.header .header-wrapper .main-nav {
-  position: static;
-  padding: 27px 0;
-}
-
-.header .header-wrapper .menu {
-  box-sizing: border-box;
+#menu #menu_bottom ul {
   list-style: none;
-  margin-bottom: 0;
-  padding-left: 0;
 }
 
-.header .header-wrapper ul.left-menu {
-  float: left;
-}
-
-.header .header-wrapper ul.right-menu {
-  float: right;
-}
-
-.header .header-wrapper ul.left-menu, .header .header-wrapper ul.right-menu {
-  padding: 20px;
-}
-
-.header .header-wrapper ul.left-menu li, .header .header-wrapper ul.right-menu li {
-  float: left;
-  display: inline;
-  margin-right: 20px;
+#menu #menu_bottom ul li.li-normal, #menu #menu_bottom ul li.has-item-down {
+  display: inline-block;
+  font-weight: bold;
   text-transform: uppercase;
-  font-weight: bolder;
-  position: relative;
 }
 
-.header .header-wrapper ul.left-menu li a, .header .header-wrapper ul.right-menu li a {
+#menu #menu_bottom ul li.li-normal a, #menu #menu_bottom ul li.has-item-down a {
   color: #1f45a8;
-  font-weight: bolder;
+  padding-right: 20px;
 }
 
-.header .header-wrapper ul.left-menu li.li-normal a, .header .header-wrapper ul.right-menu li.li-normal a {
-  position: relative;
-}
-
-.header .header-wrapper ul.left-menu li.li-normal a:after, .header .header-wrapper ul.right-menu li.li-normal a:after {
+#menu #menu_bottom ul li.li-normal a:after {
   content: "";
   position: absolute;
   left: 0;
@@ -283,21 +258,23 @@ a, a:hover, a:active {
   transition: all 0.2s;
 }
 
-.header .header-wrapper ul.left-menu li.li-normal:hover a, .header .header-wrapper ul.right-menu li.li-normal:hover a {
+#menu #menu_bottom ul li.li-normal:hover a {
   color: #ff6d00;
+  position: relative;
 }
 
-.header .header-wrapper ul.left-menu li.li-normal:hover a:after, .header .header-wrapper ul.right-menu li.li-normal:hover a:after {
+#menu #menu_bottom ul li.li-normal:hover a:after {
   background-color: #ff6d00;
   width: 100%;
 }
 
-.header .header-wrapper ul.left-menu li.has-item-down, .header .header-wrapper ul.right-menu li.has-item-down {
+#menu #menu_bottom ul li.has-item-down {
   padding: 0px;
   transition: all 0.2s;
+  position: relative;
 }
 
-.header .header-wrapper ul.left-menu li.has-item-down ul, .header .header-wrapper ul.right-menu li.has-item-down ul {
+#menu #menu_bottom ul li.has-item-down ul {
   display: none;
   transition: all 0.2s;
   position: absolute;
@@ -308,66 +285,40 @@ a, a:hover, a:active {
   white-space: nowrap;
 }
 
-.header .header-wrapper ul.left-menu li.has-item-down ul li, .header .header-wrapper ul.right-menu li.has-item-down ul li {
+#menu #menu_bottom ul li.has-item-down ul li {
   line-height: 1.6;
   transition: all 0.2s;
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.27);
 }
 
-.header .header-wrapper ul.left-menu li.has-item-down ul li a, .header .header-wrapper ul.right-menu li.has-item-down ul li a {
+#menu #menu_bottom ul li.has-item-down ul li a {
   color: white;
   line-height: 33px;
 }
 
-.header .header-wrapper ul.left-menu li.has-item-down ul li:hover, .header .header-wrapper ul.right-menu li.has-item-down ul li:hover {
+#menu #menu_bottom ul li.has-item-down ul li:hover {
   background-color: white;
   padding-left: 10px;
 }
 
-.header .header-wrapper ul.left-menu li.has-item-down ul li:hover a, .header .header-wrapper ul.right-menu li.has-item-down ul li:hover a {
+#menu #menu_bottom ul li.has-item-down ul li:hover a {
   color: #333333;
 }
 
-.header .header-wrapper ul.left-menu li.has-item-down:hover, .header .header-wrapper ul.right-menu li.has-item-down:hover {
+#menu #menu_bottom ul li.has-item-down:hover {
   background-color: #1f45a8;
   padding: 10px;
 }
 
-.header .header-wrapper ul.left-menu li.has-item-down:hover > a, .header .header-wrapper ul.right-menu li.has-item-down:hover > a {
+#menu #menu_bottom ul li.has-item-down:hover > a {
   color: white;
 }
 
-.header .header-wrapper ul.left-menu li.has-item-down:hover ul, .header .header-wrapper ul.right-menu li.has-item-down:hover ul {
+#menu #menu_bottom ul li.has-item-down:hover ul {
   display: block;
   background-color: #1f45a8;
   padding-top: 10px;
-}
-
-.header .abs-center-logo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.header .logo {
-  min-width: 100px;
-  min-height: 10px;
-  text-align: left;
-  margin-bottom: 0;
-  padding: 0;
-  font-size: 0;
-  line-height: 1;
-}
-
-.header .logo img {
-  max-width: 100%;
-  display: inline-block;
-  vertical-align: top;
-  width: 160px;
-  height: 60px;
 }
 
 .callback {
@@ -673,6 +624,117 @@ This class is added to the container
   }
 }
 
+#slider {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  background: url(../images/slider/img-decor-01.jpg);
+  background-size: 100% 100%;
+}
+
+#slider h1.title {
+  position: absolute;
+  z-index: 1;
+  top: 55px;
+  margin: 0 0 20px;
+  font-size: 60px;
+  line-height: 1.12;
+  font-weight: bold;
+  color: #ffffff;
+  width: 100%;
+}
+
+#slider .tagline {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 176px;
+}
+
+#slider .tagline p.element {
+  text-transform: uppercase;
+  color: white;
+  font-size: 21px;
+  line-height: 1.1;
+  display: inline-block;
+  margin: 0 0 15px;
+}
+
+#slider .tagline .typed-cursor {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+#slider .infos {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  bottom: 215px;
+}
+
+#slider .infos .info {
+  display: inline-block;
+  font-size: 1.0rem;
+  line-height: 1.5;
+  margin: 0 5px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+#slider .infos .info i {
+  color: #f3ad1d;
+}
+
+@media (max-width: 575.98px) {
+  #slider {
+    height: 200px;
+  }
+  #slider h1.title {
+    font-size: 23px;
+    top: 16px;
+  }
+  #slider .tagline {
+    top: 63px;
+  }
+  #slider .tagline p.element {
+    font-size: 15px;
+    text-align: center;
+  }
+  #slider .infos {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #slider h1.title {
+    font-size: 40px;
+  }
+  #slider .tagline {
+    top: 146px;
+  }
+  #slider .infos {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #slider h1.title {
+    font-size: 52px;
+  }
+  #slider .tagline {
+    top: 153px;
+  }
+  #slider .infos {
+    text-align: center;
+  }
+}
+
 .nivoSlider {
   position: relative;
   width: 100%;
@@ -746,6 +808,7 @@ This class is added to the container
 
 #slider2 > .container .text-block .tagline .typed-cursor {
   animation: blinker 1s linear infinite;
+  font-size: 25px;
 }
 
 @keyframes blinker {
@@ -1061,6 +1124,7 @@ This class is added to the container
   left: 46%;
   position: absolute;
   z-index: 1;
+  width: 5%;
 }
 
 #h_analytic .contain-swap {
@@ -1297,7 +1361,7 @@ This class is added to the container
   padding: 0;
   letter-spacing: -0.03em;
   line-height: 28px;
-  color: #125fb7;
+  color: #020084;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -1523,14 +1587,14 @@ This class is added to the container
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-top: -5px;
-  background-color: #125fb7;
+  background-color: #020084;
   padding-top: 55px;
   padding-bottom: 90px;
   width: 100%;
 }
 
 #h_employee .one-member {
-  background: #1474e0;
+  background: #0339b5;
   text-align: center;
   margin-right: 10px;
   padding-bottom: 20px;
@@ -1613,7 +1677,7 @@ This class is added to the container
   font-size: 21px;
   text-align: center;
   line-height: 30px;
-  background: #103754;
+  background: #0339b5;
   cursor: pointer;
   border-radius: 3px;
   transition: all 300ms linear 0ms;
@@ -3012,7 +3076,7 @@ This class is added to the container
 
 .container-prices .one-price.bg-color2 {
   color: white;
-  background-color: #125fb7;
+  background-color: #0339b5;
   animation-duration: 2s;
 }
 
@@ -3203,7 +3267,7 @@ This class is added to the container
   border-radius: 3px;
   transition: all 300ms linear 0ms;
   width: 100%;
-  background-color: #125fb7;
+  background-color: #0339b5;
 }
 
 .container-contact .contain-swap .wp-contact .btn-contact:hover {
