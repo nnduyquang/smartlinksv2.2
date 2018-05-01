@@ -5,6 +5,9 @@
 @section('description')
     {{$data['newsMain']->seo_description}}
 @stop
+@section('slider')
+    @include('slider.slider')
+@stop
 @section('container')
     @include('frontend.tintuc.tt_header')
     @include('frontend.tintuc.tt_info')

@@ -19,16 +19,17 @@
     padding-right: 0 !important;
     margin-top: -5px;
     .wp-contact {
+      .ip-name,.ip-email,.ip-content,.ip-phone,.ip-website{
+        margin-bottom: 30px;
+      }
       .input-text, .input-area {
         //background-color: rgba(255, 255, 255, 0.1);
         background-color: white;
         border-color: rgba(255, 255, 255, 0.01);
         box-shadow: none;
-        margin-bottom: 0;
         //color: rgba(255, 255, 255, 0.5);
         color: black;
         border-radius: 4px;
-        margin-bottom: 30px;
         font-size: 18px;
         position: relative;
         &:hover {
@@ -60,21 +61,6 @@
       .successSending{
         display: none;
         font-size: 20px;
-      }
-      [rel="popover"] {
-        position: absolute;
-        cursor: pointer;
-        display: inline-block;
-        left: -5px;
-        top: 20%;
-      }
-      .errorEmail,.errorName,.errorInfo{
-        display: none;
-        color: red;
-        animation: blinker 1s linear 3;
-      }
-      @keyframes blinker {
-        50% { opacity: 0; }
       }
     }
   }
