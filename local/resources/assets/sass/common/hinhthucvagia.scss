@@ -26,12 +26,12 @@
     &.bg-color1 {
       color: white;
       //background-color: #455a64;
-      background-color: #f3ad1d;
+      background-color: #96c322;
       animation-duration: 2s;
     }
     &.bg-color1::after {
       //box-shadow: 0 0 10px #455a64;
-      box-shadow: 0 0 10px #f3ad1d;
+      box-shadow: 0 0 10px #96c322;
     }
     &.bg-color2 {
       color: white;
@@ -43,11 +43,11 @@
     }
     &.bg-color3 {
       color: white;
-      background-color: #f3ad1d;
+      background-color: #96c322;
       animation-duration: 2s
     }
     &.bg-color3::after {
-      box-shadow: 0 0 10px #f3ad1d;
+      box-shadow: 0 0 10px #96c322;
     }
     &::after {
       top: -7px;

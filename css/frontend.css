@@ -927,56 +927,56 @@ This class is added to the container
 }
 
 #h_why .one-item .icon-item.bg-item1 {
-  background-color: #f3ad1d;
+  background-color: #96c322;
 }
 
 #h_why .one-item .icon-item.bg-item1::after {
-  box-shadow: 0 0 0 2px #f3ad1d;
+  box-shadow: 0 0 0 2px #96c322;
 }
 
 #h_why .one-item .icon-item.bg-item2 {
-  background-color: #f3ad1d;
+  background-color: #96c322;
   animation-delay: 0.2s;
 }
 
 #h_why .one-item .icon-item.bg-item2::after {
-  box-shadow: 0 0 0 2px #f3ad1d;
+  box-shadow: 0 0 0 2px #96c322;
 }
 
 #h_why .one-item .icon-item.bg-item3 {
-  background-color: #f3ad1d;
+  background-color: #96c322;
   animation-delay: 0.4s;
 }
 
 #h_why .one-item .icon-item.bg-item3::after {
-  box-shadow: 0 0 0 2px #f3ad1d;
+  box-shadow: 0 0 0 2px #96c322;
 }
 
 #h_why .one-item .icon-item.bg-item4 {
-  background-color: #f3ad1d;
+  background-color: #96c322;
   animation-delay: 0.6s;
 }
 
 #h_why .one-item .icon-item.bg-item4::after {
-  box-shadow: 0 0 0 2px #f3ad1d;
+  box-shadow: 0 0 0 2px #96c322;
 }
 
 #h_why .one-item .icon-item.bg-item5 {
-  background-color: #f3ad1d;
+  background-color: #96c322;
   animation-delay: 0.8s;
 }
 
 #h_why .one-item .icon-item.bg-item5::after {
-  box-shadow: 0 0 0 2px #f3ad1d;
+  box-shadow: 0 0 0 2px #96c322;
 }
 
 #h_why .one-item .icon-item.bg-item6 {
-  background-color: #f3ad1d;
+  background-color: #96c322;
   animation-delay: 1s;
 }
 
 #h_why .one-item .icon-item.bg-item6::after {
-  box-shadow: 0 0 0 2px #f3ad1d;
+  box-shadow: 0 0 0 2px #96c322;
 }
 
 #h_why .one-item .icon-item::after {
@@ -1167,7 +1167,7 @@ This class is added to the container
 }
 
 #h_analytic .wrap-input-analysis .btn-analysis {
-  background-color: #f3ad1d;
+  background-color: #96c322;
   color: white;
   text-transform: uppercase;
   font-weight: 700;
@@ -1587,14 +1587,14 @@ This class is added to the container
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-top: -5px;
-  background-color: #020084;
+  background-color: #0339b5;
   padding-top: 55px;
   padding-bottom: 90px;
   width: 100%;
 }
 
 #h_employee .one-member {
-  background: #0339b5;
+  background: #054cef;
   text-align: center;
   margin-right: 10px;
   padding-bottom: 20px;
@@ -1696,6 +1696,10 @@ This class is added to the container
   #h_employee .one-member {
     margin-right: 0;
   }
+}
+
+.img-fancy {
+  display: none;
 }
 
 #dv_header {
@@ -3066,12 +3070,12 @@ This class is added to the container
 
 .container-prices .one-price.bg-color1 {
   color: white;
-  background-color: #f3ad1d;
+  background-color: #96c322;
   animation-duration: 2s;
 }
 
 .container-prices .one-price.bg-color1::after {
-  box-shadow: 0 0 10px #f3ad1d;
+  box-shadow: 0 0 10px #96c322;
 }
 
 .container-prices .one-price.bg-color2 {
@@ -3086,12 +3090,12 @@ This class is added to the container
 
 .container-prices .one-price.bg-color3 {
   color: white;
-  background-color: #f3ad1d;
+  background-color: #96c322;
   animation-duration: 2s;
 }
 
 .container-prices .one-price.bg-color3::after {
-  box-shadow: 0 0 10px #f3ad1d;
+  box-shadow: 0 0 10px #96c322;
 }
 
 .container-prices .one-price::after {
