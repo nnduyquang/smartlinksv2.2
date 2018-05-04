@@ -3241,14 +3241,16 @@ This class is added to the container
   margin-top: -5px;
 }
 
+.container-contact .contain-swap .wp-contact .ip-name, .container-contact .contain-swap .wp-contact .ip-email, .container-contact .contain-swap .wp-contact .ip-content, .container-contact .contain-swap .wp-contact .ip-phone, .container-contact .contain-swap .wp-contact .ip-website {
+  margin-bottom: 30px;
+}
+
 .container-contact .contain-swap .wp-contact .input-text, .container-contact .contain-swap .wp-contact .input-area {
   background-color: white;
   border-color: rgba(255, 255, 255, 0.01);
   box-shadow: none;
-  margin-bottom: 0;
   color: black;
   border-radius: 4px;
-  margin-bottom: 30px;
   font-size: 18px;
   position: relative;
 }
@@ -3286,26 +3288,6 @@ This class is added to the container
 .container-contact .contain-swap .wp-contact .successSending {
   display: none;
   font-size: 20px;
-}
-
-.container-contact .contain-swap .wp-contact [rel="popover"] {
-  position: absolute;
-  cursor: pointer;
-  display: inline-block;
-  left: -5px;
-  top: 20%;
-}
-
-.container-contact .contain-swap .wp-contact .errorEmail, .container-contact .contain-swap .wp-contact .errorName, .container-contact .contain-swap .wp-contact .errorInfo {
-  display: none;
-  color: red;
-  animation: blinker 1s linear 3;
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
 }
 
 @media screen and (max-width: 768px) {
