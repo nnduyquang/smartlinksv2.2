@@ -26,16 +26,16 @@
     &.bg-color1 {
       color: white;
       //background-color: #455a64;
-      background-color: #96c322;
+      background-color: #00AFEF;
       animation-duration: 2s;
     }
     &.bg-color1::after {
       //box-shadow: 0 0 10px #455a64;
-      box-shadow: 0 0 10px #96c322;
+      box-shadow: 0 0 10px #00AFEF;
     }
     &.bg-color2 {
       color: white;
-      background-color: #0339b5;
+      background-color: $main-color;
       animation-duration: 2s
     }
     &.bg-color2::after {
@@ -43,11 +43,11 @@
     }
     &.bg-color3 {
       color: white;
-      background-color: #96c322;
+      background-color: #FF5925;
       animation-duration: 2s
     }
     &.bg-color3::after {
-      box-shadow: 0 0 10px #96c322;
+      box-shadow: 0 0 10px #FF5925;
     }
     &::after {
       top: -7px;
@@ -83,7 +83,7 @@
         font-weight: 400;
       }
     }
-    .price-feature {
+    ul.price-feature {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -93,6 +93,7 @@
         padding: 2px 0;
         font-size: 13px;
         text-transform: uppercase;
+        line-height: 2.0;
       }
     }
     .price-contact {

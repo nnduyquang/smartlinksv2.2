@@ -1,108 +1,97 @@
-.footer1 {
-  background-color: floralwhite;
-  position: relative;
-  z-index: 30;
-  a {
-    color: white;
+#footer {
+  background-color: #18254f;
+  background-image: url("../images/temps/footer-bg.png");
+  .footer-border-right {
+    border-right: 1px solid rgba(85, 85, 85, 0.9);
   }
-  .footer__jumpTop > a {
-    font-size: 30px;
-    line-height: 1;
-    background: #125fb7;
-    height: 106px;
-    left: 50%;
-    margin: 0 0 0 -53px;
-    position: absolute;
-    z-index: 100;
-    text-align: center;
-    top: -40px;
-    width: 106px;
-    border-radius: 50%;
-    .fa {
+  .box-footer {
+    border-bottom: 1px solid rgba(85, 85, 85, 0.9);
+    h3 {
       color: white;
-      padding-top: 10px;
-      transition: all 0.5s ease;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.84px;
+      margin-bottom: 32px;
+      margin-top: 0;
+      padding-bottom: 20px;
+      text-transform: capitalize;
+      position: relative;
     }
-  }
-  .footer__main {
-    position: relative;
-    z-index: 101;
-    .footer-wrap-location {
-      background-color: #125fb7;
+    .footer-text {
+      line-height: 26px;
+      font-size: 14px;
+      color: white;
+      padding-bottom: 80px;
     }
-    .footer__location {
-      color: #bcbec0;
-      text-transform: uppercase;
-      border-bottom: 2px white solid;
-      padding: 55px 0 40px;
-      #menu-contact-menu {
-        font-family: "Montserrat", georgia, serif;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 1.5;
-        color: #bcbec0;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        list-style: none;
-        padding: 0;
-        text-align: center;
-        .menu-item {
-          display: inline-block;
-          padding-bottom: 0;
-          a {
-            adding-right: 40px;
-            border-right: 2px #000 solid;
-            padding: 0 40px;
+    ul.footer-social {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      li {
+        display: inline-block;
+        width: auto;
+        margin-right: 10px;
+        a {
+          display: block;
+          border: 1px solid #878787;
+          text-align: center;
+          line-height: 36px;
+          font-size: 16px;
+          width: 38px;
+          height: 38px;
+          color: white;
+        }
+      }
+    }
+    ul.services {
+      li {
+        line-height: 2.5;
+        a {
+          transition: 0.5s all;
+          color: white;
+          font-size: 16px;
+          font-weight: bolder;
+          i{
+            margin-right: 20px;
+          }
+          &:hover{
+          color: orangered;
+        }
+        }
+      }
+    }
+    ul.contact {
+      padding-bottom: 50px;
+      li {
+        line-height: 2.5;
+        a {
+          transition: 0.5s all;
+          color: white;
+          font-size: 16px;
+          font-weight: bolder;
+          i{
+            margin-right: 20px;
+          }
+          &:hover{
+            color: orangered;
           }
         }
       }
     }
-    .footer__mainRow {
-      padding-top: 50px;
-      padding-bottom: 50px;
-      .footer__bcorp{
-        color: white;
-      }
-      .logo-footer {
-        width: 70%;
-        height: 70%;
-      }
+
+    &.no-border {
+      border: inherit;
     }
   }
-  .footer__bottom {
-    font-size: 11px;
-    line-height: 2.09091;
-    font-family: georgia, garamond, serif;
-    color: #6d6e71;
-    background: #2c2b2b;
-    overflow: hidden;
-    padding: 30px 0;
+  .logo{
+    img{
+      width: 100%;
+      padding-top: 20px;
+    }
+  }
+  .copy-right {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+  }
 
-  }
-}
-
-@media (min-width: 768px) {
-  .footer__location {
-    padding: 35px 0;
-  }
-  .footer__mainRow {
-    padding-top: 60px;
-  }
-}
-
-@media (max-width: 768px) {
-  .menu-item a {
-    border-right: none!important;
-  }
-}
-
-@media (min-width: 1200px) {
-  #menu-contact-menu {
-    font-size: 18px;
-    line-height: 1.44444;
-  }
-  .footer__mainCol--left {
-    float: left;
-    width: 25%;
-  }
 }

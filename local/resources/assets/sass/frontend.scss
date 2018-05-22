@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+//@import url('https://fonts.googleapis.com/css?family=Roboto');
+//@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+//@import url('https://fonts.googleapis.com/css?family=Roboto');
+//@import url('https://fonts.googleapis.com/css?family=Poppins');
 @font-face {
   font-family: UTMAVO;
   src: url('../fonts/utm-avo.ttf');
 }
+
 
 
 body {
@@ -32,8 +34,7 @@ body {
 @import "m-category";
 @import "m-menu-blur";
 @import "fe.slider";
-@import "slider";
-@import "slider2";
+@import "fe.slider2";
 @import "fe.home";
 @import "fe.dichvu";
 @import "fe.gioithieu";
@@ -45,8 +46,7 @@ body {
 @import "module11";
 
 @import "pagespeedinsight";
-//@import "footer";
-@import "footer2";
+@import "footer";
 @import "contact1";
 @import "common/hinhthucvagia";
 @import "common/lienhebaogia";

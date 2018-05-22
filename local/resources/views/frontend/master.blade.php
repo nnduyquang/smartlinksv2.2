@@ -28,9 +28,8 @@
     </div>
 </div>
 @include('frontend.common.menu.m-sidebar')
-<div class="footer">
-    @include('frontend.common.footer2')
-</div>
+@include('frontend.common.footer')
+
 {{ Html::script('js/core.common.js') }}
 {{ Html::script('js/core.frontend.js') }}
 <script type="text/javascript">
@@ -46,19 +45,20 @@
     <div class="phone_animation">
         <div class="phone_animation_circle"></div>
         <div class="phone_animation_circle_fill"></div>
-        <a href="tel:02866830091" class="phone_animation_circle_fill_img"><i class="fas fa-phone" aria-hidden="true"></i></a>
+        <a href="tel:02866830091" class="phone_animation_circle_fill_img"><i class="fas fa-phone"
+                                                                             aria-hidden="true"></i></a>
     </div>
 </div>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/57f1af284a427d15742d30d4/default';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/57f1af284a427d15742d30d4/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
     })();
 </script>
 <!--End of Tawk.to Script-->
@@ -67,16 +67,20 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105806900-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments)};
+
+    function gtag() {
+        dataLayer.push(arguments)
+    };
     gtag('js', new Date());
 
     gtag('config', 'UA-105806900-1');
 </script>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
+        js = d.createElement(s);
+        js.id = id;
         js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=1401298499950254';
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
@@ -93,7 +97,8 @@
 </script>
 <noscript>
     <div style="display:inline;">
-        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/869012961/?guid=ON&amp;script=0"/>
+        <img height="1" width="1" style="border-style:none;" alt=""
+             src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/869012961/?guid=ON&amp;script=0"/>
     </div>
 </noscript>
 

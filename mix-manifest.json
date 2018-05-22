@@ -1,6 +1,5 @@
 {
   "/mix.js": "/mix.js",
-  "/css/frontend.css": "/css/frontend.css",
   "/css/loading-waiting.css": "/css/loading-waiting.css",
   "/css/backend.css": "/css/backend.css",
   "core.common.js": "core.common.js",
@@ -14,5 +13,6 @@
   "login.js": "login.js",
   "ulti.js": "ulti.js",
   "css/login.css": "css/login.css",
-  "fe.pagespeedinsight.js": "fe.pagespeedinsight.js"
+  "fe.pagespeedinsight.js": "fe.pagespeedinsight.js",
+  "/css/frontend.css": "/css/frontend.css"
 }

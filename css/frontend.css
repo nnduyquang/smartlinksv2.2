@@ -1,8 +1,5 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Roboto");
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
-@import url("https://fonts.googleapis.com/css?family=Roboto");
-@import url("https://fonts.googleapis.com/css?family=Roboto");
 @font-face {
   font-family: UTMAVO;
   src: url("../fonts/utm-avo.ttf");
@@ -206,7 +203,7 @@ a, a:hover, a:active {
 }
 
 #menu #menu_top {
-  background-color: #1f45a8;
+  background-color: #18254f;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -241,7 +238,7 @@ a, a:hover, a:active {
 }
 
 #menu #menu_bottom ul li.li-normal a, #menu #menu_bottom ul li.has-item-down a {
-  color: #1f45a8;
+  color: #18254f;
   padding-right: 20px;
 }
 
@@ -307,7 +304,7 @@ a, a:hover, a:active {
 }
 
 #menu #menu_bottom ul li.has-item-down:hover {
-  background-color: #1f45a8;
+  background-color: #18254f;
   padding: 10px;
 }
 
@@ -317,8 +314,22 @@ a, a:hover, a:active {
 
 #menu #menu_bottom ul li.has-item-down:hover ul {
   display: block;
-  background-color: #1f45a8;
+  background-color: #18254f;
   padding-top: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #menu #menu_top ul li {
+    padding-left: 10px;
+    font-size: 12px;
+  }
+  #menu #menu_bottom img.img-logo {
+    width: 63%;
+  }
+  #menu #menu_bottom ul li.li-normal a, #menu #menu_bottom ul li.has-item-down a {
+    padding-right: 5px;
+    font-size: 13px;
+  }
 }
 
 .callback {
@@ -735,160 +746,138 @@ This class is added to the container
   }
 }
 
-.nivoSlider {
+#slider2 .carousel-item .edit-slide {
   position: relative;
-  width: 100%;
-  height: 800px;
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.nivoSlider img {
-  height: 100% !important;
+#slider2 .carousel-item .edit-slide .test-slide {
+  position: absolute;
 }
 
-.nivo-main-image {
-  height: 100% !important;
+#slider2 .carousel-item .edit-slide .test-slide.center-text {
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
-@media screen and (max-width: 415px) {
-  .nivoSlider {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-#slider2 {
-  min-height: 760px;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  color: #8d81ac;
-  font-size: 0;
-  letter-spacing: -4px;
-  padding: 104px 0 0;
-  margin-bottom: 55px;
-}
-
-#slider2 > .container {
-  display: inline-block;
-  vertical-align: top;
-  position: relative;
-  z-index: 1;
-  font-size: 2.4rem;
+#slider2 .carousel-item .edit-slide .test-slide h2 {
+  font-weight: bolder;
+  font-size: 50px;
+  letter-spacing: 0px;
   line-height: 1.5;
-  letter-spacing: 0;
-}
-
-#slider2 > .container .text-block {
-  padding: 90px 0;
-}
-
-#slider2 > .container .text-block .heading-holder h1 {
-  margin: 0 0 20px;
-  font-size: 60px;
-  line-height: 1.12;
-  font-weight: bold;
-  color: #ffffff;
-}
-
-#slider2 > .container .text-block .tagline p.element {
-  text-transform: uppercase;
   color: white;
-  font-size: 21px;
-  line-height: 1.1;
-  display: inline-block;
-  margin: 0 0 15px;
 }
 
-#slider2 > .container .text-block .tagline .typed-cursor {
-  animation: blinker 1s linear infinite;
-  font-size: 25px;
+#slider2 .carousel-item .edit-slide .test-slide span {
+  color: white;
+  line-height: 2;
 }
 
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
+#slider2 .carousel-item .edit-slide img.main-slider {
+  height: 700px;
 }
 
-#slider2 > .container .text-block .infos {
-  display: block;
-}
-
-#slider2 > .container .text-block .infos .info {
-  display: inline-block;
-  font-size: 1.0rem;
-  line-height: 1.5;
-  margin: 0 5px;
-  color: #fff;
-  text-transform: uppercase;
-}
-
-#slider2 > .container .text-block .infos .info i {
-  color: #f3ad1d;
-}
-
-#slider2 .slider2 {
+#slider2 .carousel-item .edit-slide img.cloud-slider {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
+  right: 0;
+  z-index: 8;
+  width: 80%;
 }
 
-@media screen and (max-width: 768px) {
-  #slider2 {
-    min-height: 0;
-    padding: 0;
-    margin-bottom: 0;
+#slider2 .carousel-item .edit-slide img.rocket-slider {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  z-index: 7;
+}
+
+#slider2 .carousel-item .edit-slide img.computer-slider {
+  position: absolute;
+  right: 0;
+  bottom: 170px;
+  z-index: 7;
+  width: 30%;
+}
+
+#slider2 .carousel-item .edit-slide img.chart-slider {
+  position: absolute;
+  right: 0;
+  bottom: 170px;
+  z-index: 7;
+  width: 30%;
+}
+
+@media (max-width: 575.98px) {
+  #slider2 .carousel-item .edit-slide .test-slide h2 {
+    font-size: 22px;
   }
-  #slider2 > .container {
-    line-height: 0;
-    font-size: 0px;
+  #slider2 .carousel-item .edit-slide .test-slide span {
+    display: none;
   }
-  #slider2 > .container .text-block {
-    padding: 0;
+  #slider2 .carousel-item .edit-slide img.rocket-slider {
+    bottom: 33px;
+    width: 20%;
   }
-  #slider2 > .container .text-block .heading-holder h1 {
-    font-size: 15px;
-    margin: 10px 0 0 0;
+  #slider2 .carousel-item .edit-slide img.computer-slider {
+    bottom: 62px;
+    width: 36%;
   }
-  #slider2 > .container .text-block .tagline {
-    position: absolute;
-    top: 44%;
-    right: 19%;
+  #slider2 .carousel-item .edit-slide img.main-slider {
+    height: 250px;
   }
-  #slider2 > .container .text-block .tagline p.element {
-    font-size: 12px;
-  }
-  #slider2 > .container .text-block .tagline .typed-cursor {
-    font-size: 15px;
-  }
-  #slider2 > .container .text-block .infos {
-    height: 173px;
-    padding-top: 26px;
-  }
-  #slider2 > .container .text-block .infos .info {
-    font-size: 8px;
-    line-height: 2.5;
-  }
-  #slider2 .slider2 {
-    height: 200px;
+  #slider2 .carousel-item .edit-slide img.chart-slider {
+    bottom: 62px;
+    width: 36%;
   }
 }
 
-@media screen and (max-width: 1440px) and (min-width: 768px) {
-  #slider2 {
-    min-height: 519px;
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #slider2 .carousel-item .edit-slide .test-slide h2 {
+    font-size: 36px;
   }
-  #slider2 > .container .text-block {
-    padding: 0;
+  #slider2 .carousel-item .edit-slide .test-slide span {
+    display: none;
+  }
+  #slider2 .carousel-item .edit-slide img.rocket-slider {
+    bottom: 33px;
+    width: 15%;
+  }
+  #slider2 .carousel-item .edit-slide img.computer-slider {
+    bottom: 29px;
+    width: 36%;
+  }
+  #slider2 .carousel-item .edit-slide img.main-slider {
+    width: 100%;
+    height: 250px;
+  }
+  #slider2 .carousel-item .edit-slide img.chart-slider {
+    bottom: 41px;
+    width: 36%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #slider2 .carousel-item .edit-slide .test-slide h2 {
+    font-size: 36px;
+  }
+  #slider2 .carousel-item .edit-slide .test-slide span {
+    display: none;
+  }
+  #slider2 .carousel-item .edit-slide img.rocket-slider {
+    bottom: 33px;
+    width: 15%;
+  }
+  #slider2 .carousel-item .edit-slide img.computer-slider {
+    bottom: 29px;
+    width: 36%;
+  }
+  #slider2 .carousel-item .edit-slide img.main-slider {
+    width: 100%;
+    height: 300px;
+  }
+  #slider2 .carousel-item .edit-slide img.chart-slider {
+    bottom: 41px;
+    width: 36%;
   }
 }
 
@@ -927,56 +916,56 @@ This class is added to the container
 }
 
 #h_why .one-item .icon-item.bg-item1 {
-  background-color: #96c322;
+  background-color: #00AFEF;
 }
 
 #h_why .one-item .icon-item.bg-item1::after {
-  box-shadow: 0 0 0 2px #96c322;
+  box-shadow: 0 0 0 2px #00AFEF;
 }
 
 #h_why .one-item .icon-item.bg-item2 {
-  background-color: #96c322;
+  background-color: #00AFEF;
   animation-delay: 0.2s;
 }
 
 #h_why .one-item .icon-item.bg-item2::after {
-  box-shadow: 0 0 0 2px #96c322;
+  box-shadow: 0 0 0 2px #00AFEF;
 }
 
 #h_why .one-item .icon-item.bg-item3 {
-  background-color: #96c322;
+  background-color: #00AFEF;
   animation-delay: 0.4s;
 }
 
 #h_why .one-item .icon-item.bg-item3::after {
-  box-shadow: 0 0 0 2px #96c322;
+  box-shadow: 0 0 0 2px #00AFEF;
 }
 
 #h_why .one-item .icon-item.bg-item4 {
-  background-color: #96c322;
+  background-color: #00AFEF;
   animation-delay: 0.6s;
 }
 
 #h_why .one-item .icon-item.bg-item4::after {
-  box-shadow: 0 0 0 2px #96c322;
+  box-shadow: 0 0 0 2px #00AFEF;
 }
 
 #h_why .one-item .icon-item.bg-item5 {
-  background-color: #96c322;
+  background-color: #00AFEF;
   animation-delay: 0.8s;
 }
 
 #h_why .one-item .icon-item.bg-item5::after {
-  box-shadow: 0 0 0 2px #96c322;
+  box-shadow: 0 0 0 2px #00AFEF;
 }
 
 #h_why .one-item .icon-item.bg-item6 {
-  background-color: #96c322;
+  background-color: #00AFEF;
   animation-delay: 1s;
 }
 
 #h_why .one-item .icon-item.bg-item6::after {
-  box-shadow: 0 0 0 2px #96c322;
+  box-shadow: 0 0 0 2px #00AFEF;
 }
 
 #h_why .one-item .icon-item::after {
@@ -1587,14 +1576,14 @@ This class is added to the container
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-top: -5px;
-  background-color: #0339b5;
+  background-color: #18254f;
   padding-top: 55px;
   padding-bottom: 90px;
   width: 100%;
 }
 
 #h_employee .one-member {
-  background: #054cef;
+  background: #0e2a6b;
   text-align: center;
   margin-right: 10px;
   padding-bottom: 20px;
@@ -1639,13 +1628,16 @@ This class is added to the container
   text-transform: lowercase;
   text-align: left;
   margin-left: 40px;
+  margin-bottom: 5px;
 }
 
 #h_employee .one-member .introduce-member .call-member::before {
-  content: "\f098";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
+  content: "\f095";
+  font-weight: 900;
   color: white;
   font-size: 16px;
+  margin-right: 5px;
 }
 
 #h_employee .one-member .introduce-member .email-member {
@@ -1656,10 +1648,12 @@ This class is added to the container
 }
 
 #h_employee .one-member .introduce-member .email-member::before {
-  content: "\f003";
-  font-family: "FontAwesome";
+  content: "\f0e0";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   color: white;
   font-size: 16px;
+  margin-right: 5px;
 }
 
 #h_employee .member-arrow-control .arrow-nav {
@@ -1677,7 +1671,7 @@ This class is added to the container
   font-size: 21px;
   text-align: center;
   line-height: 30px;
-  background: #0339b5;
+  background: #0e2a6b;
   cursor: pointer;
   border-radius: 3px;
   transition: all 300ms linear 0ms;
@@ -1700,6 +1694,10 @@ This class is added to the container
 
 .img-fancy {
   display: none;
+}
+
+.img-fancy img.show-once {
+  width: 100%;
 }
 
 #dv_header {
@@ -2932,89 +2930,115 @@ This class is added to the container
   height: 31px;
 }
 
-#footer2 {
+#footer {
+  background-color: #18254f;
+  background-image: url("../images/temps/footer-bg.png");
+}
+
+#footer .footer-border-right {
+  border-right: 1px solid rgba(85, 85, 85, 0.9);
+}
+
+#footer .box-footer {
+  border-bottom: 1px solid rgba(85, 85, 85, 0.9);
+}
+
+#footer .box-footer h3 {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.84px;
+  margin-bottom: 32px;
+  margin-top: 0;
+  padding-bottom: 20px;
+  text-transform: capitalize;
   position: relative;
-  z-index: unset;
-  background-color: #125fb7;
-  background: url("../images/temps/1_2.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
-#footer2 a {
+#footer .box-footer .footer-text {
+  line-height: 26px;
+  font-size: 14px;
   color: white;
+  padding-bottom: 80px;
 }
 
-#footer2 .footer__jumpTop > a {
-  font-size: 30px;
-  line-height: 1;
-  background: #125fb7;
-  height: 106px;
-  left: 50%;
-  margin: 0 0 0 -53px;
-  position: absolute;
-  z-index: -1;
+#footer .box-footer ul.footer-social {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#footer .box-footer ul.footer-social li {
+  display: inline-block;
+  width: auto;
+  margin-right: 10px;
+}
+
+#footer .box-footer ul.footer-social li a {
+  display: block;
+  border: 1px solid #878787;
   text-align: center;
-  top: -40px;
-  width: 106px;
-  border-radius: 50%;
-}
-
-#footer2 .footer__jumpTop > a .fa {
+  line-height: 36px;
+  font-size: 16px;
+  width: 38px;
+  height: 38px;
   color: white;
-  padding-top: 10px;
-  transition: all 0.5s ease;
 }
 
-#footer2 #main-footer {
-  margin-top: 20px;
-  margin-bottom: 60px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-}
-
-#footer2 #main-footer #main-footer-left .logo img {
-  width: 50%;
-  height: 50%;
-  margin-bottom: 20px;
-}
-
-#footer2 #main-footer #main-footer-left .footer-info ul li {
-  color: white;
+#footer .box-footer ul.services li {
   line-height: 2.5;
 }
 
-#footer2 #main-footer #main-footer-left .footer-info ul li span {
-  font-weight: bold;
+#footer .box-footer ul.services li a {
+  transition: 0.5s all;
+  color: white;
+  font-size: 16px;
+  font-weight: bolder;
 }
 
-#footer2 #main-footer #main-footer-left .footer-info ul li i {
+#footer .box-footer ul.services li a i {
   margin-right: 20px;
-  font-size: 25px;
 }
 
-#footer2 #main-footer #main-footer-left .footer-info ul li p {
-  font-style: italic;
+#footer .box-footer ul.services li a:hover {
+  color: orangered;
 }
 
-#footer2 #main-footer #main-footer-right {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  text-align: right;
+#footer .box-footer ul.contact {
+  padding-bottom: 50px;
 }
 
-@media screen and (max-width: 768px) {
-  #footer2 {
-    z-index: unset;
-  }
-  #footer2 .footer__jumpTop > a {
-    z-index: -1;
-  }
-  #footer2 #main-footer {
-    display: block;
-  }
+#footer .box-footer ul.contact li {
+  line-height: 2.5;
+}
+
+#footer .box-footer ul.contact li a {
+  transition: 0.5s all;
+  color: white;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+#footer .box-footer ul.contact li a i {
+  margin-right: 20px;
+}
+
+#footer .box-footer ul.contact li a:hover {
+  color: orangered;
+}
+
+#footer .box-footer.no-border {
+  border: inherit;
+}
+
+#footer .logo img {
+  width: 100%;
+  padding-top: 20px;
+}
+
+#footer .copy-right {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: white;
 }
 
 .contact1 {
@@ -3070,17 +3094,17 @@ This class is added to the container
 
 .container-prices .one-price.bg-color1 {
   color: white;
-  background-color: #96c322;
+  background-color: #00AFEF;
   animation-duration: 2s;
 }
 
 .container-prices .one-price.bg-color1::after {
-  box-shadow: 0 0 10px #96c322;
+  box-shadow: 0 0 10px #00AFEF;
 }
 
 .container-prices .one-price.bg-color2 {
   color: white;
-  background-color: #0339b5;
+  background-color: #18254f;
   animation-duration: 2s;
 }
 
@@ -3090,12 +3114,12 @@ This class is added to the container
 
 .container-prices .one-price.bg-color3 {
   color: white;
-  background-color: #96c322;
+  background-color: #FF5925;
   animation-duration: 2s;
 }
 
 .container-prices .one-price.bg-color3::after {
-  box-shadow: 0 0 10px #96c322;
+  box-shadow: 0 0 10px #FF5925;
 }
 
 .container-prices .one-price::after {
@@ -3135,18 +3159,19 @@ This class is added to the container
   font-weight: 400;
 }
 
-.container-prices .one-price .price-feature {
+.container-prices .one-price ul.price-feature {
   list-style: none;
   padding: 0;
   margin: 0;
   color: white;
 }
 
-.container-prices .one-price .price-feature li {
+.container-prices .one-price ul.price-feature li {
   color: white;
   padding: 2px 0;
   font-size: 13px;
   text-transform: uppercase;
+  line-height: 2.0;
 }
 
 .container-prices .one-price .price-contact {
@@ -3273,7 +3298,7 @@ This class is added to the container
   border-radius: 3px;
   transition: all 300ms linear 0ms;
   width: 100%;
-  background-color: #0339b5;
+  background-color: #18254f;
 }
 
 .container-contact .contain-swap .wp-contact .btn-contact:hover {
