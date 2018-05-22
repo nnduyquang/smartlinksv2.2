@@ -17,46 +17,11 @@
     padding-left: 15px;
     padding-right: 15px;
     width: 100%;
-    //&.border1 {
-    //  border-right-width: 1px;
-    //  border-bottom-width: 1px;
-    //  border-right-color: #e0e0e0;
-    //  border-right-style: dashed;
-    //  border-bottom-color: #e0e0e0;
-    //  border-bottom-style: dashed;
-    //}
-    //&.border2 {
-    //  border-right-width: 1px;
-    //  border-bottom-width: 1px;
-    //  border-right-color: #e0e0e0;
-    //  border-right-style: dashed;
-    //  border-bottom-color: #e0e0e0;
-    //  border-bottom-style: dashed;
-    //}
-    //&.border3 {
-    //  border-bottom-width: 1px;
-    //  border-bottom-color: #e0e0e0;
-    //  border-bottom-style: dashed;
-    //}
-    //&.border4 {
-    //  border-right-width: 1px;
-    //  border-right-color: #e0e0e0;
-    //  border-right-style: dashed;
-    //}
-    //&.border5 {
-    //  border-right-width: 1px;
-    //  border-right-color: #e0e0e0;
-    //  border-right-style: dashed;
-    //}
-    //&.border6 {
-    //
-    //}
     .icon-item {
       width: 90px;
       height: 90px;
       border: none;
       border-radius: 50%;
-      //float: left;
       transform: translateY(7px);
       position: relative;
       margin-left: auto;
@@ -68,48 +33,38 @@
         box-shadow: 0 0 0 2px #00AFEF;
       }
       &.bg-item2 {
-        //background-color: #fec606;
         background-color: #00AFEF;
         animation-delay: 0.2s;
       }
       &.bg-item2::after {
-        //box-shadow: 0 0 0 2px #fec606;
         box-shadow: 0 0 0 2px #00AFEF;
       }
       &.bg-item3 {
-        //background-color: #71ba51;
         background-color: #00AFEF;
         animation-delay: 0.4s;
       }
       &.bg-item3::after {
-        //box-shadow: 0 0 0 2px #71ba51;
         box-shadow: 0 0 0 2px #00AFEF;
       }
       &.bg-item4 {
-        //background-color: #6c8784;
         background-color: #00AFEF;
         animation-delay: 0.6s;
       }
       &.bg-item4::after {
-        //box-shadow: 0 0 0 2px #6c8784;
         box-shadow: 0 0 0 2px #00AFEF;
       }
       &.bg-item5 {
-        //background-color: #3d8eb9;
         background-color: #00AFEF;
         animation-delay: 0.8s;
       }
       &.bg-item5::after {
-        //box-shadow: 0 0 0 2px #3d8eb9;
         box-shadow: 0 0 0 2px #00AFEF;
       }
       &.bg-item6 {
-        //background-color: #d3324f;
         background-color: #00AFEF;
         animation-delay: 1s;
       }
       &.bg-item6::after {
-        //box-shadow: 0 0 0 2px #d3324f;
         box-shadow: 0 0 0 2px #00AFEF;
       }
       &::after {

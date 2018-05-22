@@ -2971,6 +2971,7 @@ This class is added to the container
   display: inline-block;
   width: auto;
   margin-right: 10px;
+  transition: 0.5s all;
 }
 
 #footer .box-footer ul.footer-social li a {
@@ -2982,6 +2983,10 @@ This class is added to the container
   width: 38px;
   height: 38px;
   color: white;
+}
+
+#footer .box-footer ul.footer-social li:hover {
+  background-color: orangered;
 }
 
 #footer .box-footer ul.services li {
@@ -3039,6 +3044,15 @@ This class is added to the container
   padding-top: 50px;
   padding-bottom: 50px;
   color: white;
+}
+
+@media (max-width: 767.98px) {
+  #footer .footer-border-right {
+    border-right: inherit;
+  }
+  #footer .box-footer ul.footer-social {
+    text-align: center;
+  }
 }
 
 .contact1 {
