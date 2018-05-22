@@ -46,10 +46,9 @@
             <div class="col-md-4 footer-border-right pr-0 pt-5">
                 <div class="box-footer">
                     <h3>About Us</h3>
-                    <div class="footer-text">Just two good ol' boys Wouldn't change if they could. Fightin' the system
-                        like
-                        a true modern day Robin Hood. Space. The final frontier. These are the voyages of the Starship
-                        Enterprise. Just two good ol' boys.
+                    <div class="footer-text">SmartLinks mang đến những thành công không chỉ ở việc làm gia tăng được doanh số bán hàng, xây dựng và quảng bá thương hiệu, hình ảnh doanh nghiệp mà còn giúp doanh nghiệp khai thác triệt để khách hàng tiềm năng của mình...
+
+
                     </div>
                 </div>
                 <div class="box-footer">
