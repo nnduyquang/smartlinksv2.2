@@ -2,7 +2,7 @@
     {{--{{ Html::image('images/slider/img-decor-01.jpg','',array('class'=>'img-slider')) }}--}}
     <div class="container">
         <div class="col-md-12 text-center">
-            <h1 class="title">SMARTLINKS MARKETING</h1>
+            {{--<h1 class="title">SMARTLINKS MARKETING</h1>--}}
         </div>
 
         <div class="tagline">

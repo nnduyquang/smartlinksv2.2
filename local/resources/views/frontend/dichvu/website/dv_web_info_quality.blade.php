@@ -37,7 +37,7 @@
             <div class="col-md-3 one-item">
                 <div class="card h-100">
                     {{ Html::image('images/temps/chatluong_thanthien.png','',array('class'=>'dv_web_info_qualit_img')) }}
-                    <h3 class="title">HÂN THIỆN NGƯỜI DÙNG</h3>
+                    <h3 class="title">THÂN THIỆN NGƯỜI DÙNG</h3>
                     <div class="card-body">
                         <p class="description">Tốc độ load web nhanh, phản hồi ngay lập tức</p>
                     </div>

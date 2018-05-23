@@ -5,6 +5,9 @@
 @section('description')
     {{--Đại Lý Uy Tín Chuyên Về Quảng Cáo Facebook Với Chi Phí Thấp - Hiệu Quả Cao, Tiếp Cận Chính Xác Nguồn Khách Hàng, Đối Tác Của Nhiều Công Ty Lớn Tại HCM--}}
 @stop
+@section('slider')
+    @include('slider.slider')
+@stop
 @section('container')
     @include('frontend.dichvu.common.dv_com_header')
     @include('frontend.dichvu.common.dv_com_info')

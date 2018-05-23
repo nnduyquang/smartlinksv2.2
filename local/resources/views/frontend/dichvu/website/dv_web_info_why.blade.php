@@ -1,6 +1,6 @@
-<div class="col-md-12 p-0">
-    {{ Html::image('images/khuyenmai/tkweb.jpg','',array('class'=>'','style'=>'width:100%')) }}
-</div>
+{{--<div class="col-md-12 p-0">--}}
+    {{--{{ Html::image('images/khuyenmai/tkweb.jpg','',array('class'=>'','style'=>'width:100%')) }}--}}
+{{--</div>--}}
 <div id="dv_web_info_why" class="container-fluid">
     <div class="container">
         <div class="row">

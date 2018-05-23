@@ -98,7 +98,7 @@ a, a:hover, a:active {
   line-height: 1;
   font-weight: 700;
   text-transform: uppercase;
-  color: #020084;
+  color: #125FB7;
 }
 
 .heading-text .heading.in {
@@ -329,6 +329,148 @@ a, a:hover, a:active {
   #menu #menu_bottom ul li.li-normal a, #menu #menu_bottom ul li.has-item-down a {
     padding-right: 5px;
     font-size: 13px;
+  }
+}
+
+#menu2 #menu_top {
+  background-color: #18254f;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#menu2 #menu_top ul {
+  list-style: none;
+}
+
+#menu2 #menu_top ul li {
+  display: inline-block;
+  color: white;
+  text-transform: capitalize;
+  padding-left: 30px;
+}
+
+#menu2 #menu_top ul li a {
+  color: #18254f;
+}
+
+#menu2 #menu_bottom {
+  padding: 15px 0 15px 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#menu2 #menu_bottom img.img-logo {
+  width: 80%;
+}
+
+#menu2 #menu_bottom ul.main-menu {
+  list-style: none;
+}
+
+#menu2 #menu_bottom ul.main-menu li.li-normal, #menu2 #menu_bottom ul.main-menu li.has-item-down {
+  text-align: left;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+#menu2 #menu_bottom ul.main-menu li.li-normal a, #menu2 #menu_bottom ul.main-menu li.has-item-down a {
+  color: #18254f;
+  padding-right: 25px;
+}
+
+#menu2 #menu_bottom ul.main-menu li.li-normal a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  width: 0%;
+  height: 1px;
+  margin: auto;
+  background-color: transparent;
+  transition: all 0.2s;
+}
+
+#menu2 #menu_bottom ul.main-menu li.li-normal:hover a {
+  color: #ff6d00;
+  position: relative;
+}
+
+#menu2 #menu_bottom ul.main-menu li.li-normal:hover a:after {
+  background-color: #ff6d00;
+  width: 100%;
+}
+
+#menu2 #menu_bottom ul.main-menu li.has-item-down {
+  padding: 0px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+#menu2 #menu_bottom ul.main-menu li.has-item-down ul {
+  list-style: none;
+  display: none;
+  transition: all 0.2s;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  padding: 25px 0 10px 10px;
+  z-index: 9;
+  white-space: nowrap;
+}
+
+#menu2 #menu_bottom ul.main-menu li.has-item-down ul li {
+  line-height: 1.6;
+  transition: all 0.2s;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+#menu2 #menu_bottom ul.main-menu li.has-item-down ul li a {
+  color: white;
+  line-height: 33px;
+}
+
+#menu2 #menu_bottom ul.main-menu li.has-item-down ul li:hover {
+  background-color: white;
+  padding-left: 10px;
+}
+
+#menu2 #menu_bottom ul.main-menu li.has-item-down ul li:hover a {
+  color: #333333;
+}
+
+#menu2 #menu_bottom ul.main-menu li.has-item-down:hover {
+  background-color: white;
+  padding: 10px;
+}
+
+#menu2 #menu_bottom ul.main-menu li.has-item-down:hover > a {
+  color: #18254f;
+}
+
+#menu2 #menu_bottom ul.main-menu li.has-item-down:hover ul {
+  display: block;
+  background-color: #18254f;
+  padding-top: 10px;
+}
+
+#menu2.show-on-slide {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+}
+
+#menu2.background-menu {
+  background-color: white;
+}
+
+#menu2.background-menu #menu_bottom h1 a {
+  color: #18254f !important;
+}
+
+@media (min-width: 767px) and (max-width: 991.98px) {
+  #menu2 #menu_bottom ul.main-menu li.li-normal a, #menu2 #menu_bottom ul.main-menu li.has-item-down a {
+    padding-right: 12px;
   }
 }
 
@@ -757,6 +899,7 @@ This class is added to the container
 #slider2 .carousel-item .edit-slide .test-slide.center-text {
   top: 50%;
   transform: translate(0, -50%);
+  margin-left: 50px;
 }
 
 #slider2 .carousel-item .edit-slide .test-slide h2 {
@@ -770,6 +913,19 @@ This class is added to the container
 #slider2 .carousel-item .edit-slide .test-slide span {
   color: white;
   line-height: 2;
+}
+
+#slider2 .carousel-item .edit-slide .test-slide .phone-call {
+  display: table;
+  padding: 10px;
+  background-color: #02AFEE;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+#slider2 .carousel-item .edit-slide .test-slide .phone-call a {
+  color: white;
 }
 
 #slider2 .carousel-item .edit-slide img.main-slider {
@@ -796,7 +952,14 @@ This class is added to the container
   right: 0;
   bottom: 170px;
   z-index: 7;
-  width: 30%;
+  width: 35%;
+}
+
+#slider2 .carousel-item .edit-slide img.arrow-slider-1 {
+  position: absolute;
+  left: 626px;
+  bottom: 444px;
+  z-index: 7;
 }
 
 #slider2 .carousel-item .edit-slide img.chart-slider {
@@ -804,12 +967,15 @@ This class is added to the container
   right: 0;
   bottom: 170px;
   z-index: 7;
-  width: 30%;
+  width: 35%;
 }
 
 @media (max-width: 575.98px) {
+  #slider2 .carousel-item .edit-slide .test-slide.center-text {
+    margin-left: 5px;
+  }
   #slider2 .carousel-item .edit-slide .test-slide h2 {
-    font-size: 22px;
+    font-size: 18px;
   }
   #slider2 .carousel-item .edit-slide .test-slide span {
     display: none;
@@ -825,6 +991,11 @@ This class is added to the container
   #slider2 .carousel-item .edit-slide img.main-slider {
     height: 250px;
   }
+  #slider2 .carousel-item .edit-slide img.arrow-slider-1 {
+    left: 177px;
+    bottom: 153px;
+    width: 30%;
+  }
   #slider2 .carousel-item .edit-slide img.chart-slider {
     bottom: 62px;
     width: 36%;
@@ -833,7 +1004,7 @@ This class is added to the container
 
 @media (min-width: 576px) and (max-width: 767.98px) {
   #slider2 .carousel-item .edit-slide .test-slide h2 {
-    font-size: 36px;
+    font-size: 22px;
   }
   #slider2 .carousel-item .edit-slide .test-slide span {
     display: none;
@@ -853,6 +1024,11 @@ This class is added to the container
   #slider2 .carousel-item .edit-slide img.chart-slider {
     bottom: 41px;
     width: 36%;
+  }
+  #slider2 .carousel-item .edit-slide img.arrow-slider-1 {
+    left: 372px;
+    bottom: 162px;
+    width: 35%;
   }
 }
 
@@ -878,6 +1054,19 @@ This class is added to the container
   #slider2 .carousel-item .edit-slide img.chart-slider {
     bottom: 41px;
     width: 36%;
+  }
+  #slider2 .carousel-item .edit-slide img.arrow-slider-1 {
+    left: 423px;
+    bottom: 204px;
+    width: 25%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1124px) {
+  #slider2 .carousel-item .edit-slide img.arrow-slider-1 {
+    left: 505px;
+    bottom: 443px;
+    width: 35%;
   }
 }
 
@@ -1245,11 +1434,11 @@ This class is added to the container
 }
 
 #h_service .service-item .icon-item.bg-item4::after {
-  box-shadow: 0 0 0 2px #14afbe;
+  box-shadow: 0 0 0 2px #008CFF;
 }
 
 #h_service .service-item .icon-item.bg-item4 {
-  background-color: #14afbe;
+  background-color: #008CFF;
   animation-delay: 0.4s;
 }
 
@@ -1296,11 +1485,11 @@ This class is added to the container
 }
 
 #h_service .service-item .icon-item .style-icon-services6 {
-  width: 122px;
-  height: 122px;
+  width: 127px;
+  height: 127px;
   position: absolute;
   top: 50%;
-  transform: translate(4%, -49%);
+  transform: translate(0%, -50%);
 }
 
 #h_service .service-item .icon-item .style-icon-services2 {
@@ -1320,11 +1509,11 @@ This class is added to the container
 }
 
 #h_service .service-item .icon-item .style-icon-services4 {
-  width: 122px;
-  height: 122px;
+  width: 123px;
+  height: 123px;
   position: absolute;
   top: 50%;
-  transform: translate(4%, -49%);
+  transform: translate(2%, -50%);
 }
 
 #h_service .service-item .icon-item .style-icon-services5 {
@@ -1332,7 +1521,7 @@ This class is added to the container
   height: 122px;
   position: absolute;
   top: 50%;
-  transform: translate(4%, -49%);
+  transform: translate(2%, -51%);
 }
 
 #h_service .service-item .content-item {
@@ -1350,7 +1539,7 @@ This class is added to the container
   padding: 0;
   letter-spacing: -0.03em;
   line-height: 28px;
-  color: #020084;
+  color: #125FB7;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -1711,7 +1900,7 @@ This class is added to the container
 #dv_header h1.title {
   text-transform: uppercase;
   font-size: 36px;
-  color: #1f45a8;
+  color: #125FB7;
 }
 
 #dv_header h1.title::after {
@@ -1720,12 +1909,13 @@ This class is added to the container
   width: 44px;
   height: 4px;
   background: #44dd61;
-  margin: 31px auto 29px;
+  margin: 20px auto 29px;
   border-radius: 2px;
 }
 
 #dv_header span.sub_title {
   font-size: 16px;
+  font-weight: bold;
 }
 
 #dv_ga_info_benefit img {
@@ -1906,7 +2096,7 @@ This class is added to the container
 
 #dv_fb_info .fads-title .fads-around .fads-header {
   padding: 5px 15px;
-  background-color: #1f45a8;
+  background-color: #00AEEF;
   color: #fff;
   display: inline-block;
   font-size: 17px;
@@ -1920,7 +2110,7 @@ This class is added to the container
   content: " ";
   height: 5px;
   width: 100%;
-  background-color: #1f45a8;
+  background-color: #00AEEF;
   position: absolute;
   left: 0;
   top: 50%;
@@ -1932,29 +2122,28 @@ This class is added to the container
 }
 
 #dv_fb_info #fads-choose-us img {
-  width: 100%;
+  width: 130px;
 }
 
 #dv_fb_info #fads-choose-us h2 {
-  font-size: 23px;
+  text-align: center;
+  font-size: 19px;
   text-transform: uppercase;
   padding-top: 20px;
   padding-bottom: 20px;
   line-height: 1.2;
+  color: #00AEEF;
 }
 
 #dv_fb_info #fads-choose-us p {
-  text-align: justify;
+  text-align: center;
   line-height: 1.4;
   color: #666;
   font-size: 17px;
 }
 
 #dv_fb_info #fads-feedback .fads-feedback-box {
-  padding-top: 20px;
-  padding-left: 60px;
-  padding-right: 60px;
-  padding-bottom: 20px;
+  padding: 20px;
   color: white;
   margin-bottom: 30px;
 }
@@ -1993,7 +2182,6 @@ This class is added to the container
 
 #dv_fb_info #fads-serv {
   padding-left: 87px;
-  margin-bottom: 50px;
 }
 
 #dv_fb_info #fads-serv ul.fads-serv-left, #dv_fb_info #fads-serv ul.fads-serv-right {
@@ -2012,7 +2200,7 @@ This class is added to the container
   content: counter(li);
   counter-increment: li;
   position: absolute;
-  background-color: #1f45a8;
+  background-color: #00AEEF;
   width: 60px;
   height: 60px;
   top: -7px;
@@ -2023,7 +2211,7 @@ This class is added to the container
   padding: 10px;
   color: white;
   border: 1px solid white;
-  box-shadow: 0px 0px 0px 5px #1f45a8;
+  box-shadow: 0px 0px 0px 5px #00AEEF;
   border-radius: 50%;
   font-size: xx-large;
 }
@@ -2041,16 +2229,18 @@ This class is added to the container
 }
 
 #dv_fb_info #fads-objective img {
+  width: 50%;
   margin-bottom: 30px;
 }
 
 #dv_fb_info #fads-objective h4 {
   text-transform: uppercase;
-  font-size: 21px;
+  font-size: 18px;
   text-align: justify;
   text-align: center;
   margin-bottom: 50px;
-  color: #1f45a8;
+  color: #00AEEF;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {
@@ -2089,6 +2279,27 @@ This class is added to the container
     left: -72;
     top: 6px;
   }
+}
+
+#w_tab .nav {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+#w_tab ul.nav-pills li.nav-item {
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+}
+
+#w_tab ul.nav-pills li.nav-item a.nav-link {
+  padding: 20px 50px;
+  border-radius: unset;
+}
+
+#w_tab ul.nav-pills li.nav-item a.nav-link.active {
+  color: #18254f;
+  background-color: inherit;
+  border-bottom: 2px solid #5cbe6d;
+  box-shadow: 0 10px 30px 0 rgba(58, 87, 135, 0.58);
 }
 
 #dv_web_info_why {
@@ -2955,6 +3166,16 @@ This class is added to the container
   position: relative;
 }
 
+#footer .box-footer h3::before {
+  background-image: url(../images/temps/footer-widget-sep.png);
+  content: "";
+  height: 4px;
+  width: 63px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
 #footer .box-footer .footer-text {
   line-height: 26px;
   font-size: 14px;
@@ -2965,6 +3186,7 @@ This class is added to the container
 #footer .box-footer ul.footer-social {
   margin-top: 50px;
   margin-bottom: 50px;
+  list-style: none;
 }
 
 #footer .box-footer ul.footer-social li {
@@ -2989,6 +3211,10 @@ This class is added to the container
   background-color: orangered;
 }
 
+#footer .box-footer ul.services {
+  list-style: none;
+}
+
 #footer .box-footer ul.services li {
   line-height: 2.5;
 }
@@ -3010,6 +3236,7 @@ This class is added to the container
 
 #footer .box-footer ul.contact {
   padding-bottom: 50px;
+  list-style: none;
 }
 
 #footer .box-footer ul.contact li {
@@ -3041,8 +3268,8 @@ This class is added to the container
 }
 
 #footer .copy-right {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 10px;
   color: white;
 }
 

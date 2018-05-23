@@ -13,29 +13,29 @@
         </div>
         <div id="fads-choose-us" class="col-md-12">
             <div class="row">
-                <div class="col-md-3">
-                    {{ Html::image('images/temps/icons_save-03.png','',array('class'=>'fads-img-icon')) }}
+                <div class="col-md-3 text-center">
+                    {{ Html::image('images/temps/client-testimonials-icon.png','',array('class'=>'fads-img-icon')) }}
                     <h2>Trao Đổi Trực Tiếp Với Chuyên Gia</h2>
-                    <p>Chúng Tôi Đưa Ra Những Tư Vấn Và Giải Pháp Quảng Cáo Hiệu Quả Đến Từng Sản Phẩm Dịch Vụ Của
-                        Bạn</p>
+                    <p>Chúng tôi đưa ra những tư vấn và giải pháp quảng cáo hiệu quả đến từng sản phẩm dịch vụ của
+                        bạn</p>
                 </div>
-                <div class="col-md-3">
-                    {{ Html::image('images/temps/icons_save-01.png','',array('class'=>'fads-img-icon')) }}
+                <div class="col-md-3 text-center">
+                    {{ Html::image('images/temps/tuong-tac.png','',array('class'=>'fads-img-icon')) }}
                     <h2>Tỷ Lệ Tương Tác Quảng Cáo Cao</h2>
-                    <p>Quảng Cáo Có Thể Đạt Tỷ Lệ Click Trên 5% Với Chi Phí Click Chuột Thấp</p>
+                    <p>Quảng cáo có thể đạt tỷ lệ click trên 5% với chi phí click chuột thấp</p>
                 </div>
-                <div class="col-md-3">
-                    {{ Html::image('images/temps/icons_save-02.png','',array('class'=>'fads-img-icon')) }}
+                <div class="col-md-3 text-center">
+                    {{ Html::image('images/temps/client-testimonials-icon.png','',array('class'=>'fads-img-icon')) }}
                     <h2>Chuyên Gia Trực Tiếp Quản Lý</h2>
-                    <p>100% Chuyên Gia Sẽ Quản Lý Quảng Cáo Của Bạn và Không Sử Dụng Phần Mềm Bên Thứ Ba, Để Đảm Bảo
-                        Quảng Cáo Đạt Hiệu Quả Nhất</p>
+                    <p>100% chuyên gia sẽ quản lý quảng cáo của bạn và không sử dụng phần mềm bên thứ ba, để đảm bảo
+                        quảng cáo đạt hiệu quả nhất</p>
                 </div>
 
-                <div class="col-md-3">
-                    {{ Html::image('images/temps/icons_save-04.png','',array('class'=>'fads-img-icon')) }}
-                    <h2>Chi Phí Quảng Cáo Phù HỢp</h2>
-                    <p>Chúng Tôi Tính Phí Thấp Hơn Nhiều So Với Giá Thị Trường, Nhưng Dịch Vụ Và Kết Quả Bạn Nhận Được
-                        Sẽ Hơn Mong Đợi</p>
+                <div class="col-md-3 text-center">
+                    {{ Html::image('images/temps/client-price-icon.png','',array('class'=>'fads-img-icon')) }}
+                    <h2>Chi Phí Quảng Cáo Phù Hợp</h2>
+                    <p>Chúng tôi tính phí thấp hơn nhiều so với giá thị trường, nhưng dịch vụ và kết quả bạn nhận được
+                        sẽ hơn mong đợi</p>
                 </div>
             </div>
         </div>
@@ -54,73 +54,73 @@
             <div class="row">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 card mb-2">
                             <div class="fads-feedback-box box-1 col-md-12">
-                                <div class="row">
-                                    <p class="fads-feedback-content">“Trước Khi Khách Hàng Sử Dụng Dịch Vụ Chúng Tôi, Họ
-                                        Tự Chạy Quảng Cáo Và Tốn Khá Nhiều Tiền Cho Mỗi Page Like. Họ Quyết Định Liên Hệ
-                                        Và Sử Dụng Dịch Vụ Của Smartlinks Trong 1 Tháng, Và Bây Giờ Chi Phí Cho Quảng
-                                        Cáo Đã Giảm 50%”</p>
-                                    <div class="fads-feedback-box-bottom col-md-12">
+                                <p class="fads-feedback-content">“Trước khi khách hàng sử dụng dịch vụ chúng tôi, họ
+                                    tự chạy quảng cáo và tốn khá nhiều tiền cho mỗi page like. họ quyết định liên hệ
+                                    và sử dụng dịch vụ của smartlinks trong 1 tháng, và bây giờ chi phí cho quảng
+                                    cáo đã giảm 50%”</p>
+                                <div class="fads-feedback-box-bottom col-md-12">
+                                    <div class="row">
                                         <div class="col-md-4">
                                             {{ Html::image('images/temps/iconspeople_save-01.png','',array('class'=>'fads-fb-img-icon')) }}
                                         </div>
                                         <div class="col-md-8">
-                                            <p>Khách Hàng Chuyên Sỉ Và Lẻ Mỹ Phẩm</p>
+                                            <p>Khách hàng chuyên sỉ và lẻ mỹ phẩm</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 card mb-2">
                             <div class="fads-feedback-box box-2 col-md-12">
-                                <div class="row">
-                                    <p class="fads-feedback-content">“Chúng Tôi Giúp Cho Một Website Thương Mại Điện Tử
-                                        Tăng Trưởng Lượt Khách Hàng Tiếp Cận Lên Hàng Tháng Từ 30% Lên 80% Bằng Cách Sử
-                                        Dụng Quảng Cáo Facebook. Giá Mỗi Lượt Khách Hàng Tiếp Cận Website Đã Giảm Xuống
-                                        70% So Với Ban Đầu”</p>
-                                    <div class="fads-feedback-box-bottom col-md-12">
+                                <p class="fads-feedback-content">“Chúng tôi giúp cho một website thương mại điện tử
+                                    tăng trưởng lượt khách hàng tiếp cận lên hàng tháng từ 30% lên 80% bằng cách sử
+                                    dụng quảng cáo facebook. giá mỗi lượt khách hàng tiếp cận website đã giảm xuống
+                                    70% so với ban đầu”</p>
+                                <div class="fads-feedback-box-bottom col-md-12">
+                                    <div class="row">
                                         <div class="col-md-4">
                                             {{ Html::image('images/temps/iconspeople_save-02.png','',array('class'=>'fads-fb-img-icon')) }}
                                         </div>
                                         <div class="col-md-8">
-                                            <p>Khách Hàng Chuyên Về Quà Tặng Online</p>
+                                            <p>Khách Hàng chuyên về quà tặng online</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 card">
                             <div class="fads-feedback-box box-3 col-md-12">
-                                <div class="row">
-                                    <p class="fads-feedback-content">“Một Trong Những Công Ty Chuyên Về Sản Phẩm Thời
-                                        Trang Nam Đã Sử Dụng Dịch Vu Của Chúng Tôi Đã Đạt Thêm 1250 Khách Hàng Tiềm Năng
-                                        Từ Quảng Cáo Facebook Và Quyết Định Ký Hợp Đồng 6 Tháng Với Chúng Tôi ”</p>
-                                    <div class="fads-feedback-box-bottom col-md-12">
+                                <p class="fads-feedback-content">“Một trong những công ty chuyên về sản phẩm thời
+                                    trang nam đã sử dụng dịch vu của chúng tôi đã đạt thêm 1250 khách hàng tiềm năng
+                                    từ quảng cáo facebook và quyết định ký hợp đồng 6 tháng với chúng tôi”</p>
+                                <div class="fads-feedback-box-bottom col-md-12">
+                                    <div class="row">
                                         <div class="col-md-4">
                                             {{ Html::image('images/temps/iconspeople_save-03.png','',array('class'=>'fads-fb-img-icon')) }}
                                         </div>
                                         <div class="col-md-8">
-                                            <p>Khách Hàng Thời Trang Sơ Mi Và Vest Nam</p>
+                                            <p>Khách hàng thời trang sơ mi và vest nam</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 card">
                             <div class="fads-feedback-box box-4 col-md-12">
-                                <div class="row">
-                                    <p class="fads-feedback-content">“Một Khách Hàng Đã Đầu Tư Hơn 10 Triệu Vào Quảng
-                                        Cáo Facebook Trong 1 Tháng Nhưng Không Đạt Được Số Lượng Đơn Hàng Như Mong Muốn.
-                                        Chúng Tôi Giúp Anh Ta Tăng Trưởng Doanh Số Bán Hàng Lên 700% Bằng Cách Sử Dụng
-                                        Số Tiền Tương Tự Và Trang Facebook Của Khách Hàng Đã Có Hơn 80.000 Lượt Yêu
-                                        Thích ”</p>
-                                    <div class="fads-feedback-box-bottom col-md-12">
+                                <p class="fads-feedback-content">“Một Khách Hàng Đã Đầu Tư Hơn 10 Triệu Vào Quảng
+                                    Cáo Facebook Trong 1 Tháng Nhưng Không Đạt Được Số Lượng Đơn Hàng Như Mong Muốn.
+                                    Chúng Tôi Giúp Anh Ta Tăng Trưởng Doanh Số Bán Hàng Lên 700% Bằng Cách Sử Dụng
+                                    Số Tiền Tương Tự Và Trang Facebook Của Khách Hàng Đã Có Hơn 80.000 Lượt Yêu
+                                    Thích ”</p>
+                                <div class="fads-feedback-box-bottom col-md-12">
+                                    <div class="row">
                                         <div class="col-md-4">
                                             {{ Html::image('images/temps/iconspeople_save-04.png','',array('class'=>'fads-fb-img-icon')) }}
                                         </div>
                                         <div class="col-md-8">
-                                            <p>Một Công Ty Chuyên Về Tuyển Dụng Và Tìm Kiếm Nhân Sự</p>
+                                            <p>Một công ty chuyên về tuyển dụng và tìm kiếm nhân sự</p>
                                         </div>
                                     </div>
                                 </div>
@@ -147,16 +147,16 @@
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="fads-serv-left">
-                                <li>Cài Đặt Chiến Dịch Quảng Cáo Facebook</li>
-                                <li>Nhắm Mục Tiêu Chính Xác Đối Tượng</li>
-                                <li>Quản Lý Và Tối Ưu Hóa Giá Thầu</li>
+                                <li>Cài đặt chiến dịch quảng cáo Facebook</li>
+                                <li>Nhắm mục tiêu chính xác đối tượng</li>
+                                <li>Quản lý và tối ưu hóa giá thầu</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
                             <ul class="fads-serv-right">
-                                <li>Giám Sát Liên Tục Về Hiệu Suất</li>
-                                <li>Xuất Báo Cáo Khi Kết Thúc Chiến Dịch</li>
-                                <li>Thiết Kế Mẫu Content Bắt Mắt</li>
+                                <li>Giám sát liên tục về hiệu suất</li>
+                                <li>Xuất báo cáo khi kết thúc chiến dịch</li>
+                                <li>Thiết kế mẫu content bắt mắt</li>
                             </ul>
                         </div>
                     </div>

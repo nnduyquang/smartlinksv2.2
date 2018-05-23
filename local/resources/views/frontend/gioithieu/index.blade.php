@@ -3,7 +3,7 @@
     Công Ty Quảng Cáo Google Adwords Smartlinks - Smartlinks.vn
 @stop
 @section('slider')
-    {{--@include('slider.slider')--}}
+    @include('slider.slider')
 @stop
 @section('container')
     @include('frontend.gioithieu.gt_header')
