@@ -35,7 +35,7 @@
                                 <div class="pricing-package"></div>
                             </div>
                             <ul class="price-feature">
-                                <li>TẶNG THIẾT KẾ WEBSITE MIỄN PHÍ</li>
+                                <li>TẶNG 3 THÁNG REMARKETING</li>
                                 <li>KHÔNG GIỚI HẠN CLICK 24/24</li>
                                 <li>CHIA SẺ BÍ QUYẾT CHỐT KHÁCH</li>
                             </ul>
@@ -52,7 +52,7 @@
                                 <div class="pricing-package"></div>
                             </div>
                             <ul class="price-feature">
-                                <li>TẶNG 3 THÁNG REMARKETING</li>
+                                <li>TẶNG THIẾT KẾ WEBSITE MIỄN PHÍ</li>
                                 <li>KHÔNG GIỚI HẠN CLICK 24/24</li>
                                 <li>CHIA SẺ BÍ QUYẾT CHỐT KHÁCH</li>
                             </ul>

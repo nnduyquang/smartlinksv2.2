@@ -892,14 +892,13 @@ This class is added to the container
   position: relative;
 }
 
-#slider2 .carousel-item .edit-slide .test-slide {
-  position: absolute;
+#slider2 .carousel-item .edit-slide img.main-slider {
+  width: 100%;
 }
 
-#slider2 .carousel-item .edit-slide .test-slide.center-text {
-  top: 50%;
-  transform: translate(0, -50%);
-  margin-left: 50px;
+#slider2 .carousel-item .edit-slide .test-slide {
+  position: absolute;
+  top: -524px;
 }
 
 #slider2 .carousel-item .edit-slide .test-slide h2 {
@@ -971,6 +970,9 @@ This class is added to the container
 }
 
 @media (max-width: 575.98px) {
+  #slider2 .carousel-item .edit-slide .test-slide {
+    top: -188px;
+  }
   #slider2 .carousel-item .edit-slide .test-slide.center-text {
     margin-left: 5px;
   }
@@ -981,28 +983,31 @@ This class is added to the container
     display: none;
   }
   #slider2 .carousel-item .edit-slide img.rocket-slider {
-    bottom: 33px;
-    width: 20%;
+    bottom: 19px;
+    width: 30%;
   }
   #slider2 .carousel-item .edit-slide img.computer-slider {
-    bottom: 62px;
+    bottom: 98px;
     width: 36%;
   }
   #slider2 .carousel-item .edit-slide img.main-slider {
     height: 250px;
   }
   #slider2 .carousel-item .edit-slide img.arrow-slider-1 {
-    left: 177px;
-    bottom: 153px;
+    left: 222px;
+    bottom: 174px;
     width: 30%;
   }
   #slider2 .carousel-item .edit-slide img.chart-slider {
-    bottom: 62px;
+    bottom: 98px;
     width: 36%;
   }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+  #slider2 .carousel-item .edit-slide .test-slide {
+    top: -176px;
+  }
   #slider2 .carousel-item .edit-slide .test-slide h2 {
     font-size: 22px;
   }
@@ -1026,13 +1031,16 @@ This class is added to the container
     width: 36%;
   }
   #slider2 .carousel-item .edit-slide img.arrow-slider-1 {
-    left: 372px;
+    left: 291px;
     bottom: 162px;
     width: 35%;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
+  #slider2 .carousel-item .edit-slide .test-slide {
+    top: -224px;
+  }
   #slider2 .carousel-item .edit-slide .test-slide h2 {
     font-size: 36px;
   }
@@ -1064,7 +1072,7 @@ This class is added to the container
 
 @media (min-width: 1024px) and (max-width: 1124px) {
   #slider2 .carousel-item .edit-slide img.arrow-slider-1 {
-    left: 505px;
+    left: 582px;
     bottom: 443px;
     width: 35%;
   }
