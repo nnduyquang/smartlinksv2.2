@@ -2310,6 +2310,53 @@ This class is added to the container
   box-shadow: 0 10px 30px 0 rgba(58, 87, 135, 0.58);
 }
 
+#w_demo {
+  margin-top: 30px;
+}
+
+#w_demo .one-product {
+  border: 1px solid #c2c2c2;
+}
+
+#w_demo .one-product a.img-demo {
+  height: 300px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+#w_demo .one-product a.img-demo img.img-one-product {
+  position: absolute;
+  top: 0px;
+  transition: top 4s ease-out 0s;
+  width: 100%;
+}
+
+#w_demo .one-product h2 {
+  text-align: center;
+  text-transform: capitalize;
+  padding: 20px 0;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+#w_demo .one-product h2 a {
+  color: #00AFEF;
+}
+
+#w_demo .one-product .info {
+  display: block;
+  text-align: center;
+  padding: 20px;
+}
+
+#w_demo .one-product .info a {
+  color: #18254f;
+}
+
+#w_demo .one-product:hover {
+  box-shadow: 0 10px 30px 0 rgba(58, 87, 135, 0.58);
+}
+
 #dv_web_info_why {
   padding: 100px 20px 40px 20px;
   margin: 0 0 80px 0;

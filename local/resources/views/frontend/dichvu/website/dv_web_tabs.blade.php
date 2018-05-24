@@ -20,7 +20,8 @@
             @include('frontend.dichvu.website.dv_web_header')
             @include('frontend.dichvu.website.dv_web_info')
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Mẫu Giao Diện
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            @include('frontend.dichvu.website.dv_web_info_demo')
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
             @include('frontend.dichvu.website.dv_web_info_price')
