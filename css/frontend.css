@@ -1865,6 +1865,44 @@ This class is added to the container
   padding: 0 50px 0 0;
 }
 
+@media screen and (max-width: 767px) {
+  #h_service_2:before {
+    width: 0;
+  }
+  #h_service_2 .item .one-item .icon-service {
+    float: right;
+    margin: 0;
+  }
+  #h_service_2 .item .one-item .info {
+    text-align: right;
+    float: right;
+    padding: 0 50px 0 0;
+    width: 240px;
+    padding: 0;
+    padding-right: 10px;
+  }
+  #h_service_2 .item:nth-child(2n+1):before {
+    display: none;
+  }
+  #h_service_2 .item:nth-child(2n+1) .one-item .icon-service {
+    margin: 0;
+  }
+  #h_service_2 .item:nth-child(2n+1) .one-item .info {
+    padding: 0;
+    padding-right: 10px;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1025px) {
+  #h_service_2 .item:nth-child(2n+1) .one-item .info {
+    padding: 0 20px 0 0;
+  }
+  #h_service_2 .item .one-item .info {
+    width: 310px;
+    padding: 0 0 0 20px;
+  }
+}
+
 #h_employee {
   box-sizing: border-box;
   padding-left: 0 !important;
@@ -3363,6 +3401,11 @@ This class is added to the container
   background-color: orangered;
 }
 
+#footer .box-footer .partner-badge img.img-badge {
+  width: 100%;
+  padding-right: 20px;
+}
+
 #footer .box-footer ul.services {
   list-style: none;
 }
@@ -3408,6 +3451,11 @@ This class is added to the container
 
 #footer .box-footer ul.contact li a:hover {
   color: orangered;
+}
+
+#footer .box-footer .partner-badge img.img-badge {
+  width: 100%;
+  padding-right: 20px;
 }
 
 #footer .box-footer.no-border {

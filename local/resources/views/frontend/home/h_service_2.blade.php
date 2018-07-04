@@ -7,7 +7,7 @@
 <div id="h_service_2">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 item">
+            <div class="col-md-6 col-12 item">
                 <div class="one-item">
                     <div class="icon-service">
                         <i class="fab fa-google"></i>
@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 item">
+            <div class="col-md-6 col-12 item">
                 <div class="one-item">
                     <div class="icon-service">
                         {{--<i class="fab fa-facebook-f"></i>--}}
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 item">
+            <div class="col-md-6 col-12 item">
                 <div class="one-item">
                     <div class="icon-service">
                         <i class="fas fa-tv"></i>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 item">
+            <div class="col-md-6 col-12 item">
                 <div class="one-item">
                     <div class="icon-service">
                         <i class="far fa-edit"></i>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 item">
+            <div class="col-md-6 col-12 item">
                 <div class="one-item">
                     <div class="icon-service">
                         <i class="fab fa-sellsy"></i>
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 item">
+            <div class="col-md-6 col-12 item">
                 <div class="one-item">
                     <div class="icon-service">
                         <i class="fab fa-youtube"></i>
