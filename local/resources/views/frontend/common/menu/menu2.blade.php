@@ -41,7 +41,7 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li class="li-normal"><a href="#">Dự Án</a></li>
+                        {{--<li class="li-normal"><a href="#">Dự Án</a></li>--}}
                         <li class="li-normal"><a href="{{URL::to('bao-gia')}}"
                                                  class="">Báo Giá</a></li>
                         <li class="li-normal"><a href="{{URL::to('tin-tuc')}}"

@@ -56,6 +56,12 @@
         }
       }
     }
+    .partner-badge{
+      img.img-badge{
+        width: 100%;
+        padding-right: 20px;
+      }
+    }
     ul.services {
       list-style: none;
       li {
@@ -93,17 +99,24 @@
         }
       }
     }
-
+    .partner-badge{
+      img.img-badge{
+        width: 100%;
+        padding-right: 20px;
+      }
+    }
     &.no-border {
       border: inherit;
     }
   }
+
   .logo {
     img {
       width: 100%;
       padding-top: 20px;
     }
   }
+
   .copy-right {
     padding-top: 20px;
     padding-bottom: 10px;

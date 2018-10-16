@@ -4,7 +4,9 @@
             <div class="col-md-4 footer-border-right pr-0 pt-5">
                 <div class="box-footer">
                     <h3>About Us</h3>
-                    <div class="footer-text">SmartLinks mang đến những thành công không chỉ ở việc làm gia tăng được doanh số bán hàng, xây dựng và quảng bá thương hiệu, hình ảnh doanh nghiệp mà còn giúp doanh nghiệp khai thác triệt để khách hàng tiềm năng của mình...
+                    <div class="footer-text">SmartLinks mang đến những thành công không chỉ ở việc làm gia tăng được
+                        doanh số bán hàng, xây dựng và quảng bá thương hiệu, hình ảnh doanh nghiệp mà còn giúp doanh
+                        nghiệp khai thác triệt để khách hàng tiềm năng của mình...
 
 
                     </div>
@@ -32,6 +34,9 @@
                             </a>
                         </li>
                     </ul>
+                    {{--<div class="partner-badge">--}}
+                    {{--<a href="https://www.google.com/partners/?hl=vi#a_profile;idtf=6271292998"> {{ Html::image('images/logo/google-partner-RGB-search.jpg','',array('class'=>'img-badge')) }}</a>--}}
+                    {{--</div>--}}
                 </div>
                 <div class="copy-right">
                     <p>Copy Rights <i class="far fa-copyright"></i> 2017 Max All Rights Reserved</p>
@@ -42,7 +47,8 @@
                     <h3>Services</h3>
                     <ul class="services">
                         @foreach($listMenu['categoryService'] as$key=>$data)
-                            <li><a href="{{URL::to('dich-vu/'.$data->path)}}"><i class="fas fa-angle-right"></i>{{$data->title}}</a></li>
+                            <li><a href="{{URL::to('dich-vu/'.$data->path)}}"><i
+                                            class="fas fa-angle-right"></i>{{$data->title}}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -62,10 +68,14 @@
                         </li>
 
                     </ul>
+                    <div class="partner-badge">
+                        <a href="https://www.google.com/partners/?hl=vi#a_profile;idtf=6271292998"> {{ Html::image('images/logo/google-partner-RGB-search.jpg','',array('class'=>'img-badge')) }}</a>
+                    </div>
                 </div>
-                <div class="logo">
-                    {{ Html::image('images/logo/smartlinks-logo-footer.png','',array('class'=>'style-member')) }}
-                </div>
+                {{--<div class="logo">--}}
+                {{--{{ Html::image('images/logo/smartlinks-logo-footer.png','',array('class'=>'style-member')) }}--}}
+                {{--</div>--}}
+
             </div>
         </div>
     </div>
