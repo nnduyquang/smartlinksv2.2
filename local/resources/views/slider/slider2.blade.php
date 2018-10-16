@@ -32,8 +32,6 @@
                         {{ Html::image('images/slider/slider2/content-image-3.png','',array('class'=>'computer-slider animated fadeInRight')) }}
                         {{ Html::image('images/slider/slider2/content-arrow-1.png','',array('class'=>'arrow-slider-1 animated fadeInUp','style'=>'animation-delay:1.5s')) }}
                     </div>
-
-
                 </div>
             </div>
             <div class="carousel-item">
